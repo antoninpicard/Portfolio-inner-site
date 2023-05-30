@@ -402,14 +402,14 @@ const Contact: React.FC<ContactProps> = (props) => {
                         <label>
                             <p>
                                 {!name && <span style={styles.star}>*</span>}
-                                <b>Your name:</b>
+                                <b>Votre Nom:</b>
                             </p>
                         </label>
                         <input
                             style={styles.formItem}
                             type="text"
                             name="name"
-                            placeholder="Name"
+                            placeholder="Nom"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
@@ -433,7 +433,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                         />
                         <label>
                             <p>
-                                <b>Company (optional):</b>
+                                <b>Entreprise (optionel):</b>
                             </p>
                         </label>
                         <input
