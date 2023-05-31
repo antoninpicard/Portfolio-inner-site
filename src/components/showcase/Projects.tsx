@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import software from '../../assets/pictures/projects/software.gif';
-import art from '../../assets/pictures/projects/art.gif';
+import art from '../../assets/pictures/projects/voiture.gif';
 import music from '../../assets/pictures/projects/music.gif';
 
 export interface ProjectsProps {}
@@ -67,36 +67,33 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
 const Projects: React.FC<ProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
-            <h1>Projects</h1>
+            <h1>Projets</h1>
             <h3>& Hobbies</h3>
             <br />
             <p>
-                Click on one of the areas below to check out some of my favorite
-                projects I've done in that field. I spent a lot of time to
-                include a lot of visuals and interactive media to showcase each
-                project. Enjoy!
+                Cliquez sur l'une des sections ci-dessous pour découvrir certains de mes projets préférés dans ce domaine. J'ai passé beaucoup de temps à inclure de nombreux visuels et médias interactifs pour mettre en valeur chaque projet. Profitez-en !
             </p>
             <br />
             <div style={styles.projectLinksContainer}>
                 <ProjectBox
                     icon={software}
                     iconStyle={styles.computerIcon}
-                    title="Software"
-                    subtitle="PROJECTS"
+                    title="IT"
+                    subtitle="PROJETS"
                     route="software"
                 />
                 <ProjectBox
                     icon={music}
                     iconStyle={styles.musicIcon}
-                    title="Music"
-                    subtitle="VENTURES"
+                    title="Musique"
+                    subtitle="CE QUE J'ÉCOUTE"
                     route="music"
                 />
                 <ProjectBox
                     icon={art}
                     iconStyle={styles.artIcon}
-                    title="Art"
-                    subtitle="ENDEAVORS"
+                    subtitle="PASSION 2"
+                    title="Jeux vidéo"
                     route="art"
                 />
             </div>
@@ -146,8 +143,8 @@ const styles: StyleSheetCSS = {
         height: 48,
     },
     artIcon: {
-        width: 21 * 2,
-        height: 37 * 2,
+        width: 60,
+        height: 70,
     },
 };
 

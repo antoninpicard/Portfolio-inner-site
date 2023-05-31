@@ -51,7 +51,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                         projectsExpanded && styles.expandedLink
                     )}
                     to="projects"
-                    text="PROJETS ET HOBBIES"
+                    text="PROJETS & HOBBIES"
                 />
                 {
                     // if current path contains projects

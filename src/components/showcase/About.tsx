@@ -81,8 +81,8 @@ const About: React.FC<AboutProps> = (props) => {
                         <p>
                             En dehors du domaine du logiciel, j'ai de nombreux hobbies que j'apprécie de pratiquer pendant mon temps libre. Parmi les hobbies plus concrets, j'ai la{' '}
                             <Link to="/projects/music">Musique</Link>{' '}
-                            mais aussi la{' '}
-                            <Link to="/projects/art">Moto</Link>. Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et (sans surprise) les jeux vidéo.
+                            mais aussi les{' '}
+                            <Link to="/projects/art">Jeux vidéo</Link>(évidement). Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et la moto.
                         </p>
                         <br />
                         <p>
