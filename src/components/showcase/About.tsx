@@ -1,6 +1,6 @@
 import React from 'react';
 import me from '../../assets/pictures/workingAtComputer.jpg';
-import meNow from '../../assets/pictures/currentme.jpg';
+import meNow from '../../assets/pictures/currentme1.jpg';
 import { Link } from 'react-router-dom';
 import ResumeDownload from './ResumeDownload';
 
@@ -65,17 +65,7 @@ const About: React.FC<AboutProps> = (props) => {
                     <Link to="/projects/software">Projets IT</Link>.
                 </p>
                 <br />
-                <p>
-                    In 2017, I got accepted into Rennselear Polytechnic
-                    Institute to study Computer Science. It was my first choice
-                    and I was absolutely ecstatic to be going to such a great
-                    university. At the end of my sophomore year, I got an
-                    internship working for the startup Hover, primarily focusing
-                    on frontend work. I continued to work at Hover on and off
-                    for about a year and a half, until the start of my senior
-                    year when I decided to focus on other opportunities.
-                </p>
-                <br />
+            
                 <br />
                 <div style={{}}>
                     <div
@@ -86,33 +76,24 @@ const About: React.FC<AboutProps> = (props) => {
                             flexDirection: 'column',
                         }}
                     >
-                        <h3>My Hobbies</h3>
+                        <h3>Mes Loisirs</h3>
                         <br />
                         <p>
-                            Beyond software, I have a lot of hobbies that I
-                            enjoy doing in my free time. The more tangible
-                            hobbies I have are{' '}
-                            <Link to="/projects/music">Music Production</Link>{' '}
-                            and creating{' '}
-                            <Link to="/projects/art">Digital Art</Link>. You can
-                            read more about each of these on their respective
-                            pages under my projects tab. Some other hobbies I
-                            enjoy are working out, cooking, and (unsurprisingly)
-                            playing video games.
+                            En dehors du domaine du logiciel, j'ai de nombreux hobbies que j'apprécie de pratiquer pendant mon temps libre. Parmi les hobbies plus concrets, j'ai la{' '}
+                            <Link to="/projects/music">Musique</Link>{' '}
+                            mais aussi la{' '}
+                            <Link to="/projects/art">Moto</Link>. Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et (sans surprise) les jeux vidéo.
                         </p>
                         <br />
                         <p>
-                            In college, I was an active member in the fraternity
-                            Sigma Alpha Epsilon and held multiple positions in
-                            the chapter. I met a lot of amazing people through
-                            my fraternity and thoroughly enjoyed the community.
+                            Au lycée, j'ai suivi des études en informatique en partenariat avec la Marine Nationale, ce qui m'a permis d'être beaucoup plus mature et discipliné. Grâce à cela, j'ai rencontré un milieu formidable et beaucoup de personnes qui m'ont aidé.
                         </p>
                     </div>
                     <div style={styles.verticalImage}>
                         <img src={meNow} style={styles.image} alt="" />
                         <p>
                             <sub>
-                                <b>Figure 2:</b> Me, April 2022
+                                <b>Image 2:</b> Moi, Avril 2022
                             </sub>
                         </p>
                     </div>
@@ -120,23 +101,15 @@ const About: React.FC<AboutProps> = (props) => {
                 <br />
                 <br />
                 <p>
-                    Thanks for reading about me! I hope that you enjoy exploring
-                    the rest of my portfolio website and everything it has to
-                    offer. If you find the easter egg make sure to let me know
-                    on twitter{' '}
-                    <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://twitter.com/henryheffernan"
-                    >
-                        @henryheffernan
-                    </a>{' '}
-                    Good luck and have fun!
+                Merci d'avoir lu à propos de moi ! J'espère que vous apprécierez l'exploration du reste de mon site portfolio et tout ce qu'il a à offrir. Si vous trouvez l'aimez, n'hésitez pas à me le faire savoir.{' '}
+                    
+                    {' '}
+                    Bonne chance et have fun!
                 </p>
                 <br />
                 <p>
                     Si vous avez des questions j'aimerais les entendre. Vous pouvez me les poser ici{' '}
-                    <Link to="/contact">contact page</Link> ou m'envoie un mail à{' '}
+                    <Link to="/contact">Contact</Link> ou m'envoie un mail à{' '}
                     <a href="mailto:antoninpicard.pro@gmail.com">
                         antoninpicard.pro@gmail.com
                     </a>
