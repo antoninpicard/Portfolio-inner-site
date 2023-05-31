@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 import { IconName } from '../../assets/icons';
 import colors from '../../constants/colors';
 import Colors from '../../constants/colors';
@@ -22,6 +23,7 @@ export interface WindowProps {
     windowBarIcon?: IconName;
     onWidthChange?: (width: number) => void;
     onHeightChange?: (height: number) => void;
+    children?: ReactNode; 
 }
 
 const Window: React.FC<WindowProps> = (props) => {
