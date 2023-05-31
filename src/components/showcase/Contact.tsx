@@ -1,8 +1,6 @@
-
-
 import React, { useEffect, useState, useCallback } from 'react';
 import colors from '../../constants/colors';
-import twitterIcon from '../../assets/pictures/contact-twitter.png';
+import cwIcon from '../../assets/pictures/contact-codewars.png';
 import ghIcon from '../../assets/pictures/contact-gh.png';
 import inIcon from '../../assets/pictures/contact-in.png';
 import ResumeDownload from './ResumeDownload';
@@ -77,15 +75,15 @@ const Contact: React.FC<ContactProps> = (props) => {
                 <div style={styles.socials}>
                     <SocialBox
                         icon={ghIcon}
-                        link={'https://github.com/henryjeff'}
+                        link={'https://github.com/antoninpicard'}
                     />
                     <SocialBox
                         icon={inIcon}
-                        link={'https://www.linkedin.com/in/henryheffernan/'}
+                        link={'https://www.linkedin.com/in/antonin-picard/'}
                     />
                     <SocialBox
-                        icon={twitterIcon}
-                        link={'https://twitter.com/henryheffernan'}
+                        icon={cwIcon}
+                        link={'https://www.codewars.com/users/AntoninSIO'}
                     />
                 </div>
             </div>

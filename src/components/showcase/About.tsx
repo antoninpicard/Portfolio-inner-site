@@ -51,21 +51,18 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
 
                 <p>
-                    J'ai commencé la programmation plus sérieusement,
-                    initially learning how to scrape and interact with websites.
-                    I went on to do a ton of passion projects, many of them with
-                    one of my closest friends,{' '}
+                    J'ai commencé la programmation plus sérieusement, en terminal, 
+                    j'ai initialement appris comment créer et intéragire avec un site web.
+                    J'ai entrepris de nombreux projets passionnants, dont beaucoup avec{' '}
                     <a
                         rel="noreferrer"
                         target="_blank"
-                        href="https://www.linkedin.com/in/scott-bass-189a7919b/"
+                        href="https://www.linkedin.com/in/dikra-ben-allel/"
                     >
-                        Scott Bass
+                        Dikra Ben Allel
                     </a>
-                    . We worked on many projects together, including chat bots,
-                    multiple game projects, apps, and more. One of these
-                    projects is viewable on my{' '}
-                    <Link to="/projects/software">Software Projects</Link> page.
+                    . Nous avons travaillé sur de nombreux projets ensemble, y compris un logiciel avec ElectronJS, plusieurs projets de jeux, des applications et bien plus encore. Un de ces projets est consultable sur ma page{' '}
+                    <Link to="/projects/software">Projets IT</Link>.
                 </p>
                 <br />
                 <p>
@@ -138,12 +135,10 @@ const About: React.FC<AboutProps> = (props) => {
                 </p>
                 <br />
                 <p>
-                    If you have any questions or comments I would love to hear
-                    them. You can reach me through the{' '}
-                    <Link to="/contact">contact page</Link> or shoot me an email
-                    at{' '}
-                    <a href="mailto:henryheffernan@gmail.com">
-                        henryheffernan@gmail.com
+                    Si vous avez des questions j'aimerais les entendre. Vous pouvez me les poser ici{' '}
+                    <Link to="/contact">contact page</Link> ou m'envoie un mail à{' '}
+                    <a href="mailto:antoninpicard.pro@gmail.com">
+                        antoninpicard.pro@gmail.com
                     </a>
                 </p>
             </div>
