@@ -27,18 +27,18 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                     Depuis petit j'écoute de la musique, 
                     cela me permet de me détendre et d'être plus productif.
                     La musique fait partie intégrante de ma vie et c'est pourquoi 
-                    je vais vous faire écouter plusieur morceau que j'aime.
+                    je vais vous faire écouter plusieurs morceaux que j'aime.
                 </p>
                 <br />
             </div>
             <h2>Focus Musique</h2>
             <br />
             <p>
-                 Malgré les aparences, ce style de musique me permet de me concentrer et d'être beaucoup plus rapide et précis.
+                 Malgré les apparences, ce style de musique me permet de me concentrer et d'être beaucoup plus rapide et précis.
             </p>
             <br />
             <p>
-                Évidement à ne pas écouter trop fort 😂.
+                Évidemment à ne pas écouter trop fort 😂.
             </p>
             <br />
 
@@ -65,7 +65,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             <h2>Plus Joyeux ?</h2>
             <br />
             <p>
-                Voici ce classique qui me permet de bien commencé mes journées.
+                Voici ce classique qui me permet de bien commencer mes journées.
             </p>
             <br />
             <MusicPlayer
@@ -81,8 +81,8 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             <h2>Enfin le divertissement</h2>
             <br />
             <p>
-                Si vous voulez écoutez des lyrics sanglantes et un flow à tombé par terre.
-                Ce sera un plaisir de vous faire découvrire cette musique.
+                Si vous voulez écouter des lyrics sanglantes et un flow à tomber par terre.
+                Ce sera un plaisir de vous faire découvrir cette musique.
             </p>
             
             <br />

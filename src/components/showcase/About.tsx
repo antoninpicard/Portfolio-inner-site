@@ -51,8 +51,8 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
 
                 <p>
-                    J'ai commencé la programmation plus sérieusement, en terminal, 
-                    j'ai initialement appris comment créer et intéragire avec un site web.
+                    J'ai commencé la programmation plus sérieusement en terminal, 
+                    j'ai initialement appris comment créer et intéragir avec un site web.
                     J'ai entrepris de nombreux projets passionnants, dont beaucoup avec{' '}
                     <a
                         rel="noreferrer"
@@ -61,7 +61,7 @@ const About: React.FC<AboutProps> = (props) => {
                     >
                         Dikra Ben Allel
                     </a>
-                    . Nous avons travaillé sur de nombreux projets ensemble, y compris un logiciel avec ElectronJS, plusieurs projets de jeux, des applications et bien plus encore. Un de ces projets est consultable sur ma page{' '}
+                    . Nous avons beaucoup travaillé ensemble, notamment pour créer un logiciel avec ElectronJS, plusieurs projets de jeux, des applications et bien plus encore. Un de ces projets est consultable sur ma page{' '}
                     <Link to="/projects/software">Projets IT</Link>.
                 </p>
                 <br />
@@ -79,10 +79,10 @@ const About: React.FC<AboutProps> = (props) => {
                         <h3>Mes Loisirs</h3>
                         <br />
                         <p>
-                            En dehors du domaine du logiciel, j'ai de nombreux hobbies que j'apprécie de pratiquer pendant mon temps libre. Parmi les hobbies plus concrets, j'ai la{' '}
+                            En dehors du domaine du logiciel, j'ai de nombreux hobbies que j'apprécie pratiquer pendant mon temps libre. Parmi les hobbies plus concrets, j'ai la{' '}
                             <Link to="/projects/music">Musique</Link>{' '}
                             mais aussi les{' '}
-                            <Link to="/projects/art">Jeux vidéo</Link>(évidement). Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et la moto.
+                            <Link to="/projects/art">Jeux vidéos</Link>(évidement). Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et la moto.
                         </p>
                         <br />
                         <p>
@@ -101,18 +101,18 @@ const About: React.FC<AboutProps> = (props) => {
                 <br />
                 <br />
                 <p>
-                Merci d'avoir lu à propos de moi ! J'espère que vous apprécierez l'exploration du reste de mon site portfolio et tout ce qu'il a à offrir. Si vous trouvez l'aimez, n'hésitez pas à me le faire savoir.{' '}
+                Merci d'avoir lu à propos de moi ! J'espère que vous apprécierez l'exploration du reste de mon site portfolio et tout ce qu'il a à offrir. Si vous l'aimez, n'hésitez pas à me le faire savoir.{' '}
                     
                     {' '}
                     Bonne chance et have fun!
                 </p>
                 <br />
                 <p>
-                    Si vous avez des questions j'aimerais les entendre. Vous pouvez me les poser ici{' '}
-                    <Link to="/contact">Contact</Link> ou m'envoie un mail à{' '}
+                    Si vous avez des questions, j'aimerai les entendre. Vous pouvez me les poser{' '}
+                    <Link to="/contact">ici</Link> ou m'envoyer un mail à{' '}
                     <a href="mailto:antoninpicard.pro@gmail.com">
                         antoninpicard.pro@gmail.com
-                    </a>
+                    </a>.
                 </p>
             </div>
         </div>

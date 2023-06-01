@@ -38,14 +38,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     </p>
                 </div>
                 <p>
-                    Maintenant, une brève description technique du site. Le site est divisé en deux parties : le site 3D et le site OS 2D. Le site 3D utilise Three.js pour rendre la scène et affiche le site 2D à l'intérieur en utilisant une balise iframe. Le site OS 2D est un site React simple qui est hébergé.{' '}
-                    <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://henryheffernan.vercel.app/"
-                    >
-                        here
-                    </a>{' '}
+                    Maintenant, une brève description technique du site. Le site est divisé en deux parties : le site 3D et le site OS 2D. Le site 3D utilise Three.js pour afficher la scène et afficher le site 2D à l'intérieur en utilisant une balise iframe. Le site OS 2D est un site React simple qui est hébergé{' '}
                     et fonctionne comme une application web autonome. Le rendu réel du site 2D est réalisé à l'aide d'un moteur de rendu CSS fourni par Three.js qui transforme le code HTML du site 2D avec des transformations CSS 3D pour donner l'illusion de la tridimensionnalité.
                 </p>
                 <br />
@@ -66,10 +59,10 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://antoninpicard.vercel.app/"
+                            href="https://antoninpicard-inner.vercel.app/"
                         >
                             <p>
-                                <b>[Site OS]</b> - antoninpicard.vercel.app
+                                <b>[Site OS]</b> - antoninpicard-inner.vercel.app
                             </p>
                         </a>
                     </li>
@@ -77,7 +70,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/portfolio-website"
+                            href="https://github.com/antoninpicard/Portfolio-website-master"
                         >
                             <p>
                                 <b>[GitHub]</b> - Repo site 3D
@@ -97,7 +90,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     </li>
                 </ul>
                 <p>
-                Je passe rapidement sur de nombreux détails pour des raisons de concision, mais j'ai l'intention de fournir une analyse plus détaillée pour ceux qui sont intéressés à l'avenir.
+                Je passe rapidement sur de nombreux détails pour des raisons de concision, mais, j'ai l'intention de fournir une analyse plus détaillée pour ceux qui sont intéressés à l'avenir.
                 </p>
             </div>
             <div className="text-block">
