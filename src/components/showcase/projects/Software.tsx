@@ -3,7 +3,8 @@ import React from 'react';
 // @ts-ignore
 import computer from '../../../assets/pictures/projects/software/computer.mp4';
 // @ts-ignore
-
+import black from '../../../assets/pictures/projects/software/black.png';
+import circle from '../../../assets/pictures/projects/software/circle.png';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
@@ -100,6 +101,14 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     Site web qui utilise une API pour jouer au BlackJack.
                 </p>
                 <br />
+                <div className="captioned-image">
+                    <img src={black} alt="" />
+                    <p>
+                        <sub>
+                            <b>Image 2:</b> Image site Blackjack API
+                        </sub>
+                    </p>
+                </div>
                 <br />
                 <h3>Liens:</h3>
                 <ul>
@@ -124,7 +133,14 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     Un jeu HTML,CSS,JS disponible en extension chrome, en executable, en static, et en React.
                 </p>
                 <br />
-                
+                <div className="captioned-image">
+                    <img src={circle} alt="" />
+                    <p>
+                        <sub>
+                            <b>Image 3:</b> Image CircleGame
+                        </sub>
+                    </p>
+                </div>
                 <br />
                 <h3>Liens:</h3>
                 <ul>
