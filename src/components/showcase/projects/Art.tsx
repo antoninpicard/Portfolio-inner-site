@@ -8,7 +8,7 @@ export interface ArtProjectsProps {}
 const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
-            <h1>Jeux Vidéo</h1>
+            <h1>Jeux Vidéos</h1>
             <h3>PASSION 2</h3>
             <br />
             <div className="text-block">
