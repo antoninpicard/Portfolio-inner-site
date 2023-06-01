@@ -13,7 +13,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
             <br />
             <div className="text-block">
                 <p>
-                Bien que j'adore la programmation et le développement de logiciels, les jeux vidéo ont une place spéciale dans mon cœur.
+                Bien que j'adore la programmation et le développement de logiciels, les jeux vidéos ont une place spéciale dans mon cœur.
                 </p>
                 <br />
                 <p>
@@ -24,7 +24,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 <h2>Elden Ring</h2>
                 <br />
                 <p>
-                    J'adore les jeux complexes et récemment, je suis tombé sur Elden Ring, un jeu incroyablement complexe qui demande beaucoup de patience. Les combats sont épiques, les défis sont nombreux et les zones du jeu sont magnifiques. C'est un véritable chef-d'œuvre du jeu vidéo qui m'a captivé dès les premières minutes de jeu. J'ai été fasciné par la richesse de l'univers d'Elden Ring, créé en collaboration entre Hidetaka Miyazaki et George R.R. Martin. Chaque recoin du monde est soigneusement conçu, avec des paysages variés et des détails minutieux. L'exploration de ces environnements immersifs est un plaisir en soi.
+                    J'adore les jeux complexes et récemment, je suis tombé sur Elden Ring, un jeu incroyablement difficile qui demande beaucoup de patience. Les combats sont épiques, les défis sont nombreux et les zones du jeu sont magnifiques. C'est un véritable chef-d'œuvre du jeu vidéo qui m'a captivé dès les premières minutes. J'ai été fasciné par la richesse de l'univers d'Elden Ring, créé en collaboration entre Hidetaka Miyazaki et George R.R. Martin. Chaque recoin du monde est soigneusement conçu, avec des paysages variés et des détails minutieux. L'exploration de ces environnements immersifs est un plaisir en soi.
                 </p>
                 <br />
                 <p>
@@ -81,7 +81,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                             href="https://www.youtube.com/watch?v=rXMX4YJ7Lks&ab_channel=PlayStation"
                         >
                             <p>
-                                <b>VIDEO</b> - SEKIRO, un jeu que je n'est pas présenté mais tout aussi incroyable.
+                                <b>VIDEO</b> - SEKIRO, un jeu que je n'ai pas présenté mais qui est tout aussi incroyable.
                             </p>
                         </a>
                     </li>

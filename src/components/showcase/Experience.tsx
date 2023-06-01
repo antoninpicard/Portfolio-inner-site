@@ -84,24 +84,24 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    J'ai effectué différents satge mais je n'ai noté que les plus pertinents.
+                    J'ai effectué différents stage mais je n'ai noté que les plus pertinents.
                 </p>
                 <br />
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Stage avec un administrateur réseau, ce qui ma permis de comprendre le fonctionnementd'un réseau.
+                            Stage avec un administrateur réseau, m'a permis de comprendre le fonctionnement d'un réseau.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage dans la Marine Nationale, ma appris la discipline et la cohésion.
+                            Stage dans la Marine Nationale, m'a appris la discipline et la cohésion.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage avec un webmaster, ma appris le webdesign et à approfondis mes connéssances sur la création de site.
+                            Stage avec un webmaster, m'a appris le webdesign et à approfondir mes connaissances sur la création de sites.
                         </p>
                     </li>
                     <li>

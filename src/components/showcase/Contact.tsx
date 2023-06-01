@@ -182,7 +182,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                                         <sub>
                                             {formMessage
                                                 ? `${formMessage}`
-                                                : ' Tout les messages sont destiné à mon mail personelle'}
+                                                : ' Tout les messages sont destinés à mon mail personel'}
                                         </sub>
                                     </b>
                                 </p>
