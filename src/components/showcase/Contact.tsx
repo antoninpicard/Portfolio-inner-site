@@ -88,7 +88,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                 </div>
             </div>
             <p>
-                Malheureusement, il y a encore un petit bug au niveau du formulaire de contact pour l'instant. Lorsque vous envoyez votre message et que la page de Formspree s'affiche en indiquant que le message a bien été envoyé, veuillez cliquer sur "Retourner sur le site principal". Même si cela affiche "Envoi en cours", ne vous inquiétez pas, le mail a bien été envoyé.
+                Malheureusement, il y a encore un petit bug au niveau du formulaire de contact pour l'instant. Lorsque vous envoyez votre message et que la page de Formspree s'affiche en indiquant que le message a bien été envoyé, veuillez cliquer sur "Back". Même si cela affiche "Envoi en cours", ne vous inquiétez pas, le mail a bien été envoyé.
             </p>
             <br />
             <p>
