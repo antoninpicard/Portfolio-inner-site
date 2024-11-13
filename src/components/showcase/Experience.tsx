@@ -24,9 +24,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Première approche vers la programmation et réseau.
-                        J'ai effectué quelques stages qui m'ont permis de me familiariser
-                        avec le monde professionnel.
+                        Depuis toujours passionné par la programmation, les réseaux, la cybersécurité et les technologies en général, j'ai choisi de suivre un baccalauréat en Systèmes Numériques (SN) en partenariat avec la Marine nationale pour approfondir mes connaissances et développer mes compétences dans ces domaines fascinants.
                         </p>
                     </li>
                     
@@ -46,10 +44,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Première année en BTS SIO afin de développer et
-                        confirmer mon approche vers la programmation.
-                        Développement de mon image professionnelle.
-                        </p>
+                        Trois ans après mon baccalauréat, j'ai choisi de poursuivre un BTS SIO, m'immergeant dans les systèmes et les technologies qui façonnent notre monde. J'ai exploré les rouages de la cybersécurité, étudié les subtilités du développement logiciel, et même touché à l'intelligence artificielle, avec une volonté constante de comprendre le fonctionnement de ces technologies. Ce parcours m'a permis de développer une vision globale des outils numériques et de leur fonctionnement.                        </p>
                     </li>
                     
                 </ul>
@@ -57,9 +52,9 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>DIIAGE à Venir</h3>
+                        <h3>42 Lyon</h3>
                         <b>
-                            <p>2022 ~ 2024</p>
+                            <p>2024 ~ ...</p>
                         </b>
                     </div>
                 </div>
@@ -68,7 +63,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Après mon BTS, je me tourne pour l'instant vers le DIIAGE à Dijon.
+                        Après ce parcours enrichissant, j'ai récemment relevé le défi de la piscine de 42 Lyon, une épreuve intense qui met à l’épreuve la détermination et les compétences des étudiants en programmation. Fraîchement intégré, je suis actuellement dans le tronc commun, où j'acquiers une base solide tout en me préparant à me spécialiser dans mes domaines de prédilection, comme la cybersécurité, le développement, et bien plus encore, avec l'objectif de devenir excellent dans ces disciplines.
                         </p>
                     </li>
                     
@@ -84,32 +79,31 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    J'ai effectué différents stage mais je n'ai noté que les plus pertinents.
+                    J'ai effectué divers stages, mais j'ai choisi de ne mentionner ici que les plus anciens, ceux qui ont transformé ce qui n'était au départ qu'une passion en une véritable ambition.
                 </p>
                 <br />
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Stage avec un administrateur réseau, m'a permis de comprendre le fonctionnement d'un réseau.
+                            Stage aux côtés d'un administrateur réseau, qui m'a permis de saisir en profondeur le fonctionnement et la structure des réseaux.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage dans la Marine Nationale, m'a appris la discipline et la cohésion.
+                            Stage au sein de la Marine Nationale, où j'ai appris l'importance de la discipline et de la cohésion de groupe.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage avec un webmaster, m'a appris le webdesign et à approfondir mes connaissances sur la création de sites.
+                            Stage auprès d'un webmaster, qui m'a initié au webdesign et m'a permis d'approfondir mes connaissances en création de sites et de sont backend.
                         </p>
                     </li>
                     <li>
                         <p>
-                             Création d'un site web pour une imprimerie, mon premier projet professionnel en solo. Malheureusement, le site n'est plus en ligne actuellement.
+                            Réalisation d'un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant dans mon parcours. Malgré mes compétences en développement web, je ne compte en faire qu'occasionnellement, car mes ambitions sont orientées vers des domaines plus vastes comme la cybersécurité et le développement logiciel.
                         </p>
                     </li>
-                    
                 </ul>
             </div>
         </div>

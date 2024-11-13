@@ -21,7 +21,6 @@ const CREDITS = [
         title: 'Special Thanks',
         rows: [
             ['Bruno Simon', 'Henry Hefferman'],
-            ['Dikra Ben Allel'],
         ],
     },
     {
