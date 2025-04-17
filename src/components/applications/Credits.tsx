@@ -8,7 +8,9 @@ export interface CreditsProps extends WindowAppProps {}
 const CREDITS = [
     {
         title: 'Création & Design',
-        rows: [['Antonin Picard', 'All']],
+        rows: [['Antonin Picard', 'All'],
+               ['Alexandre Lefranc', 'Nothing'],
+        ],
     },
     {
         title: 'Sound Design',
@@ -35,6 +37,7 @@ const CREDITS = [
 const Credits: React.FC<CreditsProps> = (props) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [time, setTime] = useState(0);
+    const [easterEggActive, setEasterEggActive] = useState(false);
 
     // every 5 seconds, move to the next slide
     useInterval(() => {
@@ -93,8 +96,25 @@ const Credits: React.FC<CreditsProps> = (props) => {
                             {CREDITS[currentSlide].rows.map((row, i) => {
                                 return (
                                     <div key={`row-${i}`} style={styles.row}>
-                                        <p>{row[0]}</p>
-                                        <p>{row[1]}</p>
+                                        {row.map((credit, j) => {
+                                        return (
+                                            <p 
+                                                key={j}
+                                                onClick={() => {
+                                                    if (credit === 'Alexandre Lefranc') {
+                                                        setEasterEggActive(true);
+                                                        setTimeout(() => setEasterEggActive(false), 3000);
+                                                    }
+                                                }}
+                                                style={{
+                                                    cursor: credit === 'Alexandre Lefranc' ? 'pointer' : 'default',
+                                                    color: credit === 'Alexandre Lefranc' && easterEggActive ? '#ff0000' : 'inherit'
+                                                }}
+                                            >
+                                                {credit === 'Alexandre Lefranc' && easterEggActive ? 'Nothing ? Really ?' : credit}
+                                            </p>
+                                        );
+                                    })}
                                     </div>
                                 );
                             })}
