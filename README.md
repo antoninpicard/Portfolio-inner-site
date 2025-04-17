@@ -70,10 +70,6 @@ yarn start
 - `npm test` : Lance les tests
 - `npm eject` : Éjecte la configuration CRA
 
-## Contact
-Pour plus d'informations ou collaborations :
-- GitHub: [@antoninpicard](https://github.com/antoninpicard)
-
 ## Licence
 Ce projet est sous licence MIT.
 
