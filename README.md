@@ -5,7 +5,7 @@ Portfolio personnel inspiré de l'interface Windows 95, développé avec React e
 
 ## Fonctionnalités
 - 🖥️ Interface Windows 95
-- 🎮 Mini-jeux intégrés (Wordle, Oregon Trail)
+- 🎮 Mini-jeux intégrés (Doom)
 - 📂 Navigation par fenêtres
 - 🎵 Lecteur de musique intégré
 - 🎨 Animations et transitions fluides
@@ -56,8 +56,7 @@ yarn start
 │   ├── components/    # Composants React
 │   │   ├── applications/  # Applications fenêtrées
 │   │   ├── os/           # Composants système
-│   │   ├── showcase/     # Pages de présentation
-│   │   └── wordle/       # Jeu Wordle personnalisé
+│   │   └── showcase/     # Pages de présentation
 │   ├── constants/     # Constantes et configurations
 │   └── hooks/         # Hooks React personnalisés
 ├── package.json

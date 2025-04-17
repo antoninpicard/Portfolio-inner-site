@@ -12,12 +12,11 @@ import doomIcon from './doomIcon.png';
 import credits from './credits.png';
 import volumeOn from './volumeOn.png';
 import volumeOff from './volumeOff.png';
-import trailIcon from './trailIcon.png';
 import windowGameIcon from './windowGameIcon.png';
 import windowExplorerIcon from './windowExplorerIcon.png';
 import windowsStartIcon from './windowsStartIcon.png';
-import scrabbleIcon from './scrabbleIcon.png';
 import close from './close.png';
+import term from './term.png';
 
 const icons = {
     windowResize: windowResize,
@@ -31,12 +30,11 @@ const icons = {
     volumeOn: volumeOn,
     volumeOff: volumeOff,
     credits: credits,
-    scrabbleIcon: scrabbleIcon,
     close: close,
+    term: term,
     windowGameIcon: windowGameIcon,
     windowExplorerIcon: windowExplorerIcon,
     windowsStartIcon: windowsStartIcon,
-    trailIcon: trailIcon,
 };
 
 export type IconName = keyof typeof icons;

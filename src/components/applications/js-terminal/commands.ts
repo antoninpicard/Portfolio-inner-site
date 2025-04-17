@@ -1,0 +1,84 @@
+import { fs } from './filesystem';
+
+export interface Command {
+  name: string;
+  description: string;
+  execute: (args: string[]) => string;
+}
+
+const commands: Command[] = [
+  {
+    name: 'help',
+    description: 'List all available commands',
+    execute: () => {
+      return 'Available commands:\n\n' + commands
+        .map(cmd => `${cmd.name.padEnd(12)} - ${cmd.description}`)
+        .join('\n');
+    }
+  },
+  {
+    name: 'clear',
+    description: 'Clear the terminal screen',
+    execute: () => '<<CLEAR>>'
+  },
+  {
+    name: 'ls',
+    description: 'List directory contents',
+    execute: (args) => fs.ls(args[0])
+  },
+  {
+    name: 'cd',
+    description: 'Change directory',
+    execute: (args) => {
+      if (args.length === 0) {
+        return fs.cd('~');
+      }
+      return fs.cd(args[0]);
+    }
+  },
+  {
+    name: 'pwd',
+    description: 'Print working directory',
+    execute: () => fs.pwd()
+  },
+  {
+    name: 'cat',
+    description: 'Display file contents',
+    execute: (args) => {
+      if (args.length === 0) {
+        return 'Usage: cat <filename>';
+      }
+      return fs.cat(args[0]);
+    }
+  },
+  {
+    name: 'echo',
+    description: 'Display a message',
+    execute: (args) => args.join(' ')
+  },
+  {
+    name: 'date',
+    description: 'Display current date and time',
+    execute: () => new Date().toLocaleString()
+  },
+  {
+    name: 'whoami',
+    description: 'Display current user',
+    execute: () => 'guest'
+  }
+];
+
+export const executeCommand = (input: string): string => {
+  const [cmdName, ...args] = input.trim().split(' ');
+  const command = commands.find(cmd => cmd.name === cmdName.toLowerCase());
+  
+  if (!command) {
+    return `Command not found: ${cmdName}\nType 'help' for available commands.`;
+  }
+
+  try {
+    return command.execute(args);
+  } catch (error) {
+    return `Error executing ${cmdName}: ${error}`;
+  }
+};
