@@ -4,10 +4,10 @@
 Ce site web est mon portfolio personnel, présentant mes projets et compétences en développement web.
 
 ## Technologies Utilisées
+- TypeScript
 - HTML5
 - CSS3
 - JavaScript
-- [Autres technologies à compléter]
 
 ## Installation
 ```bash
