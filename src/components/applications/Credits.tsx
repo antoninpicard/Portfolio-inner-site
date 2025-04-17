@@ -297,7 +297,8 @@ const Credits: React.FC<CreditsProps> = (props) => {
                             right: 60,
                             width: '300px',
                             height: 'auto',
-                            zIndex: 10000
+                            zIndex: 10001,
+                            pointerEvents: 'none'
                         }}
                     />
                 )}
