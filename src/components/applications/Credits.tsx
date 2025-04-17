@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Window from '../os/Window';
 import { useInterval } from 'usehooks-ts';
 import { motion } from 'framer-motion';
+import './Credits.css';
+import nothingGif from '../../assets/gifs/nothing.gif';
+import egVideo from '../../assets/gifs/EG.mp4';
+import hollImg from '../../assets/gifs/holl.png';
 
 export interface CreditsProps extends WindowAppProps {}
 
@@ -34,24 +38,78 @@ const CREDITS = [
     },
 ];
 
+// Variable globale pour l'état de l'easter egg, réinitialisée au rafraîchissement
+let globalEasterEggState = {
+    active: false,
+    step: 0,
+    firstStrike: true,
+    showStrike: false
+};
+
+// Clé localStorage pour persister holl.png
+const HOLL_KEY = 'portfolio_credits_holl_revealed';
+
 const Credits: React.FC<CreditsProps> = (props) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [time, setTime] = useState(0);
-    const [easterEggActive, setEasterEggActive] = useState(false);
+    const [easterEggActive, setEasterEggActive] = useState(globalEasterEggState.active);
+    const [easterEggStep, setEasterEggStep] = useState(globalEasterEggState.step);
+    const [firstStrike, setFirstStrike] = useState(globalEasterEggState.firstStrike);
+    const [showStrike, setShowStrike] = useState(globalEasterEggState.showStrike);
+    const [showGif, setShowGif] = useState(false);
+    const [showEgVideo, setShowEgVideo] = useState(false);
+    const [showEgVisual, setShowEgVisual] = useState(false);
+    // Initialiser depuis localStorage pour persister entre sessions et rafraîchissements
+    const [showHollImage, setShowHollImage] = useState(() => {
+        try { return localStorage.getItem(HOLL_KEY) === 'true'; } catch { return false; }
+    });
+    const [isHovered, setIsHovered] = useState(false);
+    const [isPageLocked, setIsPageLocked] = useState(false);
 
     // every 5 seconds, move to the next slide
     useInterval(() => {
-        setTime(time + 1);
-        // setCurrentSlide((currentSlide + 1) % CREDITS.length);
+        if (!isPageLocked) {
+            setTime(time + 1);
+        }
     }, 1000);
 
     useEffect(() => {
-        if (time > 5) {
-            setCurrentSlide((currentSlide + 1) % CREDITS.length);
-            setTime(0);
+        if (time >= 5) {
+            nextSlide();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [time]);
+
+    // Réinitialiser la slide au démarrage
+    useEffect(() => {
+        setCurrentSlide(0);
+        setTime(0);
+    }, []);
+
+    // Mettre à jour l'état global
+    useEffect(() => {
+        globalEasterEggState = {
+            active: easterEggActive,
+            step: easterEggStep,
+            firstStrike,
+            showStrike
+        };
+    }, [easterEggActive, easterEggStep, firstStrike, showStrike]);
+
+    // Sauvegarder holl.png dans localStorage quand révélé
+    useEffect(() => {
+        if (showHollImage) {
+            localStorage.setItem(HOLL_KEY, 'true');
+        }
+    }, [showHollImage]);
+
+    const handleSlideClick = (direction: 'prev' | 'next') => {
+        setTime(0);
+        if (direction === 'next') {
+            setCurrentSlide((currentSlide + 1) % CREDITS.length);
+        } else {
+            setCurrentSlide((currentSlide - 1 + CREDITS.length) % CREDITS.length);
+        }
+    };
 
     const nextSlide = () => {
         setTime(0);
@@ -70,10 +128,18 @@ const Credits: React.FC<CreditsProps> = (props) => {
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'© Copyright 2023 Antonin Picard'}
+            bottomLeftText={'Copyright 2023 Antonin Picard'}
         >
             <div
-                onMouseDown={nextSlide}
+                onMouseDown={(e) => {
+                    // Ne pas changer de slide si on clique sur Nothing/Nothing? Really? ou si la page est verrouillée
+                    const target = e.target as HTMLElement;
+                    if (target.textContent === 'Nothing' || target.textContent === 'Nothing ? Really ?' || isPageLocked) {
+                        e.preventDefault();
+                        return;
+                    }
+                    nextSlide();
+                }}
                 className="site-page"
                 style={styles.credits}
             >
@@ -95,23 +161,71 @@ const Credits: React.FC<CreditsProps> = (props) => {
                             </h3>
                             {CREDITS[currentSlide].rows.map((row, i) => {
                                 return (
-                                    <div key={`row-${i}`} style={styles.row}>
+                                    <div key={`row-${i}`} style={styles.row} className={(easterEggStep === 2 && showStrike && CREDITS[currentSlide].rows[i][0] === 'Alexandre Lefranc') ? `strike-through ${firstStrike ? '' : 'permanent'}` : ''}>
                                         {row.map((credit, j) => {
                                         return (
                                             <p 
                                                 key={j}
-                                                onClick={() => {
-                                                    if (credit === 'Alexandre Lefranc') {
-                                                        setEasterEggActive(true);
-                                                        setTimeout(() => setEasterEggActive(false), 3000);
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); // Empêche la propagation du clic
+                                                    if (credit === 'Nothing') {
+                                                        if (easterEggStep === 0) {
+                                                            setEasterEggActive(true);
+                                                            setShowGif(true);
+                                                            setIsPageLocked(true);
+                                                            setTime(0); // Reset le timer
+                                                            setEasterEggStep(1);
+                                                            setTimeout(() => {
+                                                                setShowGif(false);
+                                                            }, 3000);
+                                                            setTimeout(() => {
+                                                                setIsPageLocked(false);
+                                                                setTime(0); // Reset le timer quand on débloque
+                                                            }, 2000);
+                                                        } else if (easterEggStep === 1) {
+                                                            setEasterEggStep(2);
+                                                            setIsPageLocked(true);
+                                                            setShowEgVideo(true);
+                                                            setShowEgVisual(true);
+                                                            // Cacher visuellement la vidéo après 10s (audio continue)
+                                                            setTimeout(() => { setShowEgVisual(false); }, 10000);
+                                                            // Attendre 10.5 secondes avant d'afficher holl et lancer la rature
+                                                            setTimeout(() => {
+                                                                setShowHollImage(true);
+                                                                // Attendre 1 seconde avant l'animation de rature
+                                                                setTimeout(() => {
+                                                                    setShowStrike(true);
+                                                                    setTimeout(() => {
+                                                                        setFirstStrike(false);
+                                                                    }, 1000);
+                                                                    setTimeout(() => {
+                                                                        setIsPageLocked(false);
+                                                                        setTime(0); // Reset le timer
+                                                                    }, 2000);
+                                                                }, 1000);
+                                                            }, 10500);
+                                                        }
                                                     }
                                                 }}
+
                                                 style={{
-                                                    cursor: credit === 'Alexandre Lefranc' ? 'pointer' : 'default',
-                                                    color: credit === 'Alexandre Lefranc' && easterEggActive ? '#ff0000' : 'inherit'
+                                                    cursor: credit === 'Nothing' ? 'pointer' : 'default',
+                                                    color: (credit === 'Nothing' && (easterEggActive || isHovered)) ? '#ff0000' : 'inherit',
+                                                    transition: 'color 0.3s'
                                                 }}
+                                                onMouseEnter={() => {
+                                                    if (credit === 'Nothing') {
+                                                        setIsHovered(true);
+                                                    }
+                                                }}
+                                                onMouseLeave={() => setIsHovered(false)}
+
                                             >
-                                                {credit === 'Alexandre Lefranc' && easterEggActive ? 'Nothing ? Really ?' : credit}
+                                                {credit === 'Nothing' ? 
+                                                    (easterEggStep === 2 ? 'Yes... Nothing' : 
+                                                     easterEggStep === 1 ? 'Nothing ? Really ?' : 
+                                                     'Nothing')
+                                                    : credit}
                                             </p>
                                         );
                                     })}
@@ -121,6 +235,72 @@ const Credits: React.FC<CreditsProps> = (props) => {
                         </motion.div>
                     }
                 </div>
+                {showGif && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        style={{
+                            position: 'fixed',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            zIndex: 9999,
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            padding: '20px',
+                            borderRadius: '10px'
+                        }}
+                    >
+                        <img src={nothingGif} alt="nothing" style={{ width: '600px', maxWidth: '90vw' }} />
+                    </motion.div>
+                )}
+                {showEgVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: showEgVisual ? 'black' : 'transparent',
+                            pointerEvents: showEgVisual ? 'auto' : 'none',
+                            zIndex: 9999,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <video
+                            autoPlay
+                            playsInline
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                opacity: showEgVisual ? 1 : 0
+                            }}
+                        >
+                            <source src={egVideo} type="video/mp4" />
+                        </video>
+                    </motion.div>
+                )}
+                {showHollImage && (
+                    <img
+                        src={hollImg}
+                        alt="holl"
+                        style={{
+                            position: 'absolute',
+                            top: 40,
+                            right: 60,
+                            width: '300px',
+                            height: 'auto',
+                            zIndex: 10000
+                        }}
+                    />
+                )}
                 <p>Click to continue...</p>
                 <br />
                 <div style={styles.nextSlideTimer}>
