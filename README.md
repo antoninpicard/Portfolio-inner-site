@@ -12,6 +12,7 @@ Portfolio personnel inspiré de l'interface Windows 95, développé avec React e
 - 💾 Easter eggs cachés
 
 ## Technologies Utilisées
+<<<<<<< HEAD
 - React 17
 - TypeScript
 - Framer Motion (animations)
@@ -22,6 +23,12 @@ Portfolio personnel inspiré de l'interface Windows 95, développé avec React e
 ## Prérequis
 - Node.js (v14 ou supérieur)
 - npm ou yarn
+=======
+- TypeScript
+- HTML5
+- CSS3
+- JavaScript
+>>>>>>> e86048949a7deb4525caa94e1237fcd738f75903
 
 ## Installation
 ```bash
