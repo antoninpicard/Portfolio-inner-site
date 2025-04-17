@@ -43,11 +43,11 @@ let globalEasterEggState = {
     active: false,
     step: 0,
     firstStrike: true,
-    showStrike: false
+    showStrike: false,
+    hollImage: false
 };
 
-// Clé localStorage pour persister holl.png
-const HOLL_KEY = 'portfolio_credits_holl_revealed';
+// hollImage persiste uniquement pendant la session (réinitialisé au refresh)
 
 const Credits: React.FC<CreditsProps> = (props) => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,10 +59,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
     const [showGif, setShowGif] = useState(false);
     const [showEgVideo, setShowEgVideo] = useState(false);
     const [showEgVisual, setShowEgVisual] = useState(false);
-    // Initialiser depuis localStorage pour persister entre sessions et rafraîchissements
-    const [showHollImage, setShowHollImage] = useState(() => {
-        try { return localStorage.getItem(HOLL_KEY) === 'true'; } catch { return false; }
-    });
+    const [showHollImage, setShowHollImage] = useState(globalEasterEggState.hollImage);
     const [isHovered, setIsHovered] = useState(false);
     const [isPageLocked, setIsPageLocked] = useState(false);
 
@@ -91,16 +88,10 @@ const Credits: React.FC<CreditsProps> = (props) => {
             active: easterEggActive,
             step: easterEggStep,
             firstStrike,
-            showStrike
+            showStrike,
+            hollImage: showHollImage
         };
-    }, [easterEggActive, easterEggStep, firstStrike, showStrike]);
-
-    // Sauvegarder holl.png dans localStorage quand révélé
-    useEffect(() => {
-        if (showHollImage) {
-            localStorage.setItem(HOLL_KEY, 'true');
-        }
-    }, [showHollImage]);
+    }, [easterEggActive, easterEggStep, firstStrike, showStrike, showHollImage]);
 
     const handleSlideClick = (direction: 'prev' | 'next') => {
         setTime(0);
