@@ -18,6 +18,24 @@ export const commands: Command[] = [
     }
   },
   {
+    name: 'preview',
+    description: 'Preview a Markdown file in a new window',
+    execute: (args) => {
+      if (args.length === 0) {
+        return 'Usage: preview [file]\nExample: preview Portfolio-website-master.md';
+      }
+      
+      return fs.executeCommand('preview', args);
+    }
+  },
+  {
+    name: 'github',
+    description: 'Open GitHub repository from file',
+    execute: (args) => {
+      return fs.executeCommand('github', args);
+    }
+  },
+  {
     name: 'clear',
     description: 'Clear the terminal screen',
     execute: () => '<<CLEAR>>'

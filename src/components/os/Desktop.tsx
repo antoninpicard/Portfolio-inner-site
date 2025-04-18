@@ -10,6 +10,7 @@ import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
 import TerminalApp from '../applications/js-terminal';
 import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
+import MarkdownPreview from '../applications/MarkdownPreview';
 
 export interface DesktopProps {}
 
@@ -62,6 +63,41 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     const [shutdown, setShutdown] = useState(false);
     const [numShutdowns, setNumShutdowns] = useState(1);
+    
+    // Fonction pour ouvrir une fenêtre de prévisualisation Markdown
+    const openMarkdownPreview = useCallback((fileName: string, content: string) => {
+        const previewKey = `markdown-preview-${Date.now()}`;
+        // La fonction addWindow sera définie plus tard dans le composant
+        // On l'appelle donc via une fonction qui sera définie après
+        setTimeout(() => {
+            addWindow(
+                previewKey,
+                <MarkdownPreview
+                    onInteract={() => onWindowInteract(previewKey)}
+                    onMinimize={() => minimizeWindow(previewKey)}
+                    onClose={() => removeWindow(previewKey)}
+                    key={previewKey}
+                    fileName={fileName}
+                    content={content}
+                />
+            );
+        }, 0);
+    }, []);
+    
+    // Exposer la fonction d'ouverture de prévisualisation Markdown au terminal
+    useEffect(() => {
+        // Définir directement la fonction sur l'objet window
+        if (typeof window !== 'undefined') {
+            (window as any).openMarkdownPreviewFn = openMarkdownPreview;
+        }
+        
+        return () => {
+            // Nettoyer lors du démontage
+            if (typeof window !== 'undefined') {
+                delete (window as any).openMarkdownPreviewFn;
+            }
+        };
+    }, [openMarkdownPreview]);
 
     useEffect(() => {
         if (shutdown === true) {
@@ -174,16 +210,22 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     const addWindow = useCallback(
         (key: string, element: JSX.Element) => {
-            setWindows((prevState) => ({
-                ...prevState,
-                [key]: {
-                    zIndex: getHighestZIndex() + 1,
-                    minimized: false,
-                    component: element,
-                    name: APPLICATIONS[key].name,
-                    icon: APPLICATIONS[key].shortcutIcon,
-                },
-            }));
+            setWindows((prevState) => {
+                // Vérifier si c'est une application standard ou une fenêtre personnalisée
+                const isCustomWindow = key.startsWith('markdown-preview-');
+                
+                return {
+                    ...prevState,
+                    [key]: {
+                        zIndex: getHighestZIndex() + 1,
+                        minimized: false,
+                        component: element,
+                        // Pour les fenêtres personnalisées, utiliser des valeurs par défaut
+                        name: isCustomWindow ? 'Prévisualisation Markdown' : APPLICATIONS[key].name,
+                        icon: isCustomWindow ? 'term' : APPLICATIONS[key].shortcutIcon,
+                    },
+                };
+            });
         },
         [getHighestZIndex]
     );
