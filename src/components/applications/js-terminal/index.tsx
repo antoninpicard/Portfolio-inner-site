@@ -19,6 +19,8 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
   const [command, setCommand] = useState('');
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
+  const [tabSuggestions, setTabSuggestions] = useState<string[]>([]);
+  const [tabIndex, setTabIndex] = useState(-1);
 
 
   const normalizeSpaces = (input: string) => {
@@ -459,7 +461,34 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
     });
   };
 
+  // Fonction pour appliquer une suggestion
+  const applySuggestion = (suggestion: string, completionType: string, prefix: string, hasTrailingSpace: boolean) => {
+    switch (completionType) {
+      case 'command':
+        // Pour une commande, ajouter un espace
+        setCommand(suggestion + ' ');
+        break;
+      
+      case 'new-arg':
+        // Pour un nouvel argument, ajouter la suggestion
+        setCommand(command + suggestion);
+        break;
+      
+      case 'arg':
+        // Pour un argument en cours, remplacer la partie courante
+        const newCommand = prefix + suggestion;
+        // Ajouter un espace si c'était le dernier argument
+        setCommand(hasTrailingSpace ? newCommand + ' ' : newCommand);
+        break;
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Réinitialiser l'index de tabulation si la commande change (sauf par Tab)
+    if (e.key !== 'Tab') {
+      setTabIndex(-1);
+      setTabSuggestions([]);
+    }
 
     if (e.key === 'Enter') {
       const trimmedCommand = command.trim();
@@ -517,38 +546,6 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
         setHistoryIndex(newIndex);
         setCommand(commandHistory[commandHistory.length - 1 - newIndex]);
       }
-    } else if (e.key === 'Tab') {
-      e.preventDefault();
-      if (!command) return;
-
-      // Obtenir les suggestions basées sur ce qui a été saisi
-      const newSuggestions = getSuggestions(command);
-      if (newSuggestions.length === 0) return;
-      
-      // Toujours utiliser la première suggestion
-      const currentSuggestion = newSuggestions[0];
-
-      // Appliquer la suggestion
-      const { completionType, prefix, hasTrailingSpace } = parseCommand(command);
-      
-      switch (completionType) {
-        case 'command':
-          // Pour une commande, ajouter un espace
-          setCommand(currentSuggestion + ' ');
-          break;
-        
-        case 'new-arg':
-          // Pour un nouvel argument, ajouter la suggestion
-          setCommand(command + currentSuggestion);
-          break;
-        
-        case 'arg':
-          // Pour un argument en cours, remplacer la partie courante
-          const newCommand = prefix + currentSuggestion;
-          // Ajouter un espace si c'était le dernier argument
-          setCommand(hasTrailingSpace ? newCommand + ' ' : newCommand);
-          break;
-      }
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (historyIndex > 0) {
@@ -558,6 +555,31 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
       } else if (historyIndex === 0) {
         setHistoryIndex(-1);
         setCommand('');
+      }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      if (!command) return;
+
+      // Obtenir les suggestions basées sur ce qui a été saisi
+      const { completionType, prefix, hasTrailingSpace } = parseCommand(command);
+      
+      // Si c'est le premier appui sur Tab ou si la commande a changé, réinitialiser les suggestions
+      if (tabIndex === -1 || tabSuggestions.length === 0) {
+        const newSuggestions = getSuggestions(command);
+        if (newSuggestions.length === 0) return;
+        
+        setTabSuggestions(newSuggestions);
+        setTabIndex(0);
+        
+        // Appliquer la première suggestion
+        applySuggestion(newSuggestions[0], completionType, prefix, hasTrailingSpace);
+      } else {
+        // Passer à la suggestion suivante
+        const nextIndex = (tabIndex + 1) % tabSuggestions.length;
+        setTabIndex(nextIndex);
+        
+        // Appliquer la suggestion suivante
+        applySuggestion(tabSuggestions[nextIndex], completionType, prefix, hasTrailingSpace);
       }
     }
   };
