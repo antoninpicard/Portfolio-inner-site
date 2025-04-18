@@ -1,0 +1,252 @@
+<html>
+    <head>
+        <title>Terminal</title>
+        <meta name="theme-color" content="#FFFFFF">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <style>
+            /*
+             * Font can be downloaded from http://laemeur.sdf.org/fonts/
+             */
+            @font-face {
+                font-family: 'MorePerfectDOSVGA';
+                src: url('fonts/MorePerfectDOSVGA.ttf');
+            }
+
+            body {
+                font-family: 'MorePerfectDOSVGA', 'Georgia', serif;
+                font-size: 16px;
+                background-color: black;
+                background: url(image/scanlines.gif) #000000;
+                color: #67fcc7;
+            }
+
+            .scanlines {
+                background: url(image/scanlines.gif);
+                z-index: 2;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                opacity: 0.2;
+                user-select: none;
+            }
+
+            .screen {
+                color: #67fcc7;
+                animation: flicker 1s linear infinite;
+            }
+
+            @keyframes flicker {
+                25% {
+                    filter: grayscale(0.1) blur(0.1px);
+                }
+                50% {
+                    filter: grayscale(0.1) blur(0.6px);
+                }
+                75% {
+                    filter: grayscale(0.1) blur(0.3px);
+                }
+                92% {
+                    filter: grayscale(0.1) blur(0.7px);
+                }
+            }
+
+            .screen-row {
+                overflow: hidden;
+                text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+            }
+
+            .screen-row span {
+                min-width: 9px;
+                height: 16px;
+                display: block;
+                float: left;
+            }
+
+            .screen-row span.inv {
+                background-color: #67fcc7;
+                color: black;
+                -webkit-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+                -moz-box-shadow:    0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+                box-shadow:         0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+
+            .pointer {
+                animation: blinker 1s linear infinite;
+            }
+        </style>
+    </head>
+    <body>
+        <p>abcdefghijklmnopqrstuvwxyz1234567890!"#%&/\()=? >< @£$∞|[]≈± ,;.:-_ ~ {}</p>
+        <p>
+            ¬⌐⌠⌡─│┌┐└┘├┤┬┴┼
+            ▀▄█▌▐░▒▓■
+        </p>
+        <div class="scanlines"></div>
+        <div id="screen" class="screen">
+            <div class="screen-row">
+                <span class='linestart'>C:\></span><span class="pointer">_</span>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        let text = [];
+        let activeRow = [];
+        const screen = document.getElementById("screen");
+        const allowedKeys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","-","@",".","_",":","00","0","1","2","3","4","5","6","7","8","9","(",")","{","}","[","]","&","#","/","|","\\","\""];
+        const LINESTART = "<span class='linestart'>C:\\></span>";
+        const LINEPOINTER = "<span class='pointer'>_</span>";
+        const cmd = {
+            "clear": () => {
+                console.log("CLEAR ACTION");
+                text = [];
+                activeRow = [];
+            },
+            "cle": () => {
+                console.log("clear test..")
+            }
+        };
+        const cmdKeys = Object.keys(cmd);
+
+        document.addEventListener("keydown", function(event) {
+            // console.log(event, true);
+            let tabUsed = false;
+            let enterUsed = false;
+            let flatWord = "";
+            switch (event.key) {
+                case "Backspace":
+                    console.log("Backspace");
+                    activeRow.pop();
+                    break;
+                case "Escape":
+                    console.log("Escape");
+                    break;
+                case "Enter":
+                    console.log("Enter");
+                    enterUsed = true;
+                    if (activeRow.length === 0) {
+                        activeRow.push("");
+                    }
+                    text.push(activeRow);
+                    flatWord = activeRow.join("");
+                    activeRow = [];
+                    break;
+                case "Tab":
+                    console.log("Tab");
+                    tabUsed = true;
+                    flatWord = activeRow.join("");
+                    event.preventDefault();
+                    break;
+                case "Shift":
+                    console.log("Shift");
+                    return;
+                case "Meta":
+                    console.log("Meta");
+                    return;
+                case "Alt":
+                    console.log("Alt");
+                    return;
+                case " ":
+                    console.log("Space");
+                    activeRow.push("&nbsp;");
+                    break;
+                default:
+                    if (allowedKeys.includes(event.key)) {
+                        activeRow.push(event.key);
+                    }
+                    break;
+            }
+
+            console.log(activeRow)
+
+
+            let frag = document.createDocumentFragment();
+            if (enterUsed) {
+                // check if command exist
+                let match = "";
+                if (flatWord != "") {
+                    for (let i = 0; i < cmdKeys.length; i++) {
+                        if (cmdKeys[i].toUpperCase() == flatWord.toUpperCase()) {
+                            console.log("RUN:", flatWord, ",key:", cmdKeys[i], ",i:", i);
+                            cmd[cmdKeys[i]]();
+                            match = cmdKeys[i];
+                            i = cmdKeys.length;
+                        }
+                    }
+                }
+
+                // if (match != "" && flatWord != "") {
+                //     currentItem.innerHTML = LINESTART + "<span class='inv'>" + match + "</span>" + LINEPOINTER;
+                //     activeRow = match.split("");
+                // } else {
+                //     currentItem.innerHTML = LINESTART + activeRow.map(x => {
+                //         return ("<span>" + x + "</span>");
+                //     }).join("") + LINEPOINTER;
+                // }
+            }
+
+            // terminal part
+            for (let i = 0; i < text.length; i++) {
+                let item = document.createElement("DIV");
+                item.classList.add("screen-row");
+                item.innerHTML = LINESTART;
+                item.innerHTML += text[i].map(x => {
+                    return ("<span>" + x + "</span>");
+                }).join("");
+                frag.append(item);
+            }
+
+            // active row actions
+            if (activeRow.length != 0 && tabUsed) {
+                // check if command exist
+                let match = "";
+                if (flatWord != "") {
+                    for (let i = 0; i < cmdKeys.length; i++) {
+                        if (cmdKeys[i].substr(0, flatWord.length).toUpperCase() == flatWord.toUpperCase()) {
+                            console.log("MATCH:", flatWord, ",key:", cmdKeys[i], ",i:", i);
+                            match = cmdKeys[i];
+                            i = cmdKeys.length;
+                        }
+                    }
+                }
+
+                let currentItem = document.createElement("DIV");
+                currentItem.classList.add("screen-row");
+                if (match != "" && flatWord != "") {
+                    currentItem.innerHTML = LINESTART + "<span class='inv'>" + match + "</span>" + LINEPOINTER;
+                    activeRow = match.split("");
+                } else {
+                    currentItem.innerHTML = LINESTART + activeRow.map(x => {
+                        return ("<span>" + x + "</span>");
+                    }).join("") + LINEPOINTER;
+                }
+                frag.append(currentItem);
+            } else if (activeRow.length != 0) {
+                let currentItem = document.createElement("DIV");
+                currentItem.classList.add("screen-row");
+                currentItem.innerHTML = LINESTART + activeRow.map(x => {
+                    return ("<span>" + x + "</span>");
+                }).join("") + LINEPOINTER;
+                frag.append(currentItem);
+            } else {
+                let currentItem = document.createElement("DIV");
+                currentItem.classList.add("screen-row");
+                currentItem.innerHTML = LINESTART + LINEPOINTER;
+                frag.append(currentItem);
+            }
+
+            screen.innerHTML = "";
+            screen.append(frag);
+        });
+    </script>
+</html>

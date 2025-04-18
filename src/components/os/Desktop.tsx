@@ -2,13 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
 import Doom from '../applications/Doom';
-import OregonTrail from '../applications/OregonTrail';
 import ShutdownSequence from './ShutdownSequence';
 // import ThisComputer from '../applications/ThisComputer';
 
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
-import Scrabble from '../applications/Scrabble';
+import TerminalApp from '../applications/js-terminal';
 import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
 
@@ -36,25 +35,18 @@ const APPLICATIONS: {
         shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
     },
-    trail: {
-        key: 'trail',
-        name: 'The Oregon Trail',
-        shortcutIcon: 'trailIcon',
-        component: OregonTrail,
-    },
     doom: {
         key: 'doom',
         name: 'Doom',
         shortcutIcon: 'doomIcon',
         component: Doom,
     },
-    scrabble: {
-        key: 'scrabble',
-        name: 'Scrabble',
-        shortcutIcon: 'scrabbleIcon',
-        component: Scrabble,
+    terminal: {
+        key: 'terminal',
+        name: 'Terminal',
+        shortcutIcon: 'term',
+        component: TerminalApp,
     },
-    
     credits: {
         key: 'credits',
         name: 'Credits',
