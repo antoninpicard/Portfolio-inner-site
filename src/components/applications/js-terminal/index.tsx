@@ -143,19 +143,14 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
       e.preventDefault();
       if (!command) return;
 
-      // Obtenir de nouvelles suggestions ou passer à la suivante
-      let currentSuggestion: string;
-      if (suggestions.length === 0 || suggestionIndex === -1) {
-        const newSuggestions = getSuggestions(command);
-        if (newSuggestions.length === 0) return;
-        setSuggestions(newSuggestions);
-        setSuggestionIndex(0);
-        currentSuggestion = newSuggestions[0];
-      } else {
-        const nextIndex = (suggestionIndex + 1) % suggestions.length;
-        setSuggestionIndex(nextIndex);
-        currentSuggestion = suggestions[nextIndex];
-      }
+      // Obtenir les suggestions basées sur ce qui a été saisi
+      const newSuggestions = getSuggestions(command);
+      if (newSuggestions.length === 0) return;
+      
+      // Toujours utiliser la première suggestion
+      const currentSuggestion = newSuggestions[0];
+      setSuggestions(newSuggestions);
+      setSuggestionIndex(0);
 
       // Appliquer la suggestion
       const { completionType, prefix, hasTrailingSpace } = parseCommand(command);
