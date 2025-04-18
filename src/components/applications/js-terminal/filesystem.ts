@@ -131,6 +131,40 @@ class FileSystem {
   pwd(): string {
     return this.getCurrentPath();
   }
+  
+  getSuggestions(currentPart: string): string[] {
+    // Get suggestions for file/directory paths based on current input
+    const parts = currentPart.split('/');
+    const lastPart = parts.pop() || '';
+    
+    // Determine the directory to look in
+    let searchPath: string[];
+    if (currentPart.startsWith('/')) {
+      searchPath = parts.filter(Boolean);
+    } else if (currentPart.startsWith('~')) {
+      searchPath = ['home', 'guest', ...parts.slice(1).filter(Boolean)];
+    } else {
+      searchPath = [...this.currentPath, ...parts.filter(Boolean)];
+    }
+    
+    // Get the directory node
+    const dirNode = this.getNodeFromPath(searchPath);
+    if (!dirNode || dirNode.type !== 'directory' || !dirNode.children) {
+      return [];
+    }
+    
+    // Filter entries that match the last part
+    return Object.keys(dirNode.children)
+      .filter(name => name.startsWith(lastPart))
+      .map(name => {
+        // Reconstruct the path with the suggestion
+        const isDir = dirNode.children![name].type === 'directory';
+        const suggestion = parts.length > 0 
+          ? parts.join('/') + '/' + name + (isDir ? '/' : '')
+          : name + (isDir ? '/' : '');
+        return suggestion;
+      });
+  }
 }
 
 export const fs = new FileSystem();

@@ -4,9 +4,10 @@ export interface Command {
   name: string;
   description: string;
   execute: (args: string[]) => string;
+  getSuggestions?: (currentArg: string, args?: string[]) => string[];
 }
 
-const commands: Command[] = [
+export const commands: Command[] = [
   {
     name: 'help',
     description: 'List all available commands',
@@ -59,12 +60,34 @@ const commands: Command[] = [
   {
     name: 'date',
     description: 'Display current date and time',
-    execute: () => new Date().toLocaleString()
+    execute: (args) => {
+      if (args[0] === '--help') {
+        return 'Usage: date\nDisplay the current date and time.';
+      }
+      return new Date().toLocaleString();
+    },
+    getSuggestions: (currentArg) => {
+      if (currentArg.startsWith('-')) {
+        return ['--utc', '--iso', '--help'].filter(flag => flag.startsWith(currentArg));
+      }
+      return [];
+    }
   },
   {
     name: 'whoami',
     description: 'Display current user',
-    execute: () => 'guest'
+    execute: (args) => {
+      if (args[0] === '--help') {
+        return 'Usage: whoami\nDisplay the current user name.';
+      }
+      return 'guest';
+    },
+    getSuggestions: (currentArg) => {
+      if (currentArg.startsWith('-')) {
+        return ['--help'].filter(flag => flag.startsWith(currentArg));
+      }
+      return [];
+    }
   }
 ];
 
