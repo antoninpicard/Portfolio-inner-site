@@ -215,15 +215,27 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
       <div className="terminal-container" onClick={() => inputRef.current?.focus()}>
         <div className="terminal-screen" ref={screenRef}>
           {history.length === 0 && (
-            <div className="terminal-welcome">
-              C:{'>'}Welcome to React Terminal v1.0.0
-              C:{'>'}Type 'help' for available commands.
+            <div className="terminal-entry">
+              <div className="terminal-line">
+                <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
+                <span>Welcome to Anto's Terminal v1.0.0</span>
+              </div>
+              <div className="terminal-output"></div>
+            </div>
+          )}
+          {history.length === 0 && (
+            <div className="terminal-entry">
+              <div className="terminal-line">
+                <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
+                <span>Type 'help' for available commands.</span>
+              </div>
+              <div className="terminal-output"></div>
             </div>
           )}
           {history.map((entry, idx) => (
             <div key={idx} className="terminal-entry">
               <div className="terminal-line">
-                <span className="terminal-prompt">C:{'>'}</span>
+                <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
                 {entry.command}
               </div>
               {entry.output && (
@@ -233,7 +245,7 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
           ))}
         </div>
         <div className="terminal-input-line">
-          <span className="terminal-prompt">C:{'>'}</span>
+          <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
           <input
             ref={inputRef}
             className="terminal-input"
@@ -241,7 +253,7 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
             onChange={(e) => setCommand(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <span className="terminal-cursor">_</span>
+          <span className="terminal-cursor">▌</span>
         </div>
       </div>
     </Window>

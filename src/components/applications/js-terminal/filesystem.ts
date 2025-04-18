@@ -21,7 +21,7 @@ class FileSystem {
               'about.txt': {
                 name: 'about.txt',
                 type: 'file',
-                content: 'Welcome to my portfolio terminal!\nType "help" to see available commands.'
+                content: 'Welcome to my terminal!\nType "help" to see available commands.'
               },
               'projects': {
                 name: 'projects',
@@ -52,6 +52,16 @@ class FileSystem {
       return '~';
     }
     return this.getCurrentPath();
+  }
+  
+  getLastPathSegment(): string {
+    if (this.currentPath.length === 0) {
+      return '/';
+    }
+    if (this.currentPath.length === 2 && this.currentPath[0] === 'home') {
+      return 'guest';
+    }
+    return this.currentPath[this.currentPath.length - 1] || '/';
   }
 
   private getNodeFromPath(path: string[]): FSNode | null {

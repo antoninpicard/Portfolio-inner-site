@@ -86,31 +86,37 @@
 .terminal-input-line {
     display: flex;
     flex-direction: row;
-    padding: 4px 8px;
-    background-color: black;
+    padding: 8px 12px;
+    background-color: rgba(0, 20, 10, 0.7);
     border-top: 1px solid #67fcc7;
     align-items: center;
     position: relative;
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 -4px 8px rgba(103, 252, 199, 0.1);
+    backdrop-filter: blur(2px);
 }
 
 .terminal-input-line .terminal-prompt {
-    min-width: 40px;
-    max-width: 40px;
+    min-width: fit-content;
+    padding-right: 12px;
     flex-shrink: 0;
     display: inline-block;
     text-align: left;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(103, 252, 199, 0.7);
 }
 
 .terminal-prompt {
     color: #67fcc7;
     flex-shrink: 0;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(103, 252, 199, 0.5);
 }
 
 .terminal-input {
-    background-color: black !important;
+    background-color: transparent !important;
     color: #67fcc7;
     border: none;
     outline: none;
@@ -118,13 +124,22 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: 0;
-    padding: 0;
+    padding: 4px 0;
     position: relative;
     z-index: 2;
+    caret-color: #67fcc7;
+    transition: all 0.2s ease;
+}
+
+.terminal-input:focus {
+    text-shadow: 0 0 3px rgba(103, 252, 199, 0.5);
 }
 
 .terminal-cursor {
     animation: blinker 1s linear infinite;
+    color: #67fcc7;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(103, 252, 199, 0.8);
 }
 
 @keyframes blinker {
