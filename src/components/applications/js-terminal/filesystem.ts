@@ -23,6 +23,153 @@ class FileSystem {
                 type: 'file',
                 content: 'Welcome to my terminal!\nType "help" to see available commands.'
               },
+              'github': {
+                name: 'github',
+                type: 'directory',
+                children: {
+                  'portfolio': {
+                    name: 'portfolio',
+                    type: 'directory',
+                    children: {
+                      'Portfolio-website-master.md': {
+                        name: 'Portfolio-website-master.md',
+                        type: 'file',
+                        content: '# Portfolio-website-master\n\nCeci est mon Portfolio 2023, créé en Three.js avec React.\n\n## Technologies\n- TypeScript\n- Three.js\n- React\n\n## Stars: 8\n\n[Voir sur GitHub](https://github.com/antoninpicard/Portfolio-website-master)'
+                      },
+                      'Portfolio-inner-site.md': {
+                        name: 'Portfolio-inner-site.md',
+                        type: 'file',
+                        content: '# Portfolio-inner-site\n\nVersion interne de mon portfolio avec terminal interactif.\n\n## Technologies\n- TypeScript\n- React\n\n## Stars: 2\n\n[Voir sur GitHub](https://github.com/antoninpicard/Portfolio-inner-site)'
+                      }
+                    }
+                  },
+                  '42': {
+                    name: '42',
+                    type: 'directory',
+                    children: {
+                      '42.md': {
+                        name: '42.md',
+                        type: 'file',
+                        content: '# 42\n\nCe dépôt contient l\'ensemble de mes projets réalisés dans le cadre de ma formation à l\'École 42.\n\n[Voir sur GitHub](https://github.com/antoninpicard/42)'
+                      },
+                      '42_so_long.md': {
+                        name: '42_so_long.md',
+                        type: 'file',
+                        content: '# 42_so_long\n\nProjet de jeu 2D simple utilisant la bibliothèque graphique minilibx.\n\n## Technologies\n- C\n- minilibx\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_so_long)'
+                      },
+                      '42_pipex.md': {
+                        name: '42_pipex.md',
+                        type: 'file',
+                        content: '# 42_pipex\n\nImplémentation du mécanisme de pipe UNIX en C.\n\n## Technologies\n- C\n- Processus UNIX\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_pipex)'
+                      },
+                      '42_libft.md': {
+                        name: '42_libft.md',
+                        type: 'file',
+                        content: '# 42_libft\n\nMa propre bibliothèque de fonctions C.\n\n## Technologies\n- C\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_libft)'
+                      },
+                      '42_push_swap.md': {
+                        name: '42_push_swap.md',
+                        type: 'file',
+                        content: '# 42_push_swap\n\nA highly efficient number sorting project that implements various sorting algorithms using two stacks.\n\n## Technologies\n- C\n- Algorithmes de tri\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_push_swap)'
+                      },
+                      '42_get_next_line.md': {
+                        name: '42_get_next_line.md',
+                        type: 'file',
+                        content: '# 42_get_next_line\n\nFonction qui lit une ligne à partir d\'un descripteur de fichier.\n\n## Technologies\n- C\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_get_next_line)'
+                      },
+                      '42_printf.md': {
+                        name: '42_printf.md',
+                        type: 'file',
+                        content: '# 42_printf\n\nRecréation de la fonction printf de la bibliothèque standard C.\n\n## Technologies\n- C\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_printf)'
+                      },
+                      '42go-Script.md': {
+                        name: '42go-Script.md',
+                        type: 'file',
+                        content: '# 42go-Script\n\nScript utilitaire pour la formation 42.\n\n[Voir sur GitHub](https://github.com/antoninpicard/42go-Script)'
+                      }
+                    }
+                  },
+                  'api': {
+                    name: 'api',
+                    type: 'directory',
+                    children: {
+                      'SmileAPI.md': {
+                        name: 'SmileAPI.md',
+                        type: 'file',
+                        content: '# SmileAPI\n\nUne API basique créée avec Express.js en TypeScript ✨ Remplacer {insert_here} par randomphrase ou randomimage.\n\n## Technologies\n- TypeScript\n- Express.js\n- Node.js\n\n## Stars: 4\n\n[Voir sur GitHub](https://github.com/antoninpicard/SmileAPI)'
+                      },
+                      'blackjackAPI.md': {
+                        name: 'blackjackAPI.md',
+                        type: 'file',
+                        content: '# blackjackAPI\n\nAPI pour jeu de blackjack.\n\n## Technologies\n- JavaScript\n\n## Stars: 4\n\n[Voir sur GitHub](https://github.com/antoninpicard/blackjackAPI)'
+                      }
+                    }
+                  },
+                  'apps': {
+                    name: 'apps',
+                    type: 'directory',
+                    children: {
+                      'Smile.md': {
+                        name: 'Smile.md',
+                        type: 'file',
+                        content: '# Smile\n\nApp pour Apple Watch qui permet de faire défiler du texte ou une image motivante grâce à une API de ma conception (SmileAPI).\n\n## Technologies\n- Swift\n- WatchKit\n\n## Stars: 5\n\n[Voir sur GitHub](https://github.com/antoninpicard/Smile)'
+                      },
+                      'Get-it-or-Not.md': {
+                        name: 'Get-it-or-Not.md',
+                        type: 'file',
+                        content: '# Get-it-or-Not\n\nUne application de feedback en temps réel pour la salle de classe permettant aux étudiants d\'indiquer s\'ils comprennent le contenu présenté.\n\n[Voir sur GitHub](https://github.com/antoninpicard/Get-it-or-Not)'
+                      },
+                      'GreenTripVTC.md': {
+                        name: 'GreenTripVTC.md',
+                        type: 'file',
+                        content: '# GreenTripVTC\n\nApplication pour service de VTC écologique.\n\n[Voir sur GitHub](https://github.com/antoninpicard/GreenTripVTC)'
+                      },
+                      'Random-password-generator.md': {
+                        name: 'Random-password-generator.md',
+                        type: 'file',
+                        content: '# Random-password-generator\n\nRandPass is a random password generator and manager for all your websites.\n\n## Technologies\n- Python\n\n## Tags\n- python\n- open-source\n- simple\n- password-generator\n- password-manager\n\n## Stars: 1\n\n[Voir sur GitHub](https://github.com/antoninpicard/Random-password-generator)'
+                      }
+                    }
+                  },
+                  'games': {
+                    name: 'games',
+                    type: 'directory',
+                    children: {
+                      'Circle-Game.md': {
+                        name: 'Circle-Game.md',
+                        type: 'file',
+                        content: '# Circle-Game\n\nJeu basé sur des cercles.\n\n## Stars: 3\n\n[Voir sur GitHub](https://github.com/antoninpicard/Circle-Game)'
+                      },
+                      'Merry-Christmas.md': {
+                        name: 'Merry-Christmas.md',
+                        type: 'file',
+                        content: '# Merry-Christmas\n\nJe me suis mis au défi de faire plusieurs jeux sur le thème de Noël. 🎄🎁 "DÉFI"\n\n## Stars: 3\n\n[Voir sur GitHub](https://github.com/antoninpicard/Merry-Christmas)'
+                      },
+                      'Fiesta.md': {
+                        name: 'Fiesta.md',
+                        type: 'file',
+                        content: '# Fiesta\n\nPetit défi en JavaScript en tant qu\'entraînement. "FUN"\n\n## Stars: 4\n\n[Voir sur GitHub](https://github.com/antoninpicard/Fiesta)'
+                      }
+                    }
+                  },
+                  'challenges': {
+                    name: 'challenges',
+                    type: 'directory',
+                    children: {
+                      'Codewars.md': {
+                        name: 'Codewars.md',
+                        type: 'file',
+                        content: '# Codewars\n\nMes solutions aux défis Codewars.\n\n## Technologies\n- C#\n- JavaScript\n- Python\n- Ruby\n\n## Stars: 16\n\n[Voir sur GitHub](https://github.com/antoninpicard/Codewars)'
+                      }
+                    }
+                  },
+                  'README.md': {
+                    name: 'README.md',
+                    type: 'file',
+                    content: '# GitHub Projects\n\nBienvenue dans le répertoire de mes projets GitHub !\n\nCe répertoire contient tous mes projets GitHub organisés par catégories.\n\n## Catégories\n- portfolio : Mes projets de portfolio\n- 42 : Mes projets réalisés à l\'École 42\n- api : Mes projets d\'API\n- apps : Mes applications\n- games : Mes jeux\n- challenges : Mes défis de programmation\n\nUtilisez les commandes `ls` et `cd` pour naviguer dans les répertoires.\nUtilisez la commande `cat` pour afficher le contenu des fichiers.\n\nPour accéder directement à un projet sur GitHub, consultez le lien dans le fichier correspondant.'
+                  }
+                }
+              },
               'projects': {
                 name: 'projects',
                 type: 'directory',
@@ -183,6 +330,101 @@ class FileSystem {
 
   pwd(): string {
     return this.getCurrentPath();
+  }
+  
+  // Extrait l'URL GitHub d'un fichier markdown
+  extractGitHubUrl(content: string): string | null {
+    const urlMatch = content.match(/\[Voir sur GitHub\]\((https:\/\/github\.com\/[^\)]+)\)/);
+    return urlMatch ? urlMatch[1] : null;
+  }
+  
+  findNode(fileName: string): FSNode | null {
+    // Cherche un fichier dans le répertoire courant
+    const currentNode = this.getNodeFromPath(this.currentPath);
+    if (!currentNode || currentNode.type !== 'directory' || !currentNode.children) {
+      return null;
+    }
+    
+    return currentNode.children[fileName] || null;
+  }
+  
+  executeCommand(command: string, args: string[]): string {
+    switch (command) {
+      case 'ls':
+        return this.ls(args[0]);
+      case 'cd':
+        return this.cd(args[0] || '');
+      case 'cat':
+        return this.catFile(args[0]);
+      case 'pwd':
+        return this.pwd();
+      case 'help':
+        return 'Available commands: ls, cd, cat, pwd, github, preview, help\n\n' +
+               'ls: List directory contents\n' +
+               'cd: Change directory\n' +
+               'cat: Display file contents\n' +
+               'pwd: Print working directory\n' +
+               'github [file]: Open GitHub repository link from file\n' +
+               'preview [file]: Preview a Markdown file in a new window\n' +
+               'help: Display this help message';
+      case 'preview':
+        if (args.length === 0) {
+          return 'Usage: preview [file]\nExample: preview Portfolio-website-master.md';
+        }
+        
+        const previewFileName = args[0];
+        const previewNode = this.findNode(previewFileName);
+        
+        if (!previewNode || previewNode.type !== 'file') {
+          return `File not found: ${previewFileName}`;
+        }
+        
+        if (!previewFileName.toLowerCase().endsWith('.md')) {
+          return `File is not a Markdown file: ${previewFileName}`;
+        }
+        
+        // Extraire l'URL GitHub si elle existe
+        const previewContent = previewNode.content || '';
+        const githubUrl = this.extractGitHubUrl(previewContent);
+        
+        // Retourne le contenu avec un préfixe spécial pour la prévisualisation
+        // et inclut l'URL GitHub si elle existe
+        if (githubUrl) {
+          return `PREVIEW_MARKDOWN:${previewFileName}:${previewContent}:${githubUrl}`;
+        } else {
+          return `PREVIEW_MARKDOWN:${previewFileName}:${previewContent}`;
+        }
+      case 'github':
+        if (args.length === 0) {
+          return 'Usage: github [file]\nExample: github Portfolio-website-master.md';
+        }
+        
+        const fileName = args[0];
+        const node = this.findNode(fileName);
+        
+        if (!node || node.type !== 'file') {
+          return `File not found: ${fileName}`;
+        }
+        
+        const content = node.content || '';
+        const repoUrl = this.extractGitHubUrl(content);
+        
+        if (!repoUrl) {
+          return `No GitHub URL found in ${fileName}`;
+        }
+        
+        // Retourne l'URL avec un préfixe spécial que le terminal reconnaîtra
+        return `OPEN_URL:${repoUrl}`;
+      default:
+        return `Command not found: ${command}`;
+    }
+  }
+
+  catFile(path: string): string {
+    if (!path) {
+      return 'Usage: cat [file]';
+    }
+    return this.cat(path);
   }
   
   getSuggestions(currentPart: string): string[] {
