@@ -26,6 +26,18 @@ export const commands: Command[] = [
       }
       
       return fs.executeCommand('preview', args);
+    },
+    getSuggestions: (currentArg, args) => {
+      // Si nous avons déjà un argument, suggérer des fichiers Markdown
+      if (args && args.length > 0) {
+        return [];
+      }
+      
+      // Obtenir tous les fichiers du répertoire courant
+      const files = fs.getSuggestions(currentArg || '');
+      
+      // Filtrer pour ne garder que les fichiers Markdown
+      return files.filter(file => file.toLowerCase().endsWith('.md'));
     }
   },
   {
@@ -33,6 +45,18 @@ export const commands: Command[] = [
     description: 'Open GitHub repository from file',
     execute: (args) => {
       return fs.executeCommand('github', args);
+    },
+    getSuggestions: (currentArg, args) => {
+      // Si nous avons déjà un argument, ne pas suggérer
+      if (args && args.length > 0) {
+        return [];
+      }
+      
+      // Obtenir tous les fichiers du répertoire courant
+      const files = fs.getSuggestions(currentArg || '');
+      
+      // Filtrer pour ne garder que les fichiers Markdown (qui contiennent généralement les liens GitHub)
+      return files.filter(file => file.toLowerCase().endsWith('.md'));
     }
   },
   {
