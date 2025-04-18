@@ -56,26 +56,69 @@ class FileSystem {
 
   private getNodeFromPath(path: string[]): FSNode | null {
     let current = this.root;
-    for (const segment of path) {
+    // Make a copy of the path array to avoid modifying the original
+    const pathCopy = [...path];
+    
+    // Process each segment of the path
+    for (let i = 0; i < pathCopy.length; i++) {
+      const segment = pathCopy[i];
+      
+      // Skip empty segments or current directory
       if (segment === '' || segment === '.') continue;
+      
+      // Handle parent directory navigation
       if (segment === '..') {
-        path.pop();
+        // We're already at root, can't go up further
+        if (current === this.root) continue;
+        
+        // Find the parent node by reconstructing the path up to this point
+        const parentPath = pathCopy.slice(0, i - 1);
+        current = this.getNodeFromPath(parentPath) || this.root;
         continue;
       }
+      
+      // Navigate to the child node
       if (!current.children?.[segment]) return null;
       current = current.children[segment];
     }
+    
     return current;
   }
 
   private resolvePath(path: string): string[] {
+    let segments: string[];
+    
+    // Handle absolute paths
     if (path.startsWith('/')) {
-      return path.split('/').filter(Boolean);
+      segments = path.split('/').filter(Boolean);
     }
-    if (path.startsWith('~')) {
-      return ['home', 'guest', ...path.slice(2).split('/').filter(Boolean)];
+    // Handle home directory
+    else if (path.startsWith('~')) {
+      segments = ['home', 'guest', ...path.slice(2).split('/').filter(Boolean)];
     }
-    return [...this.currentPath, ...path.split('/').filter(Boolean)];
+    // Handle relative paths
+    else {
+      segments = [...this.currentPath];
+      
+      // Add path segments
+      const pathSegments = path.split('/').filter(Boolean);
+      for (const segment of pathSegments) {
+        if (segment === '.') {
+          // Current directory - do nothing
+          continue;
+        } else if (segment === '..') {
+          // Parent directory - remove last segment if not at root
+          if (segments.length > 0) {
+            segments.pop();
+          }
+        } else {
+          // Regular directory/file - add to path
+          segments.push(segment);
+        }
+      }
+    }
+    
+    return segments;
   }
 
   cd(path: string): string {
