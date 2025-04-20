@@ -21,7 +21,7 @@ class FileSystem {
               'about.txt': {
                 name: 'about.txt',
                 type: 'file',
-                content: 'Welcome to my terminal!\nType "help" to see available commands.'
+                content: 'Bienvenue dans mon terminal !\nTapez "help" pour voir les commandes disponibles.'
               },
               'github': {
                 name: 'github',
@@ -177,7 +177,7 @@ class FileSystem {
                   'README.md': {
                     name: 'README.md',
                     type: 'file',
-                    content: '# My Projects\n\n- Web Development\n- React Applications\n- Terminal Emulator'
+                    content: '# Mes Projets\n\n- Développement Web\n- Applications React\n- Émulateur de Terminal'
                   }
                 }
               }
@@ -283,10 +283,10 @@ class FileSystem {
     const targetNode = this.getNodeFromPath(targetPath);
 
     if (!targetNode) {
-      return `cd: no such directory: ${path}`;
+      return `cd: répertoire inexistant: ${path}`;
     }
     if (targetNode.type !== 'directory') {
-      return `cd: not a directory: ${path}`;
+      return `cd: ce n'est pas un répertoire: ${path}`;
     }
 
     this.currentPath = targetPath;
@@ -298,7 +298,7 @@ class FileSystem {
     const node = this.getNodeFromPath(targetPath);
 
     if (!node) {
-      return `ls: no such directory: ${path}`;
+      return `ls: répertoire inexistant: ${path}`;
     }
     if (node.type !== 'directory') {
       return node.name;
@@ -319,10 +319,10 @@ class FileSystem {
     const node = this.getNodeFromPath(targetPath);
 
     if (!node) {
-      return `cat: no such file: ${path}`;
+      return `cat: fichier inexistant: ${path}`;
     }
     if (node.type !== 'file') {
-      return `cat: ${path}: Is a directory`;
+      return `cat: ${path}: C'est un répertoire`;
     }
 
     return node.content || '';
@@ -359,28 +359,28 @@ class FileSystem {
       case 'pwd':
         return this.pwd();
       case 'help':
-        return 'Available commands: ls, cd, cat, pwd, github, preview, help\n\n' +
-               'ls: List directory contents\n' +
-               'cd: Change directory\n' +
-               'cat: Display file contents\n' +
-               'pwd: Print working directory\n' +
-               'github [file]: Open GitHub repository link from file\n' +
-               'preview [file]: Preview a Markdown file in a new window\n' +
-               'help: Display this help message';
+        return 'Commandes disponibles: ls, cd, cat, pwd, github, preview, help\n\n' +
+               'ls: Afficher le contenu du répertoire\n' +
+               'cd: Changer de répertoire\n' +
+               'cat: Afficher le contenu d\'un fichier\n' +
+               'pwd: Afficher le chemin du répertoire actuel\n' +
+               'github [fichier]: Ouvrir le lien du dépôt GitHub depuis un fichier\n' +
+               'preview [fichier]: Prévisualiser un fichier Markdown dans une nouvelle fenêtre\n' +
+               'help: Afficher ce message d\'aide';
       case 'preview':
         if (args.length === 0) {
-          return 'Usage: preview [file]\nExample: preview Portfolio-website-master.md';
+          return 'Utilisation: preview [fichier]\nExemple: preview Portfolio-website-master.md';
         }
         
         const previewFileName = args[0];
         const previewNode = this.findNode(previewFileName);
         
         if (!previewNode || previewNode.type !== 'file') {
-          return `File not found: ${previewFileName}`;
+          return `Fichier non trouvé: ${previewFileName}`;
         }
         
         if (!previewFileName.toLowerCase().endsWith('.md')) {
-          return `File is not a Markdown file: ${previewFileName}`;
+          return `Le fichier n'est pas un fichier Markdown: ${previewFileName}`;
         }
         
         // Extraire l'URL GitHub si elle existe
@@ -396,33 +396,33 @@ class FileSystem {
         }
       case 'github':
         if (args.length === 0) {
-          return 'Usage: github [file]\nExample: github Portfolio-website-master.md';
+          return 'Utilisation: github [fichier]\nExemple: github Portfolio-website-master.md';
         }
         
         const fileName = args[0];
         const node = this.findNode(fileName);
         
         if (!node || node.type !== 'file') {
-          return `File not found: ${fileName}`;
+          return `Fichier non trouvé: ${fileName}`;
         }
         
         const content = node.content || '';
         const repoUrl = this.extractGitHubUrl(content);
         
         if (!repoUrl) {
-          return `No GitHub URL found in ${fileName}`;
+          return `Aucune URL GitHub trouvée dans ${fileName}`;
         }
         
         // Retourne l'URL avec un préfixe spécial que le terminal reconnaîtra
         return `OPEN_URL:${repoUrl}`;
       default:
-        return `Command not found: ${command}`;
+        return `Commande introuvable: ${command}`;
     }
   }
 
   catFile(path: string): string {
     if (!path) {
-      return 'Usage: cat [file]';
+      return 'Utilisation: cat [fichier]';
     }
     return this.cat(path);
   }
