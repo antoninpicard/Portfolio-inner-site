@@ -614,7 +614,7 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
             <div className="terminal-entry">
               <div className="terminal-line">
                 <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
-                <span>Welcome to Anto's Terminal v1.0.0</span>
+                <span>Bienvenue sur le Terminal d'Anto v1.0.0</span>
               </div>
               <div className="terminal-output"></div>
             </div>
@@ -623,7 +623,7 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
             <div className="terminal-entry">
               <div className="terminal-line">
                 <span className="terminal-prompt">C:{fs.getLastPathSegment()}{': '}</span>
-                <span>Type 'help' for available commands.</span>
+                <span>Tapez 'help' pour voir les commandes disponibles.</span>
               </div>
               <div className="terminal-output"></div>
             </div>
