@@ -11,6 +11,7 @@ import TerminalApp from '../applications/js-terminal';
 import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
 import MarkdownPreview from '../applications/MarkdownPreview';
+import Bebop from '../applications/Bebop';
 
 export interface DesktopProps {}
 
@@ -47,6 +48,12 @@ const APPLICATIONS: {
         name: 'Terminal',
         shortcutIcon: 'term',
         component: TerminalApp,
+    },
+    bebop: {
+        key: 'bebop',
+        name: 'Bebop.mp4',
+        shortcutIcon: 'VLC',
+        component: Bebop,
     },
     credits: {
         key: 'credits',
