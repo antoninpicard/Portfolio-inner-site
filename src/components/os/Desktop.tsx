@@ -12,6 +12,7 @@ import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
 import MarkdownPreview from '../applications/MarkdownPreview';
 import Bebop from '../applications/Bebop';
+import FileExplorer from '../applications/file-explorer';
 
 export interface DesktopProps {}
 
@@ -37,17 +38,23 @@ const APPLICATIONS: {
         shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
     },
-    doom: {
-        key: 'doom',
-        name: 'Doom',
-        shortcutIcon: 'doomIcon',
-        component: Doom,
-    },
     terminal: {
         key: 'terminal',
         name: 'Terminal',
         shortcutIcon: 'term',
         component: TerminalApp,
+    },
+    fileExplorer: {
+        key: 'fileExplorer',
+        name: 'Explorateur de fichiers',
+        shortcutIcon: 'myComputer',
+        component: FileExplorer,
+    },
+    doom: {
+        key: 'doom',
+        name: 'Doom',
+        shortcutIcon: 'doomIcon',
+        component: Doom,
     },
     bebop: {
         key: 'bebop',

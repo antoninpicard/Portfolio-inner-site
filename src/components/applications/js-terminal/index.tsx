@@ -5,6 +5,244 @@ import { fs } from './filesystem';
 import * as marked from 'marked';
 import './terminal.css';
 
+// Exporter la fonction createMarkdownPreviewWindow pour qu'elle soit disponible pour d'autres composants
+export const createMarkdownPreviewWindow = (fileName: string, content: string, githubUrl: string | null = null) => {
+  // Créer un conteneur pour la fenêtre
+  const previewContainer = document.createElement('div');
+  previewContainer.className = 'markdown-preview-window';
+  document.body.appendChild(previewContainer);
+  
+  // Créer un en-tête pour la fenêtre dans le style Windows
+  const header = document.createElement('div');
+  header.className = 'markdown-preview-header';
+  header.innerHTML = `<span>Prévisualisation de ${fileName}</span><button class="close-btn">×</button>`;
+  previewContainer.appendChild(header);
+  
+  // Créer un conteneur avec bordure intérieure pour le contenu
+  const innerBorder = document.createElement('div');
+  innerBorder.className = 'markdown-preview-inner-border';
+  previewContainer.appendChild(innerBorder);
+  
+  // Créer un conteneur de défilement pour le contenu
+  const scrollContainer = document.createElement('div');
+  scrollContainer.className = 'markdown-scroll-container';
+  innerBorder.appendChild(scrollContainer);
+  
+  // Créer le contenu de la prévisualisation
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'markdown-preview-content';
+  scrollContainer.appendChild(contentDiv);
+  
+  try {
+    // Si l'URL GitHub n'est pas fournie, essayer de l'extraire du contenu
+    if (!githubUrl) {
+      const githubLinkRegex = /\[Voir sur GitHub\]\((https:\/\/github\.com\/[^\)]+)\)/;
+      const match = content.match(githubLinkRegex);
+      githubUrl = match ? match[1] : null;
+    }
+    
+    // Supprimer le lien GitHub du contenu Markdown
+    let cleanContent = content.replace(/\[Voir sur GitHub\]\(https:\/\/github\.com\/[^\)]+\)/g, '');
+    
+    // Convertir le Markdown en HTML
+    const htmlContent = marked.parse(cleanContent) as string;
+    
+    // Insérer le contenu HTML dans la div
+    contentDiv.innerHTML = `<div class="markdown-vertical-layout">${htmlContent}</div>`;
+    
+    // Ajouter le bouton GitHub séparément s'il a été trouvé
+    if (githubUrl) {
+      console.log('GitHub URL found:', githubUrl); // Debug
+      
+      // Créer un conteneur pour le bouton GitHub en bas
+      const footerContainer = document.createElement('div');
+      footerContainer.className = 'markdown-preview-footer';
+      innerBorder.appendChild(footerContainer);
+      
+      // Créer un bouton GitHub séparé
+      const buttonContainer = document.createElement('div');
+      buttonContainer.className = 'github-button-container';
+      
+      const githubButton = document.createElement('a');
+      githubButton.href = githubUrl;
+      githubButton.className = 'github-button';
+      githubButton.target = '_blank';
+      githubButton.rel = 'noopener noreferrer';
+      githubButton.textContent = 'Voir sur GitHub';
+      
+      buttonContainer.appendChild(githubButton);
+      footerContainer.appendChild(buttonContainer);
+    } else {
+      console.log('No GitHub URL found'); // Debug
+    }
+  } catch (error) {
+    console.error('Erreur lors du parsing Markdown:', error);
+    // Afficher le contenu brut en cas d'erreur
+    contentDiv.innerHTML = `<pre style="white-space: pre-wrap;">${content.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>`;
+  }
+  
+  // Ajouter le style CSS pour la fenêtre dans le style de l'application
+  const style = document.createElement('style');
+  style.textContent = `
+    .markdown-preview-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      height: 80%;
+      max-height: 600px;
+      background-color: #c0c0c0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .markdown-vertical-layout {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .markdown-preview-header {
+      padding: 3px 5px;
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: move;
+    }
+    
+    .close-btn {
+      background-color: #d4d0c8;
+      border: 2px outset #d4d0c8;
+      font-size: 16px;
+      width: 20px;
+      height: 20px;
+      line-height: 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .close-btn:active {
+      border: 2px inset #d4d0c8;
+    }
+    
+    .markdown-preview-inner-border {
+      border: 2px inset #d4d0c8;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+    }
+    
+    .markdown-scroll-container {
+      overflow-y: auto;
+      flex: 1;
+      padding: 15px;
+    }
+    
+    .markdown-preview-content {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+    
+    .markdown-preview-footer {
+      padding: 5px 10px;
+      border-top: 1px solid #ccc;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .github-button {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #d4d0c8;
+      border: 2px outset #d4d0c8;
+      color: #000;
+      text-decoration: none;
+      font-family: 'MS Sans Serif', sans-serif;
+      font-size: 12px;
+    }
+    
+    .github-button:active {
+      border: 2px inset #d4d0c8;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Ajouter des gestionnaires d'événements pour la fenêtre
+  const closeBtn = header.querySelector('.close-btn');
+  closeBtn?.addEventListener('click', () => {
+    document.head.removeChild(style);
+    document.body.removeChild(previewContainer);
+  });
+  
+  // Ajouter un gestionnaire d'événements pour le déplacement de la fenêtre
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+  
+  header.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - previewContainer.getBoundingClientRect().left;
+    offsetY = e.clientY - previewContainer.getBoundingClientRect().top;
+    // Ajouter une classe active pour indiquer que la fenêtre est sélectionnée
+    previewContainer.classList.add('active');
+  });
+  
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      previewContainer.style.left = `${e.clientX - offsetX}px`;
+      previewContainer.style.top = `${e.clientY - offsetY}px`;
+      previewContainer.style.transform = 'none';
+    }
+  });
+  
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+  
+  // Ajouter un gestionnaire pour le double-clic sur la barre de titre (maximiser/restaurer)
+  header.addEventListener('dblclick', () => {
+    if (previewContainer.classList.contains('maximized')) {
+      // Restaurer la taille normale
+      previewContainer.classList.remove('maximized');
+      previewContainer.style.top = '';
+      previewContainer.style.left = '';
+      previewContainer.style.width = '';
+      previewContainer.style.height = '';
+      previewContainer.style.transform = 'translate(-50%, -50%)';
+    } else {
+      // Maximiser la fenêtre
+      previewContainer.classList.add('maximized');
+      previewContainer.style.top = '0';
+      previewContainer.style.left = '0';
+      previewContainer.style.width = '100%';
+      previewContainer.style.height = '100%';
+      previewContainer.style.transform = 'none';
+    }
+  });
+  
+  // Mettre la fenêtre au premier plan lors d'un clic
+  previewContainer.addEventListener('mousedown', () => {
+    // Mettre cette fenêtre au-dessus des autres
+    const allWindows = document.querySelectorAll('.markdown-preview-window');
+    allWindows.forEach(win => {
+      (win as HTMLElement).style.zIndex = '9999';
+      win.classList.remove('active');
+    });
+    previewContainer.style.zIndex = '10000';
+    previewContainer.classList.add('active');
+  });
+};
+
 export interface TerminalAppProps extends WindowAppProps {}
 
 interface HistoryEntry {

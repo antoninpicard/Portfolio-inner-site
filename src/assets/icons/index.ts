@@ -18,6 +18,8 @@ import windowsStartIcon from './windowsStartIcon.png';
 import close from './close.png';
 import term from './term.png';
 import VLC from './VLC.png';
+import text from './text.png';
+import directory from './directory.png';
 
 const icons = {
     windowResize: windowResize,
@@ -37,6 +39,8 @@ const icons = {
     windowExplorerIcon: windowExplorerIcon,
     windowsStartIcon: windowsStartIcon,
     VLC: VLC,
+    text: text,
+    directory: directory,
 };
 
 export type IconName = keyof typeof icons;

@@ -1,0 +1,243 @@
+.file-explorer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #c0c0c0;
+  border: 2px inset #d4d0c8;
+  font-family: 'MS Sans Serif', 'Pixelated MS Sans Serif', Arial, sans-serif;
+  user-select: none;
+  image-rendering: pixelated;
+  color: #000;
+  overflow: hidden;
+}
+
+.file-explorer-menubar {
+  display: flex;
+  padding: 1px 0;
+  background-color: #d4d0c8;
+  border-bottom: 1px solid #808080;
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080;
+}
+
+.menu-item {
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-item:hover {
+  background-color: #000080;
+  color: white;
+}
+
+.windows-logo {
+  margin-right: 8px;
+  padding-top: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.file-explorer-toolbar {
+  display: flex;
+  padding: 4px;
+  border-bottom: 1px solid #808080;
+  background-color: #d4d0c8;
+  align-items: center;
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080;
+}
+
+.explorer-button {
+  margin-right: 4px;
+  padding: 3px 8px;
+  background-color: #d4d0c8;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  cursor: pointer;
+  font-size: 12px;
+  min-width: 24px;
+  font-weight: bold;
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #404040;
+}
+
+.explorer-button:active, .explorer-button.active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background-color: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #404040;
+  padding-top: 4px;
+  padding-left: 9px;
+  padding-right: 7px;
+  padding-bottom: 2px;
+}
+
+.explorer-button:disabled {
+  color: #808080;
+  cursor: default;
+}
+
+.address-bar {
+  flex: 1;
+  background-color: white;
+  border: 2px inset #d4d0c8;
+  padding: 2px 5px;
+  margin: 0 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  box-shadow: inset 1px 1px 1px #808080, inset -1px -1px 1px #ffffff;
+}
+
+.breadcrumb {
+  cursor: pointer;
+  color: #0000aa;
+}
+
+.breadcrumb:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  margin: 0 4px;
+  color: #000;
+}
+
+.view-toggle {
+  display: flex;
+}
+
+.file-explorer-content {
+  flex: 1;
+  overflow: auto;
+  padding: 5px;
+  background-color: white;
+  border: 1px inset #d4d0c8;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 3px;
+  width: calc(100% - 8px);
+  height: calc(100% - 65px);
+}
+
+.file-explorer-content.grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.file-explorer-content.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-item {
+  cursor: pointer;
+  padding: 5px;
+  margin: 2px;
+  border: 1px dotted transparent;
+  font-size: 12px;
+  color: #000;
+}
+
+.file-item:hover {
+  background-color: #ececec;
+  border: 1px dotted #808080;
+}
+
+.file-item.selected {
+  background-color: #000080; /* Bleu Windows 95 */
+  color: white;
+  border: 1px dotted #ffffff;
+}
+
+.file-item.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.file-item.list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.file-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  image-rendering: pixelated;
+}
+
+.file-item-icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.toolbar-icon {
+  width: 18px;
+  height: 18px;
+  image-rendering: pixelated;
+  vertical-align: middle;
+}
+
+.file-item.list .file-icon {
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.file-name {
+  word-break: break-word;
+  font-size: 12px;
+  max-width: 100%;
+}
+
+.file-type {
+  margin-left: auto;
+  color: #555;
+}
+
+.file-item.selected .file-type {
+  color: white;
+}
+
+.file-explorer-statusbar {
+  height: 20px;
+  padding: 2px 5px;
+  border-top: 1px solid #808080;
+  background-color: #d4d0c8;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080;
+  margin-top: 2px;
+}
+
+/* Style spécifique pour les éléments de dossier */
+.file-item.directory .file-name {
+  font-weight: bold;
+}
+
+/* Animation lors de l'ouverture/fermeture de dossier */
+@keyframes folderOpen {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+.file-item-enter {
+  animation: folderOpen 0.2s ease-out;
+}
