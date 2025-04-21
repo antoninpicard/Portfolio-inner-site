@@ -15,7 +15,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <div style={styles.headerRow}>
                         <h3>Baccalauréat Professionnel SN avec la Marine Nationale</h3>
                         <b>
-                            <p>2020 ~ 2022</p>
+                            <p>2016 ~ 2018</p>
                         </b>
                     </div>
                 </div>
@@ -33,9 +33,9 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>Brevet Technicien Supérieur SIO</h3>
+                        <h3>Brevet Technicien Supérieur SIO - Option SLAM</h3>
                         <b>
-                            <p>2022 ~ 2024</p>
+                            <p>2016 ~ 2018</p>
                         </b>
                     </div>
                 </div>
@@ -44,7 +44,8 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Trois ans après mon baccalauréat, j'ai choisi de poursuivre un BTS SIO, m'immergeant dans les systèmes et les technologies qui façonnent notre monde. J'ai exploré les rouages de la cybersécurité, étudié les subtilités du développement logiciel, et même touché à l'intelligence artificielle, avec une volonté constante de comprendre le fonctionnement de ces technologies. Ce parcours m'a permis de développer une vision globale des outils numériques et de leur fonctionnement.                        </p>
+                        J'ai choisi de poursuivre un BTS SIO, m'immergeant dans les systèmes et les technologies qui façonnent notre monde. J'ai exploré les rouages de la cybersécurité, étudié les subtilités du développement logiciel, et même touché à l'intelligence artificielle, avec une volonté constante de comprendre le fonctionnement de ces technologies. Ce parcours m'a permis de développer une vision globale des outils numériques et de leur fonctionnement.
+                        </p>
                     </li>
                     
                 </ul>
@@ -52,9 +53,9 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>42 Lyon</h3>
+                        <h3>42 Lyon | Développeur · Architecture Réseaux, Cybersécurité</h3>
                         <b>
-                            <p>2024 ~ ...</p>
+                            <p>2024 ~ En cours</p>
                         </b>
                     </div>
                 </div>
@@ -63,7 +64,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Après ce parcours enrichissant, j'ai récemment relevé le défi de la piscine de 42 Lyon, une épreuve intense qui met à l’épreuve la détermination et les compétences des étudiants en programmation. Fraîchement intégré, je suis actuellement dans le tronc commun, où j'acquiers une base solide tout en me préparant à me spécialiser dans mes domaines de prédilection, comme la cybersécurité, le développement, et bien plus encore, avec l'objectif de devenir excellent dans ces disciplines.
+                        Après ce parcours enrichissant, j'ai récemment relevé le défi de la piscine de 42 Lyon, une épreuve intense qui met à l'épreuve la détermination et les compétences des étudiants en programmation. Fraîchement intégré, je suis actuellement dans le tronc commun, où j'acquiers une base solide tout en me préparant à me spécialiser dans mes domaines de prédilection, comme la cybersécurité, le développement, et bien plus encore, avec l'objectif de devenir excellent dans ces disciplines.
                         </p>
                     </li>
                     
@@ -73,7 +74,100 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>Stage</h1>
+                        <h1>Expériences Professionnelles</h1>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <div style={styles.headerContainer}>
+                    <div style={styles.header}>
+                        <div style={styles.headerRow}>
+                            <h3>CABAIA | Vendeur (CDI temps partiel)</h3>
+                            <b>
+                                <p>Novembre 2023 ~ En cours</p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <p>
+                            Relation client et conseil personnalisé
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Travail d'équipe et coordination en environnement commercial
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Développement de compétences en sociabilité et communication
+                        </p>
+                    </li>
+                </ul>
+
+                <div style={styles.headerContainer}>
+                    <div style={styles.header}>
+                        <div style={styles.headerRow}>
+                            <h3>ReMarket | Développeur Chef de Projet (Associé)</h3>
+                            <b>
+                                <p>Mai 2023 ~ Décembre 2023</p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <p>
+                            Pilotage d'une équipe de 3 développeurs pour créer un MVP intégrant l'IA
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Leadership et gestion de projet technique
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Coordination entre design, développement et tests utilisateurs
+                        </p>
+                    </li>
+                </ul>
+
+                <div style={styles.headerContainer}>
+                    <div style={styles.header}>
+                        <div style={styles.headerRow}>
+                            <h3>Freelance | Développeur Full-Stack</h3>
+                            <b>
+                                <p>Novembre 2023 ~ Novembre 2024</p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <p>
+                            Développement backend et frontend pour divers clients
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Conception et gestion de bases de données
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Intégration de solutions d'intelligence artificielle
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h1>Stages</h1>
                     </div>
                 </div>
             </div>
@@ -96,7 +190,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </li>
                     <li>
                         <p>
-                            Stage auprès d'un webmaster, qui m'a initié au webdesign et m'a permis d'approfondir mes connaissances en création de sites et de sont backend.
+                            Stage auprès d'un webmaster, qui m'a initié au webdesign et m'a permis d'approfondir mes connaissances en création de sites et de son backend.
                         </p>
                     </li>
                     <li>
