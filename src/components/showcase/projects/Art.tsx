@@ -32,7 +32,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     <img src={tacticalBot} alt="" />
                     <p>
                         <sub>
-                            <b>Image 1:</b> Reconstitution IA (un peu mieux😂)
+                            <b>Image 1:</b> Reconstitution IA *(non contractuelle)
                         </sub>
                     </p>
                 </div>
