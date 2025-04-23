@@ -40,14 +40,6 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
 				<h2>NeuroArm : Contrôle musculaire d’un bras robotisé</h2>
 				<br />
                 <br />
-                <div className="captioned-image">
-                    <img src={neuroArm} alt="" />
-                    <p>
-                        <sub>
-                            <b>Image 2:</b> Reconstitution IA
-                        </sub>
-                    </p>
-                </div>
                 <p>
                 	NeuroArm est un prototype de bras articulé que j’ai conçu pour réagir en temps réel à des contractions musculaires. <br />
 					Grâce à un capteur EMG (électromyographie), les signaux électriques générés par les muscles de l’avant-bras sont interprétés 
@@ -58,7 +50,15 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
 					Il représente pour moi une première étape vers des systèmes plus avancés de prothèses intelligentes et de robotique assistive.
 				</p>
                 <br />
-				<br />
+                <br />
+                <div className="captioned-image">
+                    <img src={neuroArm} alt="" />
+                    <p>
+                        <sub>
+                            <b>Image 2:</b> Reconstitution IA
+                        </sub>
+                    </p>
+                </div>
             </div>
         </div>
     );

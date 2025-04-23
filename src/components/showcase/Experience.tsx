@@ -12,44 +12,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <div style={styles.headerRow}>
                         <h1>Formation</h1>
                     </div>
-                    <div style={styles.headerRow}>
-                        <h3>Baccalauréat Professionnel SN (Marine Nationale)</h3>
-                        <b>
-                            <p>2016 ~ 2018</p>
-                        </b>
-                    </div>
-                </div>
-            </div>
-            <div className="text-block">
-                <ul>
-                    <li>
-                        <p>
-                            Fasciné par le code et les systèmes complexes depuis mon plus jeune âge, j’ai intégré un Bac Pro Systèmes Numériques en partenariat avec la Marine Nationale. Cette formation m’a initié aux bases des réseaux et de l’électronique, tout en forgeant ma discipline et ma capacité à travailler sous pression.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div style={styles.headerContainer}>
-                <div style={styles.header}>
-                    <div style={styles.headerRow}>
-                        <h3>BTS SIO - Option SLAM</h3>
-                        <b>
-                            <p>2016 ~ 2018</p>
-                        </b>
-                    </div>
-                </div>
-            </div>
-            <div className="text-block">
-                <ul>
-                    <li>
-                        <p>
-                            En parallèle de mon Bac Pro, j’ai poursuivi un BTS Services Informatiques aux Organisations (SLAM) au Lycée Saint-Bénigne à Dijon. Ce cursus m’a plongé dans le développement logiciel, les bases de données et les rudiments de la cybersécurité. J’ai appris à concevoir des solutions pragmatiques, posant les fondations de ma passion pour l’innovation technologique.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div style={styles.headerContainer}>
-                <div style={styles.header}>
+                    <br />
                     <div style={styles.headerRow}>
                         <h3>42 Lyon - Développeur, Architecture Réseaux, Cybersécurité</h3>
                         <b>
@@ -70,6 +33,44 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
+                        <h3>BTS SIO - Option SLAM</h3>
+                        <b>
+                            <p>2021 ~ 2023</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <ul>
+                    <li>
+                        <p>
+                            Après mon Bac Pro, j’ai poursuivi un BTS Services Informatiques aux Organisations (SLAM) au Lycée Saint-Bénigne à Dijon. Ce cursus m’a plongé dans le développement logiciel, les bases de données et les rudiments de la cybersécurité. J’ai appris à concevoir des solutions pragmatiques, posant les fondations de ma passion pour l’innovation technologique.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h3>Bac Pro SN (Marine Nationale)</h3>
+                        <b>
+                            <p>2018 ~ 2021</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <ul>
+                    <li>
+                        <p>
+                            Fasciné par le code et les systèmes complexes depuis mon plus jeune âge, j’ai intégré un Baccalauréat Professionnel Systèmes Numériques en partenariat avec la Marine Nationale. Cette formation m’a initié aux bases des réseaux et de l’électronique, tout en forgeant ma discipline et ma capacité à travailler sous pression.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
                         <h1>Expériences</h1>
                     </div>
                 </div>
@@ -79,11 +80,10 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     Mes expériences, qu’elles soient professionnelles ou personnelles, témoignent de ma capacité à transformer ma passion pour la technologie en solutions concrètes et innovantes.
                 </p>
                 <br />
-                <br />
                 <ul>
-                    <li>
+                <li>
                         <p>
-                            <b>Freelance - Développeur Full-Stack (Nov. 2023 - Nov. 2024)</b>: J’ai conçu des applications web complètes, gérant backend, frontend, et bases de données. J’ai également intégré des solutions d’IA, renforçant ma capacité à créer des systèmes intelligents et performants.
+                            <b>CABAIA - Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b>: Ce rôle m’a permis d’aiguiser ma sociabilité et mon sens du travail d’équipe, des qualités essentielles pour collaborer efficacement sur des projets techniques.
                         </p>
                     </li>
                     <li>
@@ -93,20 +93,15 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </li>
                     <li>
                         <p>
-                            <b>CABAIA - Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b>: Ce rôle m’a permis d’aiguiser ma sociabilité et mon sens du travail d’équipe, des qualités essentielles pour collaborer efficacement sur des projets techniques.
+                            <b>Freelance - Développeur Full-Stack (Nov. 2023 - Nov. 2024)</b>: J’ai conçu des applications web complètes, gérant backend, frontend, et bases de données. J’ai également intégré des solutions d’IA, renforçant ma capacité à créer des systèmes intelligents et performants.
                         </p>
                     </li>
 					<br />
-					<h3>Stages</h3>
-					<br />
+                    <h2>Stages</h2>
+                    <br />
                     <li>
                         <p>
-                            <b>Stage - Administrateur Réseau</b>: Aux côtés d’un administrateur réseau, j’ai exploré la structure et le fonctionnement des réseaux, développant une compréhension approfondie des infrastructures informatiques.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>Stage - Marine Nationale</b>: Cette expérience m’a enseigné la discipline et l’importance de la cohésion d’équipe, des valeurs que j’applique dans tous mes projets collaboratifs.
+                            <b>Stage - Développeur Web (Imprimerie)</b>: J’ai réalisé un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant, confirmant mon ambition de me spécialiser en cybersécurité et développement logiciel plutôt qu’en développement web.
                         </p>
                     </li>
                     <li>
@@ -116,7 +111,12 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </li>
                     <li>
                         <p>
-                            <b>Stage - Développeur Web (Imprimerie)</b>: J’ai réalisé un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant, confirmant mon ambition de me spécialiser en cybersécurité et développement logiciel plutôt qu’en développement web.
+                            <b>Stage - Marine Nationale</b>: Cette expérience m’a enseigné la discipline et l’importance de la cohésion d’équipe, des valeurs que j’applique dans tous mes projets collaboratifs.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Stage - Administrateur Réseau</b>: Aux côtés d’un administrateur réseau, j’ai exploré la structure et le fonctionnement des réseaux, développant une compréhension approfondie des infrastructures informatiques.
                         </p>
                     </li>
                 </ul>
