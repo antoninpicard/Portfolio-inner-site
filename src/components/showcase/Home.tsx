@@ -37,8 +37,8 @@ const Home: React.FC<HomeProps> = (props) => {
                     text="CONTACT"
                 />
             </div>
-            <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                {/* <img src={forhire} alt="" /> */}
+            <div style={styles.header}>
+                <p>Ce PC est entièrement fonctionnel</p>
             </div>
         </div>
     );
