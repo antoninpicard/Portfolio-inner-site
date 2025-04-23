@@ -1,91 +1,64 @@
 import React from 'react';
 
-import girlRun from '../../../assets/pictures/projects/art/elden-ring.jpg';
-import gsts from '../../../assets/pictures/projects/art/hollow.jpg';
+import tacticalBot from '../../../assets/pictures/projects/art/tacticalBot.png';
+import neuroArm from '../../../assets/pictures/projects/art/neuroArm.png';
 
 export interface ArtProjectsProps {}
 
 const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
-            <h1>Jeux Vidéos</h1>
-            <h3>PASSION 2</h3>
+            <h1>Robotique</h1>
+            <h3>Quelques projets</h3>
             <br />
             <div className="text-block">
                 <p>
-                Bien que j'adore la programmation et le développement de logiciels, les jeux vidéos ont une place spéciale dans mon cœur.
-                </p>
-                <br />
-                <p>
-                    Je vais vous présenter quelques jeux que j'adore.
+                	La robotique est pour moi un terrain de jeu parfait où se rencontrent programmation, mécanique, électronique et IA. <br />
+					J’expérimente avec des microcontrôleurs, des capteurs et des algorithmes pour concevoir des systèmes autonomes, réactifs et parfois même imprévisibles. <br />
+					<br />Ce domaine me permet de toucher du doigt l’ingénierie au sens large — et de concrétiser des idées qui, parfois, semblaient irréalisables.
                 </p>
             </div>
             <div className="text-block">
-                <h2>Elden Ring</h2>
+                <h2>TacticalTrackBot : Robot autonome & simulateur d'engin défensif</h2>
                 <br />
                 <p>
-                    J'adore les jeux complexes et récemment, je suis tombé sur Elden Ring, un jeu incroyablement difficile qui demande beaucoup de patience. Les combats sont épiques, les défis sont nombreux et les zones du jeu sont magnifiques. C'est un véritable chef-d'œuvre du jeu vidéo qui m'a captivé dès les premières minutes. J'ai été fasciné par la richesse de l'univers d'Elden Ring, créé en collaboration entre Hidetaka Miyazaki et George R.R. Martin. Chaque recoin du monde est soigneusement conçu, avec des paysages variés et des détails minutieux. L'exploration de ces environnements immersifs est un plaisir en soi.
+					TacticalTrackBot est un robot suiveur de cible doté d’un système de tir embarqué (factice), pensé comme une simulation d’un engin mobile semi-autonome de défense. <br />
+					En plus de suivre une cible en mouvement grâce à des capteurs de distance, le robot peut engager une action ciblée via un petit canon factice motorisé et une commande vocal.
+
                 </p>
                 <br />
-                <p>
-                Le jeu exige une grande maîtrise des mécaniques de combat, avec des affrontements intenses contre des ennemis redoutables. Chaque victoire est gratifiante et chaque défaite est une occasion d'apprendre et de s'améliorer. La difficulté du jeu est élevée, mais cela ajoute à son attrait, car chaque défi surmonté procure une véritable sensation de satisfaction.
-                </p>
                 <br />
                 <div className="captioned-image">
-                    <img src={girlRun} alt="" />
+                    <img src={tacticalBot} alt="" />
                     <p>
                         <sub>
-                            <b>Image 1:</b> Images elden ring
+                            <b>Image 1:</b> Reconstitution IA (un peu mieux😂)
                         </sub>
                     </p>
                 </div>
                 <br />
-                
-                <br />
-                <p>
-                    Après ce jeu exceptionnelle, je vous présente ✨Hollow Knight✨
-                </p>
+				<h2>NeuroArm : Contrôle musculaire d’un bras robotisé</h2>
+				<br />
                 <br />
                 <div className="captioned-image">
-                    <img src={gsts} alt="" />
+                    <img src={neuroArm} alt="" />
                     <p>
                         <sub>
-                            <b>Image 2:</b> Hollow knight image
+                            <b>Image 2:</b> Reconstitution IA
                         </sub>
                     </p>
                 </div>
-                <br />
                 <p>
-                Hollow Knight est un jeu d'action-aventure en plateforme avec une ambiance sombre et mystérieuse. Vous incarnez un chevalier insecte dans le vaste monde souterrain de Hallownest. Explorez, combattez des ennemis redoutables et résolvez des énigmes tout en découvrant des secrets cachés. Avec son esthétique artistique unique et ses combats exigeants, Hollow Knight offre une expérience immersive et gratifiante.
+                	NeuroArm est un prototype de bras articulé que j’ai conçu pour réagir en temps réel à des contractions musculaires. <br />
+					Grâce à un capteur EMG (électromyographie), les signaux électriques générés par les muscles de l’avant-bras sont interprétés 
+					pour piloter les différents moteurs du bras. <br /><br />L’objectif ? Offrir une interface homme-machine aussi naturelle qu’intuitive.
                 </p>
+				<p>
+					Ce projet m’a permis de mêler électronique, biomécanique et logique embarquée. <br />
+					Il représente pour moi une première étape vers des systèmes plus avancés de prothèses intelligentes et de robotique assistive.
+				</p>
                 <br />
-                {/* <h3> Screen record time-lapses and make gifs</h3> */}
-                <h3>Lien Vidéo:</h3>
-                <br />
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://www.youtube.com/watch?v=JldMvQMO_5U&ab_channel=BANDAINAMCOEurope"
-                        >
-                            <p>
-                                <b>VIDEO</b> - ELDEN RING - Gameplay Preview
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://www.youtube.com/watch?v=rXMX4YJ7Lks&ab_channel=PlayStation"
-                        >
-                            <p>
-                                <b>VIDEO</b> - SEKIRO, un jeu que je n'ai pas présenté mais qui est tout aussi incroyable.
-                            </p>
-                        </a>
-                    </li>
-                </ul>
+				<br />
             </div>
         </div>
     );
