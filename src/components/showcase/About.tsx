@@ -15,16 +15,15 @@ const About: React.FC<AboutProps> = (props) => {
             <h3>Je suis Antonin Picard</h3>
             <br />
             <div className="text-block">
-                <p>
-                Passionné de programmation depuis toujours, je cherche
-                continuellement à me défier et à développer mes
-                compétences dans ce milieu. Je prépare actuellement un
-                BTS SIO (BAC+2) qui me permet de faire de ma passion mon
-                quotidien.
-                </p>
+				<p>
+					Passionné par le développement, la cybersécurité et la robotique, 
+					Actuellement étudiant à l'école 42 Lyon, je développe mes compétences à travers des projets concrets, 
+					aussi bien en freelance qu'en équipe. 
+					Mon objectif : allier technique, innovation et impact réel.
+				</p>
                 <br />
                 <p>
-                    Merci de prendre du temps pour regarder mon portfolio. I
+                    Merci de prendre du temps pour regarder mon portfolio.
                     J'espère que vous allez l'aimer. Si vous avez des questions ou des commentaires, vous 
                     pouvez me contacter en utilisant{' '}
                     <Link to="/contact">ce formulaire</Link> ou m'envoyer un mail sur{' '}
@@ -37,9 +36,18 @@ const About: React.FC<AboutProps> = (props) => {
             <div className="text-block">
                 <h3>À Propos De Moi</h3>
                 <br />
-                <p>
-                     Depuis mon plus jeune âge, j'ai toujours été animé par une curiosité pour comprendre le fonctionnement des choses. J'étais très attiré par les jeux vidéo, notamment Garry's Mod. À l'âge de 13 ans, j'ai développé mon propre serveur Garry's Mod, ce qui a été ma première expérience en programmation. Au collège, j'ai appris, grâce au club de technologie auquel je participais, à créer un site web. J'ai ensuite su que je voulais poursuivre dans cette voie, et j'ai continué au lycée et en études supérieures.
-                </p>
+	                <p>
+						Depuis mon plus jeune âge, j'ai toujours été animé par une profonde curiosité pour comprendre le fonctionnement des systèmes. 
+						Cette passion s’est manifestée très tôt à travers les jeux vidéo, notamment Garry's Mod, où, à seulement 13 ans, 
+						j'ai développé mon propre serveur, posant ainsi mes premiers pas dans la programmation. 
+						Début collège, j’ai découvert la création web et la robotique grâce à un club de technologie, ce qui a confirmé ma volonté d’évoluer dans ce domaine. 
+						<br></br>
+						<br></br>
+						Progressivement, mon intérêt s’est élargi à la cybersécurité, la robotique et de le développement : des domaines où l’exploration, la logique 
+						et l’innovation prennent tout leur sens. Aujourd’hui, je poursuis cette passion à travers mes études à l’école 42, 
+						mes projets personnels et professionnels, avec un objectif clair : concevoir, sécuriser et améliorer des systèmes complexes.
+					</p>
+
                 <br />
                 <div className="captioned-image">
                     <img src={me} style={styles.image} alt="" />
@@ -51,20 +59,13 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
 
                 <p>
-                    J'ai commencé la programmation plus sérieusement en terminal, 
-                    j'ai initialement appris comment créer et intéragir avec un site web.
-                    J'ai entrepris de nombreux projets passionnants, dont beaucoup avec{' '}
-                    <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/dikra-ben-allel/"
-                    >
-                        Dikra Ben Allel
-                    </a>
-                    . Nous avons beaucoup travaillé ensemble, notamment pour créer un logiciel avec ElectronJS, plusieurs projets de jeux, des applications et bien plus encore. Un de ces projets est consultable sur ma page{' '}
-                    <Link to="/projects/software">Projets IT</Link>.
-                </p>
-                <br />
+					Dès l’adolescence, je codais des scripts pour mon serveur Garry’s Mod et automatisais des tâches en Python. <br />
+					Rapidement, j’ai conçu mes propres bots, un assistant vocal local avec NLP, 
+					et un pare-feu intelligent basé sur Raspberry Pi pour sécuriser mon réseau. <br /><br />
+					Passionné de cybersécurité, de robotique et d’IA, je développe aujourd’hui des projets qui allient back-end, 
+					architecture réseau et algorithmes avancés. <br />
+					Certains de ces projets sont visibles sur ma page <Link to="/projects/software">Projets IT</Link>.
+				</p>
             
                 <br />
                 <div style={{}}>
@@ -77,17 +78,16 @@ const About: React.FC<AboutProps> = (props) => {
                         }}
                     >
                         <h3>Mes Loisirs</h3>
-                        <br />
                         <p>
-                            En dehors du domaine du logiciel, j'ai de nombreux hobbies que j'apprécie pratiquer pendant mon temps libre. Parmi les hobbies plus concrets, j'ai la{' '}
-                            <Link to="/projects/music">Musique</Link>{' '}
-                            mais aussi les{' '}
-                            <Link to="/projects/art">Jeux vidéos</Link>(évidement). Vous pouvez en savoir plus sur chacun d'eux dans leurs pages respectives sous l'onglet "Projets et hobbies" sur mon site. D'autres hobbies que j'apprécie sont la cuisine et la moto.
-                        </p>
-                        <br />
-                        <p>
-                            Au lycée, j'ai suivi des études en informatique en partenariat avec la Marine Nationale, ce qui m'a permis d'être beaucoup plus mature et discipliné. Grâce à cela, j'ai rencontré un milieu formidable et beaucoup de personnes qui m'ont aidé.
-                        </p>
+							En dehors du code, je me passionne pour la <Link to="/projects/music">musique</Link>, les <Link to="/projects/art">jeux vidéo</Link> que j’explore autant en joueur qu’en créateur mais aussi pour la cuisine et la moto. <br />
+							Ces hobbies nourrissent ma créativité autant que mes projets techniques, et m’aident à garder un esprit ouvert et curieux.
+						</p>
+						<br />
+						<p>
+							Au lycée, j’ai suivi un cursus informatique en partenariat avec la Marine Nationale. <br />
+							Cette expérience m’a apporté discipline, rigueur et goût du défi, des qualités que je mets aujourd’hui au service de mes projets tech les plus ambitieux.
+						</p>
+
                     </div>
                     <div style={styles.verticalImage}>
                         <img src={meNow} style={styles.image} alt="" />

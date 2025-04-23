@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 // @ts-ignore
-import house from '../../../assets/audio/agressive_phonk.mp3';
-// @ts-ignore
-import edge from '../../../assets/audio/edge.mp3';
+import house from '../../../assets/audio/sombrero.mp3';
 // @ts-ignore
 import dnb from '../../../assets/audio/hugo.mp3';
 // @ts-ignore
 import cover from '../../../assets/pictures/projects/audio/cover.jpg';
+// @ts-ignore
+import cover2 from '../../../assets/pictures/projects/audio/whiplash.png';
+// @ts-ignore
+import whiplash from '../../../assets/audio/Whiplash.mp3';
 
 import houseProject from '../../../assets/pictures/projects/audio/houseProject.png';
 
@@ -20,32 +22,31 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Musique</h1>
+			<br />
             <h3>Ce que j'écoute</h3>
-            <br />
             <div className="text-block">
                 <p>
-                    Depuis petit j'écoute de la musique, 
-                    cela me permet de me détendre et d'être plus productif.
-                    La musique fait partie intégrante de ma vie et c'est pourquoi 
-                    je vais vous faire écouter plusieurs morceaux que j'aime.
+					La musique a toujours été un moteur pour moi. <br />
+					Depuis tout petit, elle m’aide à me concentrer, à me dépasser parfois même à coder plus vite. <br />
+					Elle fait partie de mon processus créatif, au même titre que mes projets tech.
                 </p>
-                <br />
             </div>
             <h2>Focus Musique</h2>
             <br />
             <p>
-                 Malgré les apparences, ce style de musique me permet de me concentrer et d'être beaucoup plus rapide et précis.
+				Le morceau que je vous propose, <i>“Sombrero ?”</i>, est une composition originale. <br />
+				Derrière son style énergique se cache un outil de focus : rythme soutenu, ambiance électro, idéal pour les sessions de deep work.
             </p>
             <br />
             <p>
-                Évidemment à ne pas écouter trop fort 😂.
+				Spoiler : oui, ça fonctionne même à 2h du mat
             </p>
             <br />
 
             <MusicPlayer
                 src={house}
-                title="Aggressive Phonk"
-                subtitle="apmtbeat - 2022"
+                title="Sombrero ?"
+                subtitle="Moi - 2024"
                 currentSong={currentSong}
                 setCurrentSong={setCurrentSong}
             />
@@ -53,30 +54,40 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             <br />
             <br />
             <div className="captioned-image">
-                <img src={houseProject} alt="" />
+                <img src={houseProject} alt="Projet musical Sombrero ?" />
                 <p>
                     <sub>
-                        <b>Image 1:</b> Projet Audio Phonk
+                        <b>Image 1:</b> Audio Project " Sombrero ? "
                     </sub>
                 </p>
             </div>
             
             <br />
-            <h2>Plus Joyeux ?</h2>
+            <h2>Ma Motivation</h2>
             <br />
             <p>
-                Voici ce classique qui me permet de bien commencer mes journées.
+			La bande-son de <a href="https://www.allocine.fr/film/fichefilm_gen_cfilm=225953.html">Whiplash</a> me pousse à viser toujours plus haut. 
+			<br />
+				Ce film incarne à la perfection : la passion brute, la rigueur extrême et la quête obsessionnelle de l’excellence.
             </p>
             <br />
             <MusicPlayer
-                src={edge}
-                title="I'm Still Standing"
-                subtitle="Elton John - 2010"
+                src={whiplash}
+                title="Whiplash"
+                subtitle="Hank Levy - 2021"
                 currentSong={currentSong}
                 setCurrentSong={setCurrentSong}
             />
-            <br />
-            
+			<br />
+			<br />
+			<div className="captioned-image">
+                <img src={cover2} alt="Projet musical Sombrero ?" />
+                <p>
+                    <sub>
+                        <b>Image 2:</b> Image extrait du film " whiplash "
+                    </sub>
+                </p>
+            </div>
             <br />
             <h2>Enfin le divertissement</h2>
             <br />
@@ -98,7 +109,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 <img src={cover} alt="" />
                 <p>
                     <sub>
-                        <b>Image 2:</b> Cover de l'album Flaque de Samples.
+                        <b>Image 3:</b> Cover de l'album Flaque de Samples.
                     </sub>
                 </p>
             </div>

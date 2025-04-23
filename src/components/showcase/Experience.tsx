@@ -13,9 +13,9 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         <h1>Formation</h1>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Baccalauréat Professionnel SN avec la Marine Nationale</h3>
+                        <h3>Baccalauréat Professionnel SN (Marine Nationale)</h3>
                         <b>
-                            <p>2020 ~ 2022</p>
+                            <p>2016 ~ 2018</p>
                         </b>
                     </div>
                 </div>
@@ -24,18 +24,17 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Depuis toujours passionné par la programmation, les réseaux, la cybersécurité et les technologies en général, j'ai choisi de suivre un baccalauréat en Systèmes Numériques (SN) en partenariat avec la Marine nationale pour approfondir mes connaissances et développer mes compétences dans ces domaines fascinants.
+                            Fasciné par le code et les systèmes complexes depuis mon plus jeune âge, j’ai intégré un Bac Pro Systèmes Numériques en partenariat avec la Marine Nationale. Cette formation m’a initié aux bases des réseaux et de l’électronique, tout en forgeant ma discipline et ma capacité à travailler sous pression.
                         </p>
                     </li>
-                    
                 </ul>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>Brevet Technicien Supérieur SIO</h3>
+                        <h3>BTS SIO - Option SLAM</h3>
                         <b>
-                            <p>2022 ~ 2024</p>
+                            <p>2016 ~ 2018</p>
                         </b>
                     </div>
                 </div>
@@ -44,64 +43,80 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                        Trois ans après mon baccalauréat, j'ai choisi de poursuivre un BTS SIO, m'immergeant dans les systèmes et les technologies qui façonnent notre monde. J'ai exploré les rouages de la cybersécurité, étudié les subtilités du développement logiciel, et même touché à l'intelligence artificielle, avec une volonté constante de comprendre le fonctionnement de ces technologies. Ce parcours m'a permis de développer une vision globale des outils numériques et de leur fonctionnement.                        </p>
-                    </li>
-                    
-                </ul>
-            </div>
-            <div style={styles.headerContainer}>
-                <div style={styles.header}>
-                    <div style={styles.headerRow}>
-                        <h3>42 Lyon</h3>
-                        <b>
-                            <p>2024 ~ ...</p>
-                        </b>
-                    </div>
-                </div>
-            </div>
-            <div className="text-block">
-                <ul>
-                    <li>
-                        <p>
-                        Après ce parcours enrichissant, j'ai récemment relevé le défi de la piscine de 42 Lyon, une épreuve intense qui met à l’épreuve la détermination et les compétences des étudiants en programmation. Fraîchement intégré, je suis actuellement dans le tronc commun, où j'acquiers une base solide tout en me préparant à me spécialiser dans mes domaines de prédilection, comme la cybersécurité, le développement, et bien plus encore, avec l'objectif de devenir excellent dans ces disciplines.
+                            En parallèle de mon Bac Pro, j’ai poursuivi un BTS Services Informatiques aux Organisations (SLAM) au Lycée Saint-Bénigne à Dijon. Ce cursus m’a plongé dans le développement logiciel, les bases de données et les rudiments de la cybersécurité. J’ai appris à concevoir des solutions pragmatiques, posant les fondations de ma passion pour l’innovation technologique.
                         </p>
                     </li>
-                    
                 </ul>
             </div>
-            
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>Stage</h1>
+                        <h3>42 Lyon - Développeur, Architecture Réseaux, Cybersécurité</h3>
+                        <b>
+                            <p>2024 ~ En cours</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <ul>
+                    <li>
+                        <p>
+                            Actuellement étudiant à 42 Lyon, j’ai relevé le défi de la piscine, une immersion intense qui teste la logique et la persévérance. Dans le tronc commun, j’affine mes compétences en C, Git, et architectures réseaux, tout en me préparant à me spécialiser en cybersécurité et développement. Mon objectif : maîtriser les systèmes complexes et repousser les limites de l’innovation.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h1>Expériences</h1>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    J'ai effectué divers stages, mais j'ai choisi de ne mentionner ici que les plus anciens, ceux qui ont transformé ce qui n'était au départ qu'une passion en une véritable ambition.
+                    Mes expériences, qu’elles soient professionnelles ou personnelles, témoignent de ma capacité à transformer ma passion pour la technologie en solutions concrètes et innovantes.
                 </p>
                 <br />
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Stage aux côtés d'un administrateur réseau, qui m'a permis de saisir en profondeur le fonctionnement et la structure des réseaux.
+                            <b>Freelance - Développeur Full-Stack (Nov. 2023 - Nov. 2024)</b>: J’ai conçu des applications web complètes, gérant backend, frontend, et bases de données. J’ai également intégré des solutions d’IA, renforçant ma capacité à créer des systèmes intelligents et performants.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage au sein de la Marine Nationale, où j'ai appris l'importance de la discipline et de la cohésion de groupe.
+                            <b>ReMarket - Développeur Chef de Projet (Mai 2023 - Déc. 2023)</b>: En tant qu’associé, j’ai piloté une équipe de trois développeurs pour créer un MVP intégrant l’IA. J’ai coordonné design, développement, et tests utilisateurs, développant mes compétences en leadership et gestion de projet.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Stage auprès d'un webmaster, qui m'a initié au webdesign et m'a permis d'approfondir mes connaissances en création de sites et de sont backend.
+                            <b>CABAIA - Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b>: Ce rôle m’a permis d’aiguiser ma sociabilité et mon sens du travail d’équipe, des qualités essentielles pour collaborer efficacement sur des projets techniques.
+                        </p>
+                    </li>
+					<br />
+					<h3>Stages</h3>
+					<br />
+                    <li>
+                        <p>
+                            <b>Stage - Administrateur Réseau</b>: Aux côtés d’un administrateur réseau, j’ai exploré la structure et le fonctionnement des réseaux, développant une compréhension approfondie des infrastructures informatiques.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Réalisation d'un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant dans mon parcours. Malgré mes compétences en développement web, je ne compte en faire qu'occasionnellement, car mes ambitions sont orientées vers des domaines plus vastes comme la cybersécurité et le développement logiciel.
+                            <b>Stage - Marine Nationale</b>: Cette expérience m’a enseigné la discipline et l’importance de la cohésion d’équipe, des valeurs que j’applique dans tous mes projets collaboratifs.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Stage - Webmaster</b>: Initié au webdesign et au développement backend, j’ai acquis des compétences pratiques en création de sites web, renforçant mon intérêt pour les technologies web.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Stage - Développeur Web (Imprimerie)</b>: J’ai réalisé un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant, confirmant mon ambition de me spécialiser en cybersécurité et développement logiciel plutôt qu’en développement web.
                         </p>
                     </li>
                 </ul>

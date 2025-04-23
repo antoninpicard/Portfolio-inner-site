@@ -1,49 +1,266 @@
 import React from 'react';
-// @ts-ignore
-// @ts-ignore
-import computer from '../../../assets/pictures/projects/software/computer.mp4';
-// @ts-ignore
-import black from '../../../assets/pictures/projects/software/black.png';
-import circle from '../../../assets/pictures/projects/software/circle.png';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
-export interface SoftwareProjectsProps {}
+// Imports des assets (décommentez et ajustez les chemins selon votre structure)
+// import getIt from '../../assets/pictures/getitonot.jpg';
+// import cyber from '../../assets/pictures/cyberguard.jpg';
+// import drone from '../../assets/pictures/drone.jpg';
+// import nlp from '../../assets/pictures/nlpbot.jpg';
+// import quantum from '../../assets/pictures/quantum.jpg';
+import computer from '../../../assets/pictures/projects/software/computer.mp4';
+// import black from '../../../assets/pictures/projects/software/black.png';
+// import circle from '../../../assets/pictures/projects/software/circle.png';
 
-const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
+export interface ProjectsProps {}
+
+const Projects: React.FC<ProjectsProps> = () => {
     return (
         <div className="site-page-content">
-            <h1>IT</h1>
-            <h3>Projets</h3>
+            <h1>Projets IT</h1>
+            <h3>Code, Innovation, Impact</h3>
             <br />
             <p>
-                Voici quelques-uns de mes projets préférés sur lesquels j'ai travaillé ces dernières années.
+                Voici une sélection de mes projets préférés, alliant développement, cybersécurité, robotique, intelligence artificielle et conception 3D. Chaque projet est conçu pour résoudre des problèmes réels avec des technologies de pointe. Plongez dans le code via les repos GitHub ou testez les démos pour voir mes idées en action !
             </p>
             <br />
             <ResumeDownload />
             <br />
+
+            {/* Projet 1: Get-it-or-Not */}
+            <div className="text-block">
+                <h2>Get-it-or-Not</h2>
+                <br />
+                <p>
+                    Une application de feedback en temps réel pour la salle de classe, permettant aux étudiants d'indiquer s'ils comprennent le cours via une interface intuitive. Les professeurs visualisent les retours instantanément sur un tableau de bord dynamique, avec un chat intégré pour des interactions approfondies.
+                </p>
+                <br />
+                <div className="captioned-image">
+                    {/* <img src={getIt} alt="Get-it-or-Not dashboard" /> */}
+                    <p style={styles.caption}>
+                        <sub>
+                            <b>Image 1:</b> Tableau de bord Get-it-or-Not
+                        </sub>
+                    </p>
+                </div>
+                <br />
+                <h3>Technologies :</h3>
+                <p>React.js, Node.js, Socket.IO, Electron, Express.js, Marked</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://github.com/antoninpicard/GetItOrNot"
+                        >
+                            <p>
+                                <b>[GitHub]</b> - Get-it-or-Not Repo
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://getitonot.antoninpicard.dev"
+                        >
+                            <p>
+                                <b>[Demo]</b> - Interface professeur
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Projet 2: CyberGuard */}
+            <div className="text-block">
+                <h2>CyberGuard</h2>
+                <br />
+                <p>
+                    Une plateforme open-source de cybersécurité pour sécuriser les réseaux domestiques. Déployée sur Raspberry Pi, elle utilise des modèles de machine learning pour détecter les intrusions en temps réel et propose une interface web pour monitorer les menaces.
+                </p>
+                <br />
+                <div className="captioned-image">
+                    {/* <img src={cyber} alt="CyberGuard dashboard" /> */}
+                    <p style={styles.caption}>
+                        <sub>
+                            <b>Image 2:</b> Interface CyberGuard
+                        </sub>
+                    </p>
+                </div>
+                <br />
+                <h3>Technologies :</h3>
+                <p>Python, TensorFlow, React.js, Node.js, Raspberry Pi</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://github.com/antoninpicard/CyberGuard"
+                        >
+                            <p>
+                                <b>[GitHub]</b> - CyberGuard Repo
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://cyberguard.antoninpicard.dev"
+                        >
+                            <p>
+                                <b>[Demo]</b> - Démo en ligne
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Projet 3: SwarmDrone */}
+            <div className="text-block">
+                <h2>SwarmDrone</h2>
+                <br />
+                <p>
+                    Un système de contrôle pour une flotte de drones autonomes, basé sur ROS et des algorithmes d'intelligence en essaim. Les drones collaborent pour cartographier des environnements en 3D, avec une interface React pour le pilotage et la visualisation.
+                </p>
+                <br />
+                <div className="captioned-image">
+                    {/* <img src={drone} alt="SwarmDrone interface" /> */}
+                    <p style={styles.caption}>
+                        <sub>
+                            <b>Image 3:</b> Interface SwarmDrone
+                        </sub>
+                    </p>
+                </div>
+                <br />
+                <h3>Technologies :</h3>
+                <p>ROS, Python, React.js, Three.js, WebSocket</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://github.com/antoninpicard/SwarmDrone"
+                        >
+                            <p>
+                                <b>[GitHub]</b> - SwarmDrone Repo
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Projet 4: NLP Assistant */}
+            <div className="text-block">
+                <h2>NLP Assistant</h2>
+                <br />
+                <p>
+                    Un assistant vocal local exploitant le traitement du langage naturel (NLP) pour automatiser des tâches et répondre aux commandes vocales. Conçu pour fonctionner hors ligne avec un modèle lightweight optimisé pour les appareils à faible puissance.
+                </p>
+                <br />
+                <div className="captioned-image">
+                    {/* <img src={nlp} alt="NLP Assistant interface" /> */}
+                    <p style={styles.caption}>
+                        <sub>
+                            <b>Image 4:</b> Interface NLP Assistant
+                        </sub>
+                    </p>
+                </div>
+                <br />
+                <h3>Technologies :</h3>
+                <p>Python, PyTorch, React Native, WebRTC</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://github.com/antoninpicard/NLP-Assistant"
+                        >
+                            <p>
+                                <b>[GitHub]</b> - NLP Assistant Repo
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Projet 5: QuantumSandbox */}
+            <div className="text-block">
+                <h2>QuantumSandbox</h2>
+                <br />
+                <p>
+                    Une plateforme éducative pour simuler des algorithmes quantiques dans le navigateur. Construite avec Qiskit et WebAssembly, elle permet aux utilisateurs d'expérimenter avec des circuits quantiques via une interface visuelle interactive.
+                </p>
+                <br />
+                <div className="captioned-image">
+                    {/* <img src={quantum} alt="QuantumSandbox interface" /> */}
+                    <p style={styles.caption}>
+                        <sub>
+                            <b>Image 5:</b> Interface QuantumSandbox
+                        </sub>
+                    </p>
+                </div>
+                <br />
+                <h3>Technologies :</h3>
+                <p>Qiskit, WebAssembly, React.js, D3.js</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://github.com/antoninpicard/QuantumSandbox"
+                        >
+                            <p>
+                                <b>[GitHub]</b> - QuantumSandbox Repo
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://quantumsandbox.antoninpicard.dev"
+                        >
+                            <p>
+                                <b>[Demo]</b> - Simulateur en ligne
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Projet 6: antoninpicard.com */}
             <div className="text-block">
                 <h2>antoninpicard.com</h2>
                 <br />
                 <p>
-                    antoninpicard.com est mon portfolio, et c'est également le site sur lequel vous vous trouvez actuellement. J'ai travaillé sur ce projet tout au long de mon dernier semestre à l'école et si vous lisez ceci, il est pratiquement terminé !
+                    Mon portfolio personnel, intégrant un site 3D interactif et un site 2D en React. Le site 3D utilise Three.js pour afficher une scène immersive, avec le site 2D rendu à l'intérieur via une iframe et des transformations CSS 3D pour un effet tridimensionnel.
                 </p>
                 <br />
                 <div className="captioned-image">
                     <VideoAsset src={computer} />
                     <p style={styles.caption}>
                         <sub>
-                            <b>Image 1:</b> Scène Blender du site 3D.
-                            La scène de Blender a été rendue et exportée au format GLTF.
+                            <b>Image 6:</b> Scène Blender du site 3D, exportée au format GLTF
                         </sub>
                     </p>
                 </div>
-                <p>
-                    Maintenant, une brève description technique du site. Le site est divisé en deux parties : le site 3D et le site OS 2D. Le site 3D utilise Three.js pour afficher la scène et afficher le site 2D à l'intérieur en utilisant une balise iframe. Le site OS 2D est un site React simple qui est hébergé{' '}
-                    et fonctionne comme une application web autonome. Le rendu réel du site 2D est réalisé à l'aide d'un moteur de rendu CSS fourni par Three.js qui transforme le code HTML du site 2D avec des transformations CSS 3D pour donner l'illusion de la tridimensionnalité.
-                </p>
                 <br />
-                <h3>Liens:</h3>
+                <h3>Technologies :</h3>
+                <p>React.js, Three.js, Blender, CSS 3D, Vercel</p>
+                <br />
+                <h3>Liens :</h3>
                 <ul>
                     <li>
                         <a
@@ -90,75 +307,8 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                         </a>
                     </li>
                 </ul>
-                <p>
-                Je passe rapidement sur de nombreux détails pour des raisons de concision, mais, j'ai l'intention de fournir une analyse plus détaillée pour ceux qui sont intéressés à l'avenir.
-                </p>
             </div>
-            <div className="text-block">
-                <h2>BlackJack API</h2>
-                <br />
-                <p>
-                    Site web qui utilise une API pour jouer au BlackJack.
-                </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={black} alt="" />
-                    <p>
-                        <sub>
-                            <b>Image 2:</b> Image site Blackjack API
-                        </sub>
-                    </p>
-                </div>
-                <br />
-                <h3>Liens:</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/blackjackAPI"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - BlackJack API Repo
-                            </p>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <div className="text-block">
-                <h2>CircleGame</h2>
-                <br />
-                <p>
-                    Un jeu HTML,CSS,JS disponible en extension chrome, en executable, en static, et en React.
-                </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={circle} alt="" />
-                    <p>
-                        <sub>
-                            <b>Image 3:</b> Image CircleGame
-                        </sub>
-                    </p>
-                </div>
-                <br />
-                <h3>Liens:</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Circle-Game"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - CircleGame Repo
-                            </p>
-                        </a>
-                    </li>
-                    
-                </ul>
-                
-            </div>
+
             <ResumeDownload />
         </div>
     );
@@ -174,4 +324,4 @@ const styles: StyleSheetCSS = {
     },
 };
 
-export default SoftwareProjects;
+export default Projects;
