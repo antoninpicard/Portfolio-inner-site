@@ -5,7 +5,7 @@ import VideoAsset from '../../general/VideoAsset';
 // Imports des assets (décommentez et ajustez les chemins selon votre structure)
 // import getIt from '../../assets/pictures/getitonot.jpg';
 // import cyber from '../../assets/pictures/cyberguard.jpg';
-// import drone from '../../assets/pictures/drone.jpg';
+import drone from '../../../assets/pictures/projects/software/drone.png';
 // import nlp from '../../assets/pictures/nlpbot.jpg';
 // import quantum from '../../assets/pictures/quantum.jpg';
 import computer from '../../../assets/pictures/projects/software/computer.mp4';
@@ -35,14 +35,6 @@ const Projects: React.FC<ProjectsProps> = () => {
                     Une application de feedback en temps réel pour la salle de classe, permettant aux étudiants d'indiquer s'ils comprennent le cours via une interface intuitive. Les professeurs visualisent les retours instantanément sur un tableau de bord dynamique, avec un chat intégré pour des interactions approfondies.
                 </p>
                 <br />
-                <div className="captioned-image">
-                    {/* <img src={getIt} alt="Get-it-or-Not dashboard" /> */}
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Image 1:</b> Tableau de bord Get-it-or-Not
-                        </sub>
-                    </p>
-                </div>
                 <br />
                 <h3>Technologies :</h3>
                 <p>React.js, Node.js, Socket.IO, Electron, Express.js, Marked</p>
@@ -53,21 +45,10 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/GetItOrNot"
+                            href="https://github.com/antoninpicard/Get-it-or-Not"
                         >
                             <p>
                                 <b>[GitHub]</b> - Get-it-or-Not Repo
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://getitonot.antoninpicard.dev"
-                        >
-                            <p>
-                                <b>[Demo]</b> - Interface professeur
                             </p>
                         </a>
                     </li>
@@ -82,15 +63,6 @@ const Projects: React.FC<ProjectsProps> = () => {
                     Une plateforme open-source de cybersécurité pour sécuriser les réseaux domestiques. Déployée sur Raspberry Pi, elle utilise des modèles de machine learning pour détecter les intrusions en temps réel et propose une interface web pour monitorer les menaces.
                 </p>
                 <br />
-                <div className="captioned-image">
-                    {/* <img src={cyber} alt="CyberGuard dashboard" /> */}
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Image 2:</b> Interface CyberGuard
-                        </sub>
-                    </p>
-                </div>
-                <br />
                 <h3>Technologies :</h3>
                 <p>Python, TensorFlow, React.js, Node.js, Raspberry Pi</p>
                 <br />
@@ -100,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/CyberGuard"
+                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/CyberGuard"
                         >
                             <p>
                                 <b>[GitHub]</b> - CyberGuard Repo
@@ -111,7 +83,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://cyberguard.antoninpicard.dev"
+                            href="https://portefolio-project.vercel.app/Projects/CyberGuard/demo/index.html"
                         >
                             <p>
                                 <b>[Demo]</b> - Démo en ligne
@@ -130,12 +102,8 @@ const Projects: React.FC<ProjectsProps> = () => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    {/* <img src={drone} alt="SwarmDrone interface" /> */}
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Image 3:</b> Interface SwarmDrone
-                        </sub>
-                    </p>
+                    <img src={drone} alt="SwarmDrone interface" style={styles.drone} />
+                    
                 </div>
                 <br />
                 <h3>Technologies :</h3>
@@ -147,10 +115,21 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/SwarmDrone"
+                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/SwarmDrone"
                         >
                             <p>
                                 <b>[GitHub]</b> - SwarmDrone Repo
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://portefolio-project.vercel.app/Projects/SwarmDrone/demo/index.html"
+                        >
+                            <p>
+                                <b>[Demo]</b> - Simulateur en ligne
                             </p>
                         </a>
                     </li>
@@ -165,14 +144,6 @@ const Projects: React.FC<ProjectsProps> = () => {
                     Un assistant vocal local exploitant le traitement du langage naturel (NLP) pour automatiser des tâches et répondre aux commandes vocales. Conçu pour fonctionner hors ligne avec un modèle lightweight optimisé pour les appareils à faible puissance.
                 </p>
                 <br />
-                <div className="captioned-image">
-                    {/* <img src={nlp} alt="NLP Assistant interface" /> */}
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Image 4:</b> Interface NLP Assistant
-                        </sub>
-                    </p>
-                </div>
                 <br />
                 <h3>Technologies :</h3>
                 <p>Python, PyTorch, React Native, WebRTC</p>
@@ -183,10 +154,21 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/NLP-Assistant"
+                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/NLP-Assistant"
                         >
                             <p>
-                                <b>[GitHub]</b> - NLP Assistant Repo
+                                <b>[GitHub]</b> - QuantumSandbox Repo
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://portefolio-project.vercel.app/Projects/NLP-Assistant/demo/index.html"
+                        >
+                            <p>
+                                <b>[Demo]</b> - Simulateur en ligne
                             </p>
                         </a>
                     </li>
@@ -201,15 +183,6 @@ const Projects: React.FC<ProjectsProps> = () => {
                     Une plateforme éducative pour simuler des algorithmes quantiques dans le navigateur. Construite avec Qiskit et WebAssembly, elle permet aux utilisateurs d'expérimenter avec des circuits quantiques via une interface visuelle interactive.
                 </p>
                 <br />
-                <div className="captioned-image">
-                    {/* <img src={quantum} alt="QuantumSandbox interface" /> */}
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Image 5:</b> Interface QuantumSandbox
-                        </sub>
-                    </p>
-                </div>
-                <br />
                 <h3>Technologies :</h3>
                 <p>Qiskit, WebAssembly, React.js, D3.js</p>
                 <br />
@@ -219,7 +192,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/antoninpicard/QuantumSandbox"
+                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/QuantumSandbox"
                         >
                             <p>
                                 <b>[GitHub]</b> - QuantumSandbox Repo
@@ -230,7 +203,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href="https://quantumsandbox.antoninpicard.dev"
+                            href="https://portefolio-project.vercel.app/Projects/QuantumSandbox/demo/index.html"
                         >
                             <p>
                                 <b>[Demo]</b> - Simulateur en ligne
@@ -252,7 +225,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                     <VideoAsset src={computer} />
                     <p style={styles.caption}>
                         <sub>
-                            <b>Image 6:</b> Scène Blender du site 3D, exportée au format GLTF
+                            <b>Image 2:</b> Scène Blender du site 3D, exportée au format GLTF
                         </sub>
                     </p>
                 </div>
@@ -318,6 +291,12 @@ const styles: StyleSheetCSS = {
     video: {
         width: '100%',
         padding: 12,
+    },
+    drone: {
+        width: '65%',  // Taille réduite de l'image
+        padding: 12,
+        margin: 'auto',
+        display: 'block',
     },
     caption: {
         width: '80%',
