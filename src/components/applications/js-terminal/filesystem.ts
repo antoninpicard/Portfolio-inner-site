@@ -82,11 +82,16 @@ class FileSystem {
                         type: 'file',
                         content: '# 42_printf\n\nRecréation de la fonction printf de la bibliothèque standard C.\n\n## Technologies\n- C\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_printf)'
                       },
-                      '42go-Script.md': {
-                        name: '42go-Script.md',
-                        type: 'file',
-                        content: '# 42go-Script\n\nScript utilitaire pour la formation 42.\n\n[Voir sur GitHub](https://github.com/antoninpicard/42go-Script)'
-                      }
+						  '42_Minishell.md': {
+						 name: '42_Minishell.md',
+						 type: 'file',
+						 content: '# 42_Minishell\n\nUne la création d\'un shell Unix avec gestion des commandes, variables d\'environnement, pipes et redirections.\n\n## Technologies\n- C\n- minilibx\n\n[Voir sur GitHub](https://github.com/Retiks/Minishell)'
+						},
+						'42_philosopher.md': {
+						 name: '42_philosopher.md',
+						 type: 'file',
+						 content: '# 42_Philosopher\n\nSimulation du problème classique des philosophes qui dînent, explorant les concepts de threading et de synchronisation.\n\n## Technologies\n- C\n- Threading\n- Synchronisation\n\n[Voir sur GitHub](https://github.com/antoninpicard/42_philosopher)'
+						}
                     }
                   },
                   'api': {
