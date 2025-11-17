@@ -236,11 +236,12 @@ const Projects: React.FC<ProjectsProps> = () => {
 			        <li><strong>So Long</strong> - Jeu 2D développé avec la MinilibX, gestion d'événements et graphismes</li>
 			        <li><strong>Minishell</strong> - Création d'un shell Unix avec gestion des commandes, variables d'environnement, pipes et redirections</li>
 			        <li><strong>Philosopher</strong> - Simulation du problème des philosophes explorant threading et synchronisation</li>
+			        <li><strong>miniRT</strong> - Moteur de ray tracing créant des images photoréalistes avec ombres et réflexions</li>
 			    </ul>
 			    <br />
 
 			    <h3>Technologies :</h3>
-			    <p>C, Make, MinilibX, Threads/Mutex, Shell scripting, Algorithmes de tri, Gestion mémoire</p>
+			    <p>C, Make, MinilibX, Threads/Mutex, Shell scripting, Algorithmes de tri, Gestion mémoire, Ray Tracing</p>
 			    <br />
 
 			    <h3>Liens :</h3>
@@ -333,7 +334,23 @@ const Projects: React.FC<ProjectsProps> = () => {
 			                </p>
 			            </a>
 			        </li>
+			        <li>
+			            <a
+			                rel="noreferrer"
+			                target="_blank"
+			                href="https://github.com/antoninpicard/42_miniRT"
+			            >
+			                <p>
+			                    <b>[GitHub]</b> - miniRT
+			                </p>
+			            </a>
+			        </li>
 			    </ul>
+			    <br />
+			    <p>
+			        <strong>Note :</strong> Une application de démonstration interactive de miniRT est disponible sur le bureau du portfolio ! 
+			        Double-cliquez sur l'icône "miniRT" pour voir le ray tracing en action.
+			    </p>
 			</div>
 
             {/* Projet 7: antoninpicard.com */}
