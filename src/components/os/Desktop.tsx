@@ -12,6 +12,7 @@ import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
 import MarkdownPreview from '../applications/MarkdownPreview';
 import Bebop from '../applications/Bebop';
+import MiniRT42 from '../applications/MiniRT42';
 import FileExplorer from '../applications/file-explorer';
 
 export interface DesktopProps {}
@@ -61,6 +62,12 @@ const APPLICATIONS: {
         name: 'Bebop.mp4',
         shortcutIcon: 'VLC',
         component: Bebop,
+    },
+    miniRT42: {
+        key: 'miniRT42',
+        name: 'miniRT_42.exe',
+        shortcutIcon: 'miniRT',
+        component: MiniRT42,
     },
     credits: {
         key: 'credits',
