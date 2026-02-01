@@ -14,6 +14,25 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </div>
                     <br />
                     <div style={styles.headerRow}>
+                        <h3>MIT Boston - Étudiant International en Computer Science</h3>
+                        <b>
+                            <p>2025 ~ En cours</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <ul>
+                    <li>
+                        <p>
+                            Actuellement étudiant international au prestigieux Massachusetts Institute of Technology, je me consacre intensivement à la domotique et aux systèmes intelligents. J'approfondis mes connaissances dans de multiples domaines technologiques, notamment les systèmes embarqués, la cybersécurité des objets connectés, et l'automatisation domestique. Cette expérience internationale me permet de participer à des projets de recherche innovants et de développer une expertise pointue dans les technologies du futur.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
                         <h3>42 Lyon - Développeur, Architecture Réseaux, Cybersécurité</h3>
                         <b>
                             <p>2024 ~ En cours</p>
