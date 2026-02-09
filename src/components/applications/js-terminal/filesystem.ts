@@ -342,9 +342,8 @@ class FileSystem {
     return this.getCurrentPath();
   }
   
-  // Extrait l'URL GitHub d'un fichier markdown
   extractGitHubUrl(content: string): string | null {
-    const urlMatch = content.match(/\[Voir sur GitHub\]\((https:\/\/github\.com\/[^\)]+)\)/);
+    const urlMatch = content.match(/\[Voir sur GitHub\]\((https:\/\/github\.com\/[^)]+)\)/);
     return urlMatch ? urlMatch[1] : null;
   }
   

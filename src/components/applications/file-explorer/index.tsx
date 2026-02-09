@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Window from '../../os/Window';
 import { fs } from '../js-terminal/filesystem';
 import { IconName } from '../../../assets/icons';
@@ -13,12 +13,6 @@ interface FileItem {
   path: string;
 }
 
-interface FSNode {
-  name: string;
-  type: 'file' | 'directory';
-  content?: string;
-}
-
 const FileExplorer: React.FC<FileExplorerProps> = (props) => {
   const [currentPath, setCurrentPath] = useState<string[]>(['home', 'guest']);
   const [files, setFiles] = useState<FileItem[]>([]);
@@ -28,12 +22,11 @@ const FileExplorer: React.FC<FileExplorerProps> = (props) => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
 
-  useEffect(() => {
-    loadFiles();
-    updateBreadcrumbs();
-  }, [currentPath]);
+  const getCurrentPathString = (): string => {
+    return '/' + currentPath.join('/');
+  };
 
-  const loadFiles = () => {
+  const loadFiles = useCallback(() => {
     // Implémentation personnalisée pour lister les fichiers car fs.listFiles n'existe pas
     const path = getCurrentPathString();
     const lsOutput = fs.ls(path);
@@ -58,16 +51,18 @@ const FileExplorer: React.FC<FileExplorerProps> = (props) => {
     }
     
     setFiles(items);
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPath]);
 
-  const updateBreadcrumbs = () => {
+  const updateBreadcrumbs = useCallback(() => {
     const breadcrumbsArray = ['root', ...currentPath];
     setBreadcrumbs(breadcrumbsArray);
-  };
+  }, [currentPath]);
 
-  const getCurrentPathString = (): string => {
-    return '/' + currentPath.join('/');
-  };
+  useEffect(() => {
+    loadFiles();
+    updateBreadcrumbs();
+  }, [currentPath, loadFiles, updateBreadcrumbs]);
 
   const getFilenameFromPath = (path: string): string => {
     const parts = path.split('/');
@@ -100,7 +95,6 @@ const FileExplorer: React.FC<FileExplorerProps> = (props) => {
       viewFileContent(item);
     }
   };
-
   const viewFileContent = (file: FileItem) => {
     // Utiliser cat au lieu de getFileContent qui n'existe pas
     const content = fs.cat(file.path);
@@ -109,7 +103,7 @@ const FileExplorer: React.FC<FileExplorerProps> = (props) => {
       
       // Si c'est un fichier Markdown (.md) ou texte (.txt), utiliser la prévisualisation
       if (fileName.endsWith('.md') || fileName.endsWith('.txt')) {
-        // Pour les fichiers .md, extraire l'URL GitHub si disponible
+        // Si c'est un fichier Markdown (.md), extraire l'URL GitHub si disponible
         let githubUrl = null;
         
         if (fileName.endsWith('.md')) {
@@ -119,7 +113,7 @@ const FileExplorer: React.FC<FileExplorerProps> = (props) => {
             githubUrl = fs.extractGitHubUrl(content);
           } else {
             // Méthode de secours: extraction manuelle
-            const githubLinkRegex = /\[Voir sur GitHub\]\((https:\/\/github\.com\/[^\)]+)\)/;
+            const githubLinkRegex = /\[Voir sur GitHub\]\((https:\/\/github\.com\/[^)]+)\)/;
             const match = content.match(githubLinkRegex);
             githubUrl = match ? match[1] : null;
           }

@@ -85,41 +85,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [shutdown, setShutdown] = useState(false);
     const [numShutdowns, setNumShutdowns] = useState(1);
     
-    // Fonction pour ouvrir une fenêtre de prévisualisation Markdown
-    const openMarkdownPreview = useCallback((fileName: string, content: string) => {
-        const previewKey = `markdown-preview-${Date.now()}`;
-        // La fonction addWindow sera définie plus tard dans le composant
-        // On l'appelle donc via une fonction qui sera définie après
-        setTimeout(() => {
-            addWindow(
-                previewKey,
-                <MarkdownPreview
-                    onInteract={() => onWindowInteract(previewKey)}
-                    onMinimize={() => minimizeWindow(previewKey)}
-                    onClose={() => removeWindow(previewKey)}
-                    key={previewKey}
-                    fileName={fileName}
-                    content={content}
-                />
-            );
-        }, 0);
-    }, []);
-    
-    // Exposer la fonction d'ouverture de prévisualisation Markdown au terminal
-    useEffect(() => {
-        // Définir directement la fonction sur l'objet window
-        if (typeof window !== 'undefined') {
-            (window as any).openMarkdownPreviewFn = openMarkdownPreview;
-        }
-        
-        return () => {
-            // Nettoyer lors du démontage
-            if (typeof window !== 'undefined') {
-                delete (window as any).openMarkdownPreviewFn;
-            }
-        };
-    }, [openMarkdownPreview]);
-
     useEffect(() => {
         if (shutdown === true) {
             rebootDesktop();
@@ -250,6 +215,41 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         },
         [getHighestZIndex]
     );
+
+    // Fonction pour ouvrir une fenêtre de prévisualisation Markdown
+    const openMarkdownPreview = useCallback((fileName: string, content: string) => {
+        const previewKey = `markdown-preview-${Date.now()}`;
+        // La fonction addWindow sera définie plus tard dans le composant
+        // On l'appelle donc via une fonction qui sera définie après
+        setTimeout(() => {
+            addWindow(
+                previewKey,
+                <MarkdownPreview
+                    onInteract={() => onWindowInteract(previewKey)}
+                    onMinimize={() => minimizeWindow(previewKey)}
+                    onClose={() => removeWindow(previewKey)}
+                    key={previewKey}
+                    fileName={fileName}
+                    content={content}
+                />
+            );
+        }, 0);
+    }, [addWindow, minimizeWindow, onWindowInteract, removeWindow]);
+    
+    // Exposer la fonction d'ouverture de prévisualisation Markdown au terminal
+    useEffect(() => {
+        // Définir directement la fonction sur l'objet window
+        if (typeof window !== 'undefined') {
+            (window as any).openMarkdownPreviewFn = openMarkdownPreview;
+        }
+        
+        return () => {
+            // Nettoyer lors du démontage
+            if (typeof window !== 'undefined') {
+                delete (window as any).openMarkdownPreviewFn;
+            }
+        };
+    }, [openMarkdownPreview]);
 
     return !shutdown ? (
         <div style={styles.desktop}>

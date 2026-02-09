@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Window from '../os/Window';
 import { useInterval } from 'usehooks-ts';
 import { motion } from 'framer-motion';
@@ -70,11 +70,16 @@ const Credits: React.FC<CreditsProps> = (props) => {
         }
     }, 1000);
 
+    const nextSlide = useCallback(() => {
+        setTime(0);
+        setCurrentSlide((currentSlide + 1) % CREDITS.length);
+    }, [currentSlide]);
+
     useEffect(() => {
         if (time >= 5) {
             nextSlide();
         }
-    }, [time]);
+    }, [time, nextSlide]);
 
     // Réinitialiser la slide au démarrage
     useEffect(() => {
@@ -92,20 +97,6 @@ const Credits: React.FC<CreditsProps> = (props) => {
             hollImage: showHollImage
         };
     }, [easterEggActive, easterEggStep, firstStrike, showStrike, showHollImage]);
-
-    const handleSlideClick = (direction: 'prev' | 'next') => {
-        setTime(0);
-        if (direction === 'next') {
-            setCurrentSlide((currentSlide + 1) % CREDITS.length);
-        } else {
-            setCurrentSlide((currentSlide - 1 + CREDITS.length) % CREDITS.length);
-        }
-    };
-
-    const nextSlide = () => {
-        setTime(0);
-        setCurrentSlide((currentSlide + 1) % CREDITS.length);
-    };
 
     return (
         // add on resize listener

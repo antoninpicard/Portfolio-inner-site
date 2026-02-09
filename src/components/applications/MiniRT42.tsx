@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Window from '../os/Window';
 import miniRT from '../../assets/video/miniRT.mp4';
-import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 
 export interface MiniRT42Props extends WindowAppProps {}
 

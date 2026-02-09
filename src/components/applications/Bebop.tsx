@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Window from '../os/Window';
 import cowboy from '../../assets/video/CowBoy.mp4';
-import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 
 export interface BebopProps extends WindowAppProps {}
 

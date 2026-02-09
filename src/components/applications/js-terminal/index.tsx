@@ -375,13 +375,15 @@ const TerminalApp: React.FC<TerminalAppProps> = (props) => {
     try {
       // Si l'URL GitHub n'est pas fournie, essayer de l'extraire du contenu
       if (!githubUrl) {
-        const githubLinkRegex = /\[Voir sur GitHub\]\((https:\/\/github\.com\/[^\)]+)\)/;
+        // eslint-disable-next-line no-useless-escape
+        const githubLinkRegex = /\[Voir sur GitHub\]\((https:\/\/github\.com\/[^)]+)\)/;
         const match = content.match(githubLinkRegex);
         githubUrl = match ? match[1] : null;
       }
       
       // Supprimer le lien GitHub du contenu Markdown
-      let cleanContent = content.replace(/\[Voir sur GitHub\]\(https:\/\/github\.com\/[^\)]+\)/g, '');
+      // eslint-disable-next-line no-useless-escape
+      let cleanContent = content.replace(/\[Voir sur GitHub\]\(https:\/\/github\.com\/[^)]+\)/g, '');
       
       // Convertir le Markdown en HTML
       const htmlContent = marked.parse(cleanContent) as string;
