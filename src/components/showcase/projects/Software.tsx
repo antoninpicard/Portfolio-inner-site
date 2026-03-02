@@ -2,15 +2,8 @@ import React from 'react';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
-// Imports des assets (décommentez et ajustez les chemins selon votre structure)
-// import getIt from '../../assets/pictures/getitonot.jpg';
-// import cyber from '../../assets/pictures/cyberguard.jpg';
-import drone from '../../../assets/pictures/projects/software/drone.png';
-// import nlp from '../../assets/pictures/nlpbot.jpg';
-// import quantum from '../../assets/pictures/quantum.jpg';
 import computer from '../../../assets/pictures/projects/software/computer.mp4';
 import stud from '../../../assets/pictures/projects/software/42.png';
-// import circle from '../../../assets/pictures/projects/software/circle.png';
 
 export interface ProjectsProps {}
 
@@ -18,53 +11,94 @@ const Projects: React.FC<ProjectsProps> = () => {
     return (
         <div className="site-page-content">
             <h1>Projets IT</h1>
-            <h3>Code, Innovation, Impact</h3>
+            <h3>Systèmes Embarqués, Bas Niveau & Robotique</h3>
             <br />
             <p>
-                Voici une sélection de mes projets préférés, alliant développement, cybersécurité, robotique, intelligence artificielle et conception 3D. Chaque projet est conçu pour résoudre des problèmes réels avec des technologies de pointe. Plongez dans le code via les repos GitHub ou testez les démos pour voir mes idées en action !
+                Voici une sélection de mes projets techniques, orientés systèmes embarqués, programmation bas niveau et robotique. Chaque projet est conçu autour de contraintes réelles : ressources limitées, temps réel, fiabilité matérielle.
             </p>
             <br />
             <ResumeDownload />
             <br />
 
-            {/* Projet 1: Get-it-or-Not */}
+            {/* Projet 1: Station météo ESP32 */}
             <div className="text-block">
-                <h2>Get-it-or-Not</h2>
+                <h2>Station Météo Connectée — ESP32</h2>
                 <br />
                 <p>
-                    Une application de feedback en temps réel pour la salle de classe, permettant aux étudiants d'indiquer s'ils comprennent le cours via une interface intuitive. Les professeurs visualisent les retours instantanément sur un tableau de bord dynamique, avec un chat intégré pour des interactions approfondies.
+                    Conception d'une station météo autonome à base d'ESP32. Le système acquiert en temps réel des données de température, humidité et pression atmosphérique via des capteurs I2C (DHT22, BMP280), puis les publie sur un broker MQTT. Une interface web locale (serveur HTTP embarqué) permet la visualisation des mesures en direct depuis n'importe quel appareil du réseau.
                 </p>
                 <br />
+                <h3>Compétences mises en œuvre :</h3>
+                <ul>
+                    <li><p>Programmation embarquée C/C++ (Arduino framework)</p></li>
+                    <li><p>Communication I2C — lecture de capteurs DHT22 & BMP280</p></li>
+                    <li><p>Stack réseau WiFi + protocole MQTT (publication de trames)</p></li>
+                    <li><p>Gestion de l'alimentation et deep sleep pour autonomie batterie</p></li>
+                    <li><p>Serveur HTTP embarqué pour dashboard local</p></li>
+                </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>React.js, Node.js, Socket.IO, Electron, Express.js, Marked</p>
+                <p>ESP32, C/C++, Arduino Framework, MQTT, I2C, DHT22, BMP280, PlatformIO</p>
                 <br />
-                <h3>Liens :</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Get-it-or-Not"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - Get-it-or-Not Repo
-                            </p>
-                        </a>
-                    </li>
-                </ul>
             </div>
 
-            {/* Projet 2: CyberGuard */}
+            {/* Projet 2: Simulateur de satellite STM32 */}
             <div className="text-block">
-                <h2>CyberGuard</h2>
+                <h2>Simulateur de Satellite — STM32</h2>
                 <br />
                 <p>
-                    Une plateforme open-source de cybersécurité pour sécuriser les réseaux domestiques. Déployée sur Raspberry Pi, elle utilise des modèles de machine learning pour détecter les intrusions en temps réel et propose une interface web pour monitorer les menaces.
+                    Simulation embarquée du comportement d'un nanosatellite (type CubeSat) sur STM32 (série F4). Le système modélise en temps réel la dynamique d'attitude du satellite via des données inertielles (IMU : accéléromètre + gyroscope), calcule les angles de rotation et simule des commandes de correction d'orientation. Les données télémétriques sont transmises via UART pour visualisation et logging sur PC.
+                </p>
+                <br />
+                <h3>Compétences mises en œuvre :</h3>
+                <ul>
+                    <li><p>Programmation bare-metal C sur STM32 (HAL / registres)</p></li>
+                    <li><p>Interfaçage IMU via SPI (accéléromètre + gyroscope)</p></li>
+                    <li><p>Implémentation d'un filtre complémentaire pour fusion de données inertielles</p></li>
+                    <li><p>Modélisation de la dynamique d'attitude (angles d'Euler, quaternions)</p></li>
+                    <li><p>Transmission de télémétrie en temps réel via UART</p></li>
+                    <li><p>Gestion des interruptions et timers hardware pour boucle de contrôle</p></li>
+                    <li><p>Debugging via ST-Link / STM32CubeIDE</p></li>
+                </ul>
+                <br />
+                <h3>Technologies :</h3>
+                <p>STM32F4, C, HAL STM32, SPI, UART, IMU, STM32CubeIDE, ST-Link</p>
+                <br />
+            </div>
+
+            {/* Projet 3: Robot éviteur d'obstacles Arduino */}
+            <div className="text-block">
+                <h2>Robot Autonome Éviteur d'Obstacles — Arduino</h2>
+                <br />
+                <p>
+                    Conception et réalisation d'un robot mobile autonome sur châssis 4 roues piloté par un Arduino Mega. Le robot utilise des capteurs ultrasoniques HC-SR04 en façade et sur les côtés pour détecter les obstacles et adapter sa trajectoire en temps réel via une machine à états. La motorisation est assurée par un pont en H L298N, et une interface Bluetooth (HC-05) permet le contrôle manuel depuis smartphone.
+                </p>
+                <br />
+                <h3>Compétences mises en œuvre :</h3>
+                <ul>
+                    <li><p>Architecture logicielle embarquée : machine à états finis</p></li>
+                    <li><p>Interfaçage capteurs ultrasoniques HC-SR04</p></li>
+                    <li><p>Pilotage de moteurs DC via pont en H L298N</p></li>
+                    <li><p>Communication série Bluetooth (HC-05, protocole UART)</p></li>
+                    <li><p>Gestion des interruptions et timing précis</p></li>
+                    <li><p>Calibration des algorithmes de navigation</p></li>
+                </ul>
+                <br />
+                <h3>Technologies :</h3>
+                <p>Arduino Mega, C/C++, HC-SR04, L298N, HC-05, UART, Machine à états</p>
+                <br />
+            </div>
+
+            {/* Projet: CyberGuard */}
+            <div className="text-block">
+                <h2>CyberGuard — Pare-feu Intelligent sur Raspberry Pi</h2>
+                <br />
+                <p>
+                    Système de surveillance réseau déployé sur Raspberry Pi agissant comme point d'accès filtrant. Analyse le trafic réseau en temps réel pour détecter les comportements anormaux et bloquer les menaces. Interface web de monitoring accessible en local.
                 </p>
                 <br />
                 <h3>Technologies :</h3>
-                <p>Python, TensorFlow, React.js, Node.js, Raspberry Pi</p>
+                <p>Python, Raspberry Pi, Linux embarqué, iptables, React.js, Node.js</p>
                 <br />
                 <h3>Liens :</h3>
                 <ul>
@@ -79,344 +113,119 @@ const Projects: React.FC<ProjectsProps> = () => {
                             </p>
                         </a>
                     </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://portefolio-project.vercel.app/Projects/CyberGuard/demo/index.html"
-                        >
-                            <p>
-                                <b>[Demo]</b> - Démo en ligne
-                            </p>
-                        </a>
-                    </li>
                 </ul>
             </div>
 
-            {/* Projet 3: SwarmDrone */}
+            {/* Projet: 42 Projects */}
             <div className="text-block">
-                <h2>SwarmDrone</h2>
+                <h2>Projets École 42 — Programmation Bas Niveau en C</h2>
                 <br />
                 <p>
-                    Un système de contrôle pour une flotte de drones autonomes, basé sur ROS et des algorithmes d'intelligence en essaim. Les drones collaborent pour cartographier des environnements en 3D, avec une interface React pour le pilotage et la visualisation.
+                    Collection de projets réalisés à l'École 42, couvrant les fondamentaux indispensables à l'embarqué : gestion mémoire manuelle, programmation système, concurrence et algorithmes optimisés. Chaque projet est validé par peer-review selon la Norme 42.
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <img src={drone} alt="SwarmDrone interface" style={styles.drone} />
-                    
+                    <img src={stud} alt="École 42 projets" style={styles.stud} />
                 </div>
+                <h3>Projets réalisés :</h3>
+                <ul>
+                    <li><strong>Libft</strong> - Bibliothèque C personnalisée (fonctions libc) — gestion mémoire, chaînes, listes</li>
+                    <li><strong>Get Next Line</strong> - Lecture ligne par ligne via descripteur de fichier, gestion des buffers</li>
+                    <li><strong>Printf</strong> - Réimplémentation de printf — parsing de format, gestion des types variadic</li>
+                    <li><strong>Push Swap</strong> - Algorithme de tri optimisé avec deux piles, complexité minimisée</li>
+                    <li><strong>Pipex</strong> - Reproduction des pipes shell en C — fork, exec, redirections</li>
+                    <li><strong>Minishell</strong> - Shell Unix complet : parsing, variables d'environnement, pipes, redirections</li>
+                    <li><strong>Philosopher</strong> - Problème des philosophes : threading POSIX, mutex, gestion des deadlocks</li>
+                    <li><strong>miniRT</strong> - Moteur de ray tracing en C : géométrie 3D, ombres, réflexions</li>
+                </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>ROS, Python, React.js, Three.js, WebSocket</p>
+                <p>C, Make, POSIX Threads/Mutex, gestion mémoire, MinilibX, Shell scripting</p>
                 <br />
                 <h3>Liens :</h3>
                 <ul>
                     <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/SwarmDrone"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - SwarmDrone Repo
-                            </p>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_libft">
+                            <p><b>[GitHub]</b> - Libft</p>
                         </a>
                     </li>
                     <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://portefolio-project.vercel.app/Projects/SwarmDrone/demo/index.html"
-                        >
-                            <p>
-                                <b>[Demo]</b> - Simulateur en ligne
-                            </p>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_get_next_line">
+                            <p><b>[GitHub]</b> - Get Next Line</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_printf">
+                            <p><b>[GitHub]</b> - Printf</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_push_swap">
+                            <p><b>[GitHub]</b> - Push Swap</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_pipex">
+                            <p><b>[GitHub]</b> - Pipex</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/Retiks/Minishell">
+                            <p><b>[GitHub]</b> - Minishell</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_philosopher">
+                            <p><b>[GitHub]</b> - Philosopher</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_miniRT">
+                            <p><b>[GitHub]</b> - miniRT</p>
                         </a>
                     </li>
                 </ul>
-            </div>
-
-            {/* Projet 4: NLP Assistant */}
-            <div className="text-block">
-                <h2>NLP Assistant</h2>
                 <br />
                 <p>
-                    Un assistant vocal local exploitant le traitement du langage naturel (NLP) pour automatiser des tâches et répondre aux commandes vocales. Conçu pour fonctionner hors ligne avec un modèle lightweight optimisé pour les appareils à faible puissance.
+                    <strong>Note :</strong> Une démonstration interactive de miniRT est disponible sur le bureau du portfolio — double-cliquez sur l'icône "miniRT".
                 </p>
-                <br />
-                <br />
-                <h3>Technologies :</h3>
-                <p>Python, PyTorch, React Native, WebRTC</p>
-                <br />
-                <h3>Liens :</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/NLP-Assistant"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - QuantumSandbox Repo
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://portefolio-project.vercel.app/Projects/NLP-Assistant/demo/index.html"
-                        >
-                            <p>
-                                <b>[Demo]</b> - Simulateur en ligne
-                            </p>
-                        </a>
-                    </li>
-                </ul>
             </div>
 
-            {/* Projet 5: QuantumSandbox */}
+            {/* Projet: antoninpicard.com */}
             <div className="text-block">
-                <h2>QuantumSandbox</h2>
+                <h2>antoninpicard.com — Portfolio interactif</h2>
                 <br />
                 <p>
-                    Une plateforme éducative pour simuler des algorithmes quantiques dans le navigateur. Construite avec Qiskit et WebAssembly, elle permet aux utilisateurs d'expérimenter avec des circuits quantiques via une interface visuelle interactive.
-                </p>
-                <br />
-                <h3>Technologies :</h3>
-                <p>Qiskit, WebAssembly, React.js, D3.js</p>
-                <br />
-                <h3>Liens :</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/QuantumSandbox"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - QuantumSandbox Repo
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://portefolio-project.vercel.app/Projects/QuantumSandbox/demo/index.html"
-                        >
-                            <p>
-                                <b>[Demo]</b> - Simulateur en ligne
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-			{/* Projet: 42 Projects */}
-			<div className="text-block">
-			    <h2>42 Projects - École 42</h2>
-			    <br />
-			    <p>
-			        Collection de projets réalisés à l'École 42, couvrant les fondamentaux de la programmation en C, 
-			        la gestion mémoire, les algorithmes, les processus système et la programmation concurrente. 
-			        Chaque projet suit la Norme de 42 et a été validé selon les critères d'évaluation rigoureux de l'école.
-			    </p>
-			    <br />
-				<div className="captioned-image">
-                    <img src={stud} alt="SwarmDrone interface" style={styles.stud} />
-                    
-                </div>
-			    <h3>Projets réalisés :</h3>
-			    <ul>
-			        <li><strong>Libft</strong> - Bibliothèque de fonctions C personnalisée recréant les fonctions standards de la libc</li>
-			        <li><strong>Get Next Line</strong> - Fonction de lecture ligne par ligne depuis un descripteur de fichier</li>
-			        <li><strong>Printf</strong> - Réimplémentation complète de la fonction printf de la libc</li>
-			        <li><strong>Push Swap</strong> - Algorithme de tri optimisé utilisant deux piles avec opérations limitées</li>
-			        <li><strong>Pipex</strong> - Reproduction du comportement des pipes shell (|) en C</li>
-			        <li><strong>So Long</strong> - Jeu 2D développé avec la MinilibX, gestion d'événements et graphismes</li>
-			        <li><strong>Minishell</strong> - Création d'un shell Unix avec gestion des commandes, variables d'environnement, pipes et redirections</li>
-			        <li><strong>Philosopher</strong> - Simulation du problème des philosophes explorant threading et synchronisation</li>
-			        <li><strong>miniRT</strong> - Moteur de ray tracing créant des images photoréalistes avec ombres et réflexions</li>
-			    </ul>
-			    <br />
-
-			    <h3>Technologies :</h3>
-			    <p>C, Make, MinilibX, Threads/Mutex, Shell scripting, Algorithmes de tri, Gestion mémoire, Ray Tracing</p>
-			    <br />
-
-			    <h3>Liens :</h3>
-			    <ul>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_libft"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Libft
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_get_next_line"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Get Next Line
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_printf"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Printf
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_push_swap"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Push Swap
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_pipex"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Pipex
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_so_long"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - So Long
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/Retiks/Minishell"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Minishell
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_philosopher"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - Philosopher
-			                </p>
-			            </a>
-			        </li>
-			        <li>
-			            <a
-			                rel="noreferrer"
-			                target="_blank"
-			                href="https://github.com/antoninpicard/42_miniRT"
-			            >
-			                <p>
-			                    <b>[GitHub]</b> - miniRT
-			                </p>
-			            </a>
-			        </li>
-			    </ul>
-			    <br />
-			    <p>
-			        <strong>Note :</strong> Une application de démonstration interactive de miniRT est disponible sur le bureau du portfolio ! 
-			        Double-cliquez sur l'icône "miniRT" pour voir le ray tracing en action.
-			    </p>
-			</div>
-
-            {/* Projet 7: antoninpicard.com */}
-            <div className="text-block">
-                <h2>antoninpicard.com</h2>
-                <br />
-                <p>
-                    Mon portfolio personnel, intégrant un site 3D interactif et un site 2D en React. Le site 3D utilise Three.js pour afficher une scène immersive, avec le site 2D rendu à l'intérieur via une iframe et des transformations CSS 3D pour un effet tridimensionnel.
+                    Portfolio personnel intégrant un site 3D (Three.js / Blender) avec ce site OS simulé en React à l'intérieur. Démontre des compétences en architecture logicielle, rendu 3D et gestion d'états complexes.
                 </p>
                 <br />
                 <div className="captioned-image">
                     <VideoAsset src={computer} />
                     <p style={styles.caption}>
                         <sub>
-                            <b>Image 2:</b> Scène Blender du site 3D, exportée au format GLTF
+                            <b>Image :</b> Scène Blender du site 3D, exportée au format GLTF
                         </sub>
                     </p>
                 </div>
                 <br />
                 <h3>Technologies :</h3>
-                <p>React.js, Three.js, Blender, CSS 3D, Vercel</p>
+                <p>React.js, Three.js, Blender, TypeScript, Vercel</p>
                 <br />
                 <h3>Liens :</h3>
                 <ul>
                     <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://antoninpicard.com"
-                        >
-                            <p>
-                                <b>[Site 3D]</b> - antoninpicard.com
-                            </p>
+                        <a rel="noreferrer" target="_blank" href="https://antoninpicard.com">
+                            <p><b>[Site 3D]</b> - antoninpicard.com</p>
                         </a>
                     </li>
                     <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://antoninpicard-inner.vercel.app/"
-                        >
-                            <p>
-                                <b>[Site OS]</b> - antoninpicard-inner.vercel.app
-                            </p>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/Portfolio-website-master">
+                            <p><b>[GitHub]</b> - Repo site 3D</p>
                         </a>
                     </li>
                     <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Portfolio-website-master"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - Repo site 3D
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/portfolio-inner-site"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - Repo Site OS
-                            </p>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/portfolio-inner-site">
+                            <p><b>[GitHub]</b> - Repo Site OS</p>
                         </a>
                     </li>
                 </ul>
@@ -428,12 +237,8 @@ const Projects: React.FC<ProjectsProps> = () => {
 };
 
 const styles: StyleSheetCSS = {
-    video: {
-        width: '100%',
-        padding: 12,
-    },
-    drone: {
-        width: '65%',  // Taille réduite de l'image
+    stud: {
+        width: '60%',
         padding: 12,
         margin: 'auto',
         display: 'block',

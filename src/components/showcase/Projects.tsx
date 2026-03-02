@@ -4,6 +4,7 @@ import software from '../../assets/pictures/projects/software.gif';
 import art from '../../assets/pictures/projects/voiture.gif';
 import music from '../../assets/pictures/projects/music.gif';
 
+
 export interface ProjectsProps {}
 
 interface ProjectBoxProps {
@@ -68,10 +69,10 @@ const Projects: React.FC<ProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Projets</h1>
-            <h3>& Hobbies</h3>
+            <h3>Embarqué, Robotique & Bas Niveau</h3>
             <br />
             <p>
-                Cliquez sur l'une des sections ci-dessous pour découvrir certains de mes projets préférés dans ce domaine. J'ai passé beaucoup de temps à inclure de nombreux visuels et médias interactifs pour mettre en valeur chaque projet. Profitez-en !
+                Cliquez sur l'une des sections ci-dessous pour explorer mes projets techniques. De la programmation bas niveau en C aux systèmes embarqués sur microcontrôleurs, en passant par mes prototypes robotiques.
             </p>
             <br />
             <div style={styles.projectLinksContainer}>
@@ -85,8 +86,8 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                 <ProjectBox
                     icon={art}
                     iconStyle={styles.artIcon}
-                    subtitle="BIP BIP"
                     title="Robotique"
+                    subtitle="PROTOTYPES & HARDWARE"
                     route="art"
                 />
                 <ProjectBox

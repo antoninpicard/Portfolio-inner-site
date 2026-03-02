@@ -14,7 +14,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </div>
                     <br />
                     <div style={styles.headerRow}>
-                        <h3>MIT Boston - Étudiant International en Computer Science</h3>
+                        <h3>OpenClassrooms - Formation Systèmes Embarqués & IoT</h3>
                         <b>
                             <p>2025 ~ En cours</p>
                         </b>
@@ -25,7 +25,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Actuellement étudiant international au prestigieux Massachusetts Institute of Technology, je me consacre intensivement à la domotique et aux systèmes intelligents. J'approfondis mes connaissances dans de multiples domaines technologiques, notamment les systèmes embarqués, la cybersécurité des objets connectés, et l'automatisation domestique. Cette expérience internationale me permet de participer à des projets de recherche innovants et de développer une expertise pointue dans les technologies du futur.
+                            Formation en ligne axée sur les systèmes embarqués et l'IoT : programmation bas niveau en C/C++, interfaçage de microcontrôleurs (STM32, ESP32, Arduino), communication série (UART, SPI, I2C), gestion des interruptions et des timers, ainsi que les bases du développement sous Linux embarqué.
                         </p>
                     </li>
                 </ul>

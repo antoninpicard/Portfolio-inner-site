@@ -16,10 +16,9 @@ const About: React.FC<AboutProps> = (props) => {
             <br />
             <div className="text-block">
 				<p>
-					Passionné par le développement, la cybersécurité et la robotique, 
-					Actuellement étudiant à l'école 42 Lyon, je développe mes compétences à travers des projets concrets, 
-					aussi bien en freelance qu'en équipe. 
-					Mon objectif : allier technique, innovation et impact réel.
+					Passionné par les systèmes embarqués, la robotique et la programmation bas niveau,
+					actuellement étudiant à l'école 42 Lyon, je développe mes compétences à travers des projets concrets
+					impliquant microcontrôleurs, capteurs et communication série.
 				</p>
                 <br />
                 <p>
@@ -43,7 +42,7 @@ const About: React.FC<AboutProps> = (props) => {
 						Début collège, j’ai découvert la création web et la robotique grâce à un club de technologie, ce qui a confirmé ma volonté d’évoluer dans ce domaine. 
 						<br></br>
 						<br></br>
-						Progressivement, mon intérêt s’est élargi à la cybersécurité, la robotique et de le développement : des domaines où l’exploration, la logique 
+						Progressivement, mon intérêt s'est élargi à la cybersécurité, la robotique et le développement : des domaines où l'exploration, la logique 
 						et l’innovation prennent tout leur sens. Aujourd’hui, je poursuis cette passion à travers mes études à l’école 42, 
 						mes projets personnels et professionnels, avec un objectif clair : concevoir, sécuriser et améliorer des systèmes complexes.
 					</p>
@@ -53,7 +52,7 @@ const About: React.FC<AboutProps> = (props) => {
                     <img src={me} style={styles.image} alt="" />
                     <p>
                         <sub>
-                            <b>Image 1:</b> Vrai photo de moi pendant que je développe ce site :)
+                            <b>Image 1:</b> Vraie photo de moi pendant que je développe ce site :)
                         </sub>
                     </p>
                 </div>
@@ -62,8 +61,8 @@ const About: React.FC<AboutProps> = (props) => {
 					Dès l’adolescence, je codais des scripts pour mon serveur Garry’s Mod et automatisais des tâches en Python. <br />
 					Rapidement, j’ai conçu mes propres bots, un assistant vocal local avec NLP, 
 					et un pare-feu intelligent basé sur Raspberry Pi pour sécuriser mon réseau. <br /><br />
-					Passionné de cybersécurité, de robotique et d’IA, je développe aujourd’hui des projets qui allient back-end, 
-					architecture réseau et algorithmes avancés. <br />
+					Passionné de systèmes embarqués et de bas niveau, je développe aujourd'hui des projets qui allient microcontrôleurs, 
+				communication série et algorithmes embarqués. <br />
 					Certains de ces projets sont visibles sur ma page <Link to="/projects/software">Projets IT</Link>.
 				</p>
             
@@ -98,17 +97,11 @@ const About: React.FC<AboutProps> = (props) => {
                         </p>
                     </div>
                 </div>
-                <br />
-                <br />
-                <p>
-                Merci d'avoir lu à propos de moi ! J'espère que vous apprécierez l'exploration du reste de mon site portfolio et tout ce qu'il a à offrir. Si vous l'aimez, n'hésitez pas à me le faire savoir.{' '}
-                    
-                    {' '}
-                    Bonne chance et have fun!
-                </p>
+
+                
                 <br />
                 <p>
-                    Si vous avez des questions, j'aimerai les entendre. Vous pouvez me les poser{' '}
+                    Si vous avez des questions, j'aimerais les entendre. Vous pouvez me les poser{' '}
                     <Link to="/contact">ici</Link> ou m'envoyer un mail à{' '}
                     <a href="mailto:antoninpicard.pro@gmail.com">
                         antoninpicard.pro@gmail.com
