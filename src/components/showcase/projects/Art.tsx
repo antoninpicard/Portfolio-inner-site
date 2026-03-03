@@ -43,7 +43,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     <img src={tacticalBot} alt="TacticalTrackBot" />
                     <p>
                         <sub>
-                            <b>Image 1:</b> TacticalTrackBot — prototype
+                            <b>Image 1:</b> TacticalTrackBot — prototype (reconstitution IA)
                         </sub>
                     </p>
                 </div>
@@ -74,7 +74,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     <img src={neuroArm} alt="NeuroArm" />
                     <p>
                         <sub>
-                            <b>Image 2:</b> NeuroArm — bras articulé à contrôle EMG
+                            <b>Image 2:</b> NeuroArm — bras articulé à contrôle EMG (reconstitution IA)
                         </sub>
                     </p>
                 </div>

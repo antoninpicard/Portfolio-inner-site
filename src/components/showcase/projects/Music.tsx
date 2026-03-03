@@ -39,7 +39,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             </p>
             <br />
             <p>
-				Spoiler : oui, ça fonctionne même à 2h du mat
+				Spoiler : oui, ça fonctionne même à 2h du matin
             </p>
             <br />
 
