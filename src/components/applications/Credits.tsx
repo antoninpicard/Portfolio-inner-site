@@ -150,7 +150,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
                 style={styles.credits}
             >
                 <h2>Credits</h2>
-                <p>antoninpicard.com, 2023</p>
+                <p>antoninpicard.com, 2026</p>
                 <br />
                 <br />
                 <br />
