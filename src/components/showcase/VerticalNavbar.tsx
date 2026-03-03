@@ -28,7 +28,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
             <div style={styles.header}>
                 <h1 style={styles.headerText}>Antonin</h1>
                 <h1 style={styles.headerText}>Picard</h1>
-                <h3 style={styles.headerShowcase}>Portfolio '25</h3>
+                <h3 style={styles.headerShowcase}>Portfolio '26</h3>
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="ACCUEIL" />
@@ -76,9 +76,16 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                 />
             </div>
             <div style={styles.spacer} />
-            <div style={styles.forHireContainer}>
-                {/* <img src={forHire} style={styles.image} alt="" /> */}
-            </div>
+            <a
+                href="https://github.com/antoninpicard"
+                target="_blank"
+                rel="noreferrer"
+                style={styles.githubLink}
+            >
+                <div className="big-button-container" style={styles.githubButton}>
+                    GitHub
+                </div>
+            </a>
         </div>
     ) : (
         <></>
@@ -135,10 +142,18 @@ const styles: StyleSheetCSS = {
     spacer: {
         flex: 1,
     },
-    forHireContainer: {
-        cursor: 'pointer',
-
+    githubLink: {
+        textDecoration: 'none',
+        color: 'inherit',
         width: '100%',
+    },
+    githubButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 12,
+        fontWeight: 'bold',
+        fontSize: 14,
+        textAlign: 'center',
     },
 };
 

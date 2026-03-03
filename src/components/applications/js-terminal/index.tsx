@@ -26,6 +26,7 @@ export const createMarkdownPreviewWindow = (fileName: string, content: string, g
   // Créer un conteneur de défilement pour le contenu
   const scrollContainer = document.createElement('div');
   scrollContainer.className = 'markdown-scroll-container';
+  innerBorder.appendChild(scrollContainer);
   
   // Créer le contenu de la prévisualisation
   const contentDiv = document.createElement('div');
@@ -50,30 +51,39 @@ export const createMarkdownPreviewWindow = (fileName: string, content: string, g
     // Insérer le contenu HTML dans la div
     contentDiv.innerHTML = `<div class="markdown-vertical-layout">${htmlContent}</div>`;
     
-    // Ajouter le bouton GitHub séparément s'il a été trouvé
-    if (githubUrl) {
-      console.log('GitHub URL found:', githubUrl); // Debug
-      
-      // Créer un conteneur pour le bouton GitHub en bas
+    const needsFooter = githubUrl || fileName === '42_miniRT.md';
+    if (needsFooter) {
       const footerContainer = document.createElement('div');
       footerContainer.className = 'markdown-preview-footer';
       innerBorder.appendChild(footerContainer);
-      
-      // Créer un bouton GitHub séparé
+
       const buttonContainer = document.createElement('div');
       buttonContainer.className = 'github-button-container';
-      
-      const githubButton = document.createElement('a');
-      githubButton.href = githubUrl;
-      githubButton.className = 'github-button';
-      githubButton.target = '_blank';
-      githubButton.rel = 'noopener noreferrer';
-      githubButton.textContent = 'Voir sur GitHub';
-      
-      buttonContainer.appendChild(githubButton);
       footerContainer.appendChild(buttonContainer);
-    } else {
-      console.log('No GitHub URL found'); // Debug
+
+      if (githubUrl) {
+        const githubButton = document.createElement('a');
+        githubButton.href = githubUrl;
+        githubButton.className = 'github-button';
+        githubButton.target = '_blank';
+        githubButton.rel = 'noopener noreferrer';
+        githubButton.textContent = 'Voir sur GitHub';
+        buttonContainer.appendChild(githubButton);
+      }
+
+      if (fileName === '42_miniRT.md') {
+        const launchButton = document.createElement('button');
+        launchButton.className = 'github-button';
+        launchButton.textContent = '▶ Lancer le projet sur l\'ordinateur';
+        launchButton.style.marginLeft = githubUrl ? '8px' : '0';
+        launchButton.style.cursor = 'pointer';
+        launchButton.addEventListener('click', () => {
+          if (typeof (window as any).openMiniRT42Fn === 'function') {
+            (window as any).openMiniRT42Fn();
+          }
+        });
+        buttonContainer.appendChild(launchButton);
+      }
     }
   } catch (error) {
     console.error('Erreur lors du parsing Markdown:', error);
@@ -146,10 +156,37 @@ export const createMarkdownPreviewWindow = (fileName: string, content: string, g
     }
     
     .markdown-preview-content {
-      font-family: 'Arial', sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-      color: #333;
+      font-family: 'MS Sans Serif', 'Pixelated MS Sans Serif', Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #000;
+    }
+    .markdown-preview-content h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #808080;
+      padding-bottom: 4px;
+    }
+    .markdown-preview-content h2 {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      margin-top: 12px;
+    }
+    .markdown-preview-content ul {
+      margin-left: 20px;
+      margin-bottom: 8px;
+    }
+    .markdown-preview-content li {
+      margin-bottom: 3px;
+    }
+    .markdown-preview-content p {
+      margin-bottom: 8px;
+    }
+    .markdown-preview-content a {
+      color: #0000cc;
+      text-decoration: underline;
     }
     
     .markdown-preview-footer {

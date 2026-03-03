@@ -8,7 +8,7 @@ const Home: React.FC<HomeProps> = (props) => {
         <div style={styles.page}>
             <div style={styles.header}>
                 <h1 style={styles.name}>Antonin Picard</h1>
-                <h2>Étudiant 42 | Systèmes Embarqués & Robotique</h2>
+                <h2>Étudiant Ingénieur 42 | Systèmes Embarqués</h2>
             </div>
             <div style={styles.buttons}>
                 <Link containerStyle={styles.link} to="about" text="À PROPOS" />
@@ -28,6 +28,16 @@ const Home: React.FC<HomeProps> = (props) => {
                     text="CONTACT"
                 />
             </div>
+            <a
+                href="https://github.com/antoninpicard"
+                target="_blank"
+                rel="noreferrer"
+                style={styles.githubLink}
+            >
+                <div className="big-button-container" style={styles.githubButton}>
+                    GitHub
+                </div>
+            </a>
             <div style={styles.header}>
                 <p>Ce PC est entièrement fonctionnel</p>
             </div>
@@ -79,6 +89,18 @@ const styles: StyleSheetCSS = {
         fontSize: 72,
         marginBottom: 16,
         lineHeight: 0.9,
+    },
+    githubLink: {
+        textDecoration: 'none',
+        color: 'inherit',
+        marginTop: 32,
+    },
+    githubButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '12px 32px',
+        fontWeight: 'bold',
+        fontSize: 16,
     },
 };
 

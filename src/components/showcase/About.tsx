@@ -16,16 +16,15 @@ const About: React.FC<AboutProps> = (props) => {
             <br />
             <div className="text-block">
 				<p>
-					Passionné par les systèmes embarqués, la robotique et la programmation bas niveau,
-					actuellement étudiant à l'école 42 Lyon, je développe mes compétences à travers des projets concrets
-					impliquant microcontrôleurs, capteurs et communication série.
+					Ingénieur système embarqué, je conçois des systèmes temps réel sur STM32 et ESP32.
+					Programmation bas niveau en C/C++, communication série (I2C, SPI, UART), capteurs et actionneurs —
+					je construis des projets concrets de la conception hardware à l'implémentation logicielle.
 				</p>
                 <br />
                 <p>
-                    Merci de prendre du temps pour regarder mon portfolio.
-                    J'espère que vous allez l'aimer. Si vous avez des questions ou des commentaires, vous 
-                    pouvez me contacter en utilisant{' '}
-                    <Link to="/contact">ce formulaire</Link> ou m'envoyer un mail sur{' '}
+                    N'hésitez pas à explorer ce portfolio interactif. Pour toute question,
+                    contactez-moi via{' '}
+                    <Link to="/contact">le formulaire</Link> ou par mail à{' '}
                     <a href="mailto:antoninpicard.pro@gmail.com">
                         antoninpicard.pro@gmail.com
                     </a>

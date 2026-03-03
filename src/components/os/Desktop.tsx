@@ -84,6 +84,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     const [shutdown, setShutdown] = useState(false);
     const [numShutdowns, setNumShutdowns] = useState(1);
+    const [wallpaper, setWallpaper] = useState<string | null>(null);
     
     useEffect(() => {
         if (shutdown === true) {
@@ -236,23 +237,41 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         }, 0);
     }, [addWindow, minimizeWindow, onWindowInteract, removeWindow]);
     
+    // Fonction pour ouvrir miniRT42
+    const openMiniRT42 = useCallback(() => {
+        const app = APPLICATIONS['miniRT42'];
+        addWindow(
+            app.key,
+            <app.component
+                onInteract={() => onWindowInteract(app.key)}
+                onMinimize={() => minimizeWindow(app.key)}
+                onClose={() => removeWindow(app.key)}
+                key={app.key}
+            />
+        );
+    }, [addWindow, minimizeWindow, onWindowInteract, removeWindow]);
+
     // Exposer la fonction d'ouverture de prévisualisation Markdown au terminal
     useEffect(() => {
         // Définir directement la fonction sur l'objet window
         if (typeof window !== 'undefined') {
             (window as any).openMarkdownPreviewFn = openMarkdownPreview;
+            (window as any).openMiniRT42Fn = openMiniRT42;
+            (window as any).setDesktopWallpaperFn = (bg: string) => setWallpaper(bg);
         }
         
         return () => {
             // Nettoyer lors du démontage
             if (typeof window !== 'undefined') {
                 delete (window as any).openMarkdownPreviewFn;
+                delete (window as any).openMiniRT42Fn;
+                delete (window as any).setDesktopWallpaperFn;
             }
         };
-    }, [openMarkdownPreview]);
+    }, [openMarkdownPreview, openMiniRT42, setWallpaper]);
 
     return !shutdown ? (
-        <div style={styles.desktop}>
+        <div style={Object.assign({}, styles.desktop, wallpaper ? { backgroundImage: wallpaper, backgroundSize: 'cover', backgroundPosition: 'center' } : {})}>
             {/* For each window in windows, loop over and render  */}
             {Object.keys(windows).map((key) => {
                 const element = windows[key].component;

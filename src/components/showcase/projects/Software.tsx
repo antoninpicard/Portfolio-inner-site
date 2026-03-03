@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
@@ -40,6 +41,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <h3>Technologies :</h3>
                 <p>ESP32, C/C++, Arduino Framework, MQTT, I2C, DHT22, BMP280, PlatformIO</p>
                 <br />
+                <Link to="/projects/demo/weather-station" style={styles.demoButton}>
+                    Voir la simulation
+                </Link>
             </div>
 
             {/* Projet 2: Simulateur de satellite STM32 */}
@@ -52,7 +56,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <br />
                 <h3>Compétences mises en œuvre :</h3>
                 <ul>
-                    <li><p>Programmation bare-metal C sur STM32 (HAL / registres)</p></li>
+                    <li><p>Programmation hardecorel C sur STM32 (HAL / registres)</p></li>
                     <li><p>Interfaçage IMU via SPI (accéléromètre + gyroscope)</p></li>
                     <li><p>Implémentation d'un filtre complémentaire pour fusion de données inertielles</p></li>
                     <li><p>Modélisation de la dynamique d'attitude (angles d'Euler, quaternions)</p></li>
@@ -64,6 +68,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <h3>Technologies :</h3>
                 <p>STM32F4, C, HAL STM32, SPI, UART, IMU, STM32CubeIDE, ST-Link</p>
                 <br />
+                <Link to="/projects/demo/satellite" style={styles.demoButton}>
+                    Voir la simulation
+                </Link>
             </div>
 
             {/* Projet 3: Robot éviteur d'obstacles Arduino */}
@@ -87,6 +94,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <h3>Technologies :</h3>
                 <p>Arduino Mega, C/C++, HC-SR04, L298N, HC-05, UART, Machine à états</p>
                 <br />
+                <Link to="/projects/demo/robot" style={styles.demoButton}>
+                    Voir la simulation
+                </Link>
             </div>
 
             {/* Projet: CyberGuard */}
@@ -100,20 +110,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <h3>Technologies :</h3>
                 <p>Python, Raspberry Pi, Linux embarqué, iptables, React.js, Node.js</p>
                 <br />
-                <h3>Liens :</h3>
-                <ul>
-                    <li>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://github.com/antoninpicard/Portefolio-Project/tree/main/Projects/CyberGuard"
-                        >
-                            <p>
-                                <b>[GitHub]</b> - CyberGuard Repo
-                            </p>
-                        </a>
-                    </li>
-                </ul>
+                <Link to="/projects/demo/cyberguard" style={styles.demoButton}>
+                    Voir la simulation
+                </Link>
             </div>
 
             {/* Projet: 42 Projects */}
@@ -245,6 +244,20 @@ const styles: StyleSheetCSS = {
     },
     caption: {
         width: '80%',
+    },
+    demoButton: {
+        display: 'inline-block',
+        padding: '10px 24px',
+        backgroundColor: '#1a1a2e',
+        color: '#4ecdc4',
+        border: '2px solid #4ecdc4',
+        borderRadius: 4,
+        fontWeight: 'bold',
+        fontSize: 14,
+        textDecoration: 'none',
+        cursor: 'pointer',
+        textAlign: 'center',
+        marginTop: 4,
     },
 };
 

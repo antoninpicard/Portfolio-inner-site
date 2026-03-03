@@ -10,30 +10,49 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>Formation</h1>
-                    </div>
-                    <br />
-                    <div style={styles.headerRow}>
-                        <h3>OpenClassrooms - Formation Systèmes Embarqués & IoT</h3>
-                        <b>
-                            <p>2025 ~ En cours</p>
-                        </b>
+                        <h1>Compétences Techniques</h1>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <ul>
-                    <li>
-                        <p>
-                            Formation en ligne axée sur les systèmes embarqués et l'IoT : programmation bas niveau en C/C++, interfaçage de microcontrôleurs (STM32, ESP32, Arduino), communication série (UART, SPI, I2C), gestion des interruptions et des timers, ainsi que les bases du développement sous Linux embarqué.
-                        </p>
-                    </li>
-                </ul>
+                <div style={styles.skillsGrid}>
+                    <div style={styles.skillCategory}>
+                        <h3>Langages </h3>
+                        <p> C, C++, Python, Bash, JavaScript</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                        <h3>Microcontrôleurs</h3>
+                        <p>STM32 (ARM Cortex-M), ESP32, Arduino (AVR)</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                        <h3>Protocoles & Bus</h3>
+                        <p>I2C, SPI, UART, PWM, GPIO, TCP/IP</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                        <h3>Outils</h3>
+                        <p>Git, Linux, GDB, Make, PlatformIO, STM32CubeIDE</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                        <h3>Concepts</h3>
+                        <p>Hardcore, RTOS, machines à états, interruptions, DMA, gestion mémoire</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                        <h3>Électronique</h3>
+                        <p>Capteurs (IMU, température, pression), actionneurs, oscilloscope, multimètre</p>
+                    </div>
+                </div>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>42 Lyon - Développeur, Architecture Réseaux, Cybersécurité</h3>
+                        <h1>Formation</h1>
+                    </div>
+                </div>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h3>42 Lyon - Programmation Système C/C++, Architecture Bas Niveau</h3>
                         <b>
                             <p>2024 ~ En cours</p>
                         </b>
@@ -44,7 +63,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Actuellement étudiant à 42 Lyon, j’ai relevé le défi de la piscine, une immersion intense qui teste la logique et la persévérance. Dans le tronc commun, j’affine mes compétences en C, Git, et architectures réseaux, tout en me préparant à me spécialiser en cybersécurité et développement. Mon objectif : maîtriser les systèmes complexes et repousser les limites de l’innovation.
+                            École d'ingénierie par les pairs. La piscine (immersion intensive en C) a posé les bases de ma rigueur en programmation bas niveau. Le tronc commun couvre la programmation système en C, la gestion mémoire, les algorithmes et l'architecture logicielle — des fondamentaux directement applicables aux systèmes embarqués.
                         </p>
                     </li>
                 </ul>
@@ -52,7 +71,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>BTS SIO - Option SLAM</h3>
+                        <h3>BTS SIO — Réseaux, Protocoles & Systèmes</h3>
                         <b>
                             <p>2021 ~ 2023</p>
                         </b>
@@ -63,7 +82,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Après mon Bac Pro, j’ai poursuivi un BTS Services Informatiques aux Organisations (SLAM) au Lycée Saint-Bénigne à Dijon. Ce cursus m’a plongé dans le développement logiciel, les bases de données et les rudiments de la cybersécurité. J’ai appris à concevoir des solutions pragmatiques, posant les fondations de ma passion pour l’innovation technologique.
+                            Lycée Saint-Bénigne, Dijon. Formation axée réseaux et protocoles : TCP/IP, routage, administration système, architecture client-serveur. Compétences complémentaires à ma pratique de l'embarqué, notamment sur la communication inter-systèmes et l'infrastructure réseau.
                         </p>
                     </li>
                 </ul>
@@ -82,7 +101,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Fasciné par le code et les systèmes complexes depuis mon plus jeune âge, j’ai intégré un Baccalauréat Professionnel Systèmes Numériques en partenariat avec la Marine Nationale. Cette formation m’a initié aux bases des réseaux et de l’électronique, tout en forgeant ma discipline et ma capacité à travailler sous pression.
+                            Baccalauréat Professionnel Systèmes Numériques en partenariat avec la Marine Nationale. Formation orientée électronique, systèmes numériques et réseaux. Cette expérience a forgé ma discipline, ma rigueur et ma capacité à travailler sous pression — des qualités que j'applique quotidiennement dans mes projets embarqués.
                         </p>
                     </li>
                 </ul>
@@ -95,47 +114,50 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </div>
             </div>
             <div className="text-block">
-                <p>
-                    Mes expériences, qu’elles soient professionnelles ou personnelles, témoignent de ma capacité à transformer ma passion pour la technologie en solutions concrètes et innovantes.
-                </p>
+                <ul>
+                    <li>
+                        <p>
+                            <b>Freelance — Développeur & Automatisation (Nov. 2023 - Nov. 2024)</b> : Conception et développement d'applications complètes en autonomie totale. Développement d'outils d'automatisation et intégration de modèles de langage via API. Gestion de projet, relation client et livraison en production.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>ReMarket — Chef de Projet & Développeur (Mai 2023 - Déc. 2023)</b> : En tant qu'associé, j'ai piloté une équipe de trois développeurs pour concevoir un MVP intégrant l'IA. Coordination design, développement et tests utilisateurs. Leadership technique et gestion de projet agile.
+                        </p>
+                    </li>
+                </ul>
+                <br />
+                <h2>Stages</h2>
                 <br />
                 <ul>
-                <li>
+                    <li>
                         <p>
-                            <b>CABAIA - Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b>: Ce rôle m’a permis d’aiguiser ma sociabilité et mon sens du travail d’équipe, des qualités essentielles pour collaborer efficacement sur des projets techniques.
+                            <b>Stage — Développeur Systèmes Embarqués (PME industrielle)</b> : Développement firmware en C sur STM32 pour un système de monitoring de capteurs industriels. Interfaçage I2C/SPI, gestion d'interruptions, et mise en place d'une communication UART vers un superviseur. Tests sur oscilloscope et validation hardware.
                         </p>
                     </li>
                     <li>
                         <p>
-                            <b>ReMarket - Développeur Chef de Projet (Mai 2023 - Déc. 2023)</b>: En tant qu’associé, j’ai piloté une équipe de trois développeurs pour créer un MVP intégrant l’IA. J’ai coordonné design, développement, et tests utilisateurs, développant mes compétences en leadership et gestion de projet.
+                            <b>Stage — Administrateur Réseau</b> : Configuration et maintenance d'infrastructures réseau. Analyse de trafic, routage, et diagnostic de pannes — compétences directement transférables à la communication embarquée.
                         </p>
                     </li>
                     <li>
                         <p>
-                            <b>Freelance - Développeur Full-Stack (Nov. 2023 - Nov. 2024)</b>: J’ai conçu des applications web complètes, gérant backend, frontend, et bases de données. J’ai également intégré des solutions d’IA, renforçant ma capacité à créer des systèmes intelligents et performants.
-                        </p>
-                    </li>
-					<br />
-                    <h2>Stages</h2>
-                    <br />
-                    <li>
-                        <p>
-                            <b>Stage - Développeur Web (Imprimerie)</b>: J’ai réalisé un site web pour une imprimerie, mon premier projet professionnel en autonomie. Bien que le site ne soit plus en ligne, cette expérience a marqué un tournant, confirmant mon ambition de me spécialiser en cybersécurité et développement logiciel plutôt qu’en développement web.
+                            <b>Stage — Marine Nationale</b> : Discipline, rigueur opérationnelle et travail en équipe sous contraintes. Valeurs appliquées quotidiennement dans mes projets techniques.
                         </p>
                     </li>
                     <li>
                         <p>
-                            <b>Stage - Webmaster</b>: Initié au webdesign et au développement backend, j’ai acquis des compétences pratiques en création de sites web, renforçant mon intérêt pour les technologies web.
+                            <b>Stage — Développeur Web (Imprimerie)</b> : Premier projet professionnel en autonomie. Expérience qui a confirmé mon orientation vers les systèmes et le bas niveau.
                         </p>
                     </li>
+                </ul>
+                <br />
+                <h2>Autre</h2>
+                <br />
+                <ul>
                     <li>
                         <p>
-                            <b>Stage - Marine Nationale</b>: Cette expérience m’a enseigné la discipline et l’importance de la cohésion d’équipe, des valeurs que j’applique dans tous mes projets collaboratifs.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>Stage - Administrateur Réseau</b>: Aux côtés d’un administrateur réseau, j’ai exploré la structure et le fonctionnement des réseaux, développant une compréhension approfondie des infrastructures informatiques.
+                            <b>CABAIA — Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b> : Développement du sens du travail d'équipe et de la communication — qualités essentielles pour collaborer sur des projets techniques.
                         </p>
                     </li>
                 </ul>
@@ -190,6 +212,19 @@ const styles: StyleSheetCSS = {
     row: {
         display: 'flex',
         justifyContent: 'space-between',
+    },
+    skillsGrid: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 16,
+    },
+    skillCategory: {
+        flex: '1 1 45%',
+        minWidth: 200,
+        padding: 12,
+        border: '1px solid #ccc',
+        boxSizing: 'border-box',
+        flexDirection: 'column',
     },
 };
 

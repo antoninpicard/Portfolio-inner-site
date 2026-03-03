@@ -11,6 +11,10 @@ import MusicProjects from '../showcase/projects/Music';
 import ArtProjects from '../showcase/projects/Art';
 import VerticalNavbar from '../showcase/VerticalNavbar';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
+import WeatherStationDemo from '../showcase/projects/demos/WeatherStationDemo';
+import SatelliteDemo from '../showcase/projects/demos/SatelliteDemo';
+import RobotDemo from '../showcase/projects/demos/RobotDemo';
+import CyberGuardDemo from '../showcase/projects/demos/CyberGuardDemo';
 
 export interface ShowcaseExplorerProps extends WindowAppProps {}
 
@@ -23,12 +27,12 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
             left={56}
             width={initWidth}
             height={initHeight}
-            windowTitle="Antonin Picard - Portfolio 2025"
+            windowTitle="Antonin Picard - Portfolio 2026"
             windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'© Copyright 2023 Antonin Picard'}
+            bottomLeftText={'© Copyright 2026 Antonin Picard'}
         >
             <Router>
                 <div className="site-page">
@@ -48,6 +52,10 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
                             element={<MusicProjects />}
                         />
                         <Route path="/projects/art" element={<ArtProjects />} />
+                        <Route path="/projects/demo/weather-station" element={<WeatherStationDemo />} />
+                        <Route path="/projects/demo/satellite" element={<SatelliteDemo />} />
+                        <Route path="/projects/demo/robot" element={<RobotDemo />} />
+                        <Route path="/projects/demo/cyberguard" element={<CyberGuardDemo />} />
                     </Routes>
                 </div>
             </Router>

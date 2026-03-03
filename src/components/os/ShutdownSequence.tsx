@@ -84,7 +84,7 @@ const ShutdownSequence: React.FC<ShutdownSequenceProps> = ({
     Did you not read the last message?${_S} This computer will A${_F}L${_F}W${_F}A${_F}Y${_F}S${_F} reboot, the shutdown sequence is just here for show. It's not actually doing anything.
     ${_M}
     I literally spent months on this website to give you other things to do.
-    You can play DOOM, Metal Gear... but all you wanna do is shut the computer down.
+    You can play DOOM... but all you wanna do is shut the computer down.
     ${_L}
     |Goodbye Again!|
     ${_M}
@@ -151,8 +151,6 @@ const ShutdownSequence: React.FC<ShutdownSequenceProps> = ({
     `;
 
     const SHUTDOWN_MAP = [
-        NORMAL_SHUTDOWN,
-        NORMAL_SHUTDOWN,
         NORMAL_SHUTDOWN,
         SHUTDOWN_3,
         SHUTDOWN_4,

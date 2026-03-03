@@ -1,20 +1,47 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import Window from '../os/Window';
 import { useInterval } from 'usehooks-ts';
 import { motion } from 'framer-motion';
 import './Credits.css';
-import nothingGif from '../../assets/gifs/nothing.gif';
-import egVideo from '../../assets/gifs/EG.mp4';
-import hollImg from '../../assets/gifs/holl.png';
+
+interface FloatingWord {
+    id: number;
+    text: string;
+    x: number;
+    y: number;
+    rotation: number;
+    fontSize: number;
+    color: string;
+    opacity: number;
+}
+
+const WORD_SEQUENCE: Omit<FloatingWord, 'id' | 'x' | 'y' | 'rotation' | 'opacity'>[] = [
+    { text: 'The code.',         fontSize: 18, color: '#ffffff' },
+    { text: 'The design.',       fontSize: 15, color: '#aaccff' },
+    { text: 'The 3D scenes.',    fontSize: 20, color: '#ffffff' },
+    { text: 'The sound.',        fontSize: 14, color: '#ffe999' },
+    { text: 'The animations.',   fontSize: 16, color: '#c4f0ff' },
+    { text: 'The UI.',           fontSize: 22, color: '#ffffff' },
+    { text: 'The terminal.',     fontSize: 13, color: '#7dfca4' },
+    { text: 'The file explorer.',fontSize: 12, color: '#ffffff' },
+    { text: 'The ray tracing.',  fontSize: 17, color: '#ffd4f0' },
+    { text: 'The easter eggs.',  fontSize: 11, color: '#ff9ebd' },
+    { text: 'Really everything.',fontSize: 28, color: '#ffffff' },
+    { text: 'Alone.',            fontSize: 32, color: '#cccccc' },
+    { text: 'Yes, even this.',   fontSize: 11, color: '#777777' },
+    { text: 'ALL OF IT.',        fontSize: 42, color: '#ff3333' },
+];
+
+let globalFloatingWords: FloatingWord[] = [];
+let globalAllStep = 0;
+let globalWordId = 0;
 
 export interface CreditsProps extends WindowAppProps {}
 
 const CREDITS = [
     {
         title: 'Création & Design',
-        rows: [['Antonin Picard', 'All'],
-               ['Alexandre Lefranc', 'Nothing'],
-        ],
+        rows: [['Antonin Picard', 'All']],
     },
     {
         title: 'Sound Design',
@@ -38,30 +65,42 @@ const CREDITS = [
     },
 ];
 
-// Variable globale pour l'état de l'easter egg, réinitialisée au rafraîchissement
-let globalEasterEggState = {
-    active: false,
-    step: 0,
-    firstStrike: true,
-    showStrike: false,
-    hollImage: false
-};
-
-// hollImage persiste uniquement pendant la session (réinitialisé au refresh)
-
 const Credits: React.FC<CreditsProps> = (props) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [time, setTime] = useState(0);
-    const [easterEggActive, setEasterEggActive] = useState(globalEasterEggState.active);
-    const [easterEggStep, setEasterEggStep] = useState(globalEasterEggState.step);
-    const [firstStrike, setFirstStrike] = useState(globalEasterEggState.firstStrike);
-    const [showStrike, setShowStrike] = useState(globalEasterEggState.showStrike);
-    const [showGif, setShowGif] = useState(false);
-    const [showEgVideo, setShowEgVideo] = useState(false);
-    const [showEgVisual, setShowEgVisual] = useState(false);
-    const [showHollImage, setShowHollImage] = useState(globalEasterEggState.hollImage);
-    const [isHovered, setIsHovered] = useState(false);
-    const [isPageLocked, setIsPageLocked] = useState(false);
+    const [isPageLocked] = useState(false);
+    const [isHoveredAll, setIsHoveredAll] = useState(false);
+    const [floatingWords, setFloatingWords] = useState<FloatingWord[]>(globalFloatingWords);
+    const allStep = useRef(globalAllStep);
+    const wordIdRef = useRef(globalWordId);
+
+    const spawnWord = useCallback((wordDef: Omit<FloatingWord, 'id' | 'x' | 'y' | 'rotation' | 'opacity'>) => {
+        const id = wordIdRef.current++;
+        const x = 3 + Math.random() * 85;
+        const y = 3 + Math.random() * 88;
+        const rotation = (Math.random() - 0.5) * 24;
+        wordDef = { ...wordDef, fontSize: 10 + Math.floor(Math.random() * 15) };
+        const newWord = { ...wordDef, id, x, y, rotation, opacity: 1 };
+        setFloatingWords(prev => {
+            const updated = [...prev, newWord];
+            globalFloatingWords = updated;
+            return updated;
+        });
+        globalAllStep = allStep.current;
+        globalWordId = wordIdRef.current;
+    }, []);
+
+    const handleAllClick = useCallback(() => {
+        const step = allStep.current;
+        allStep.current++;
+
+        if (step < WORD_SEQUENCE.length) {
+            spawnWord(WORD_SEQUENCE[step]);
+        } else {
+            spawnWord(WORD_SEQUENCE[Math.floor(Math.random() * WORD_SEQUENCE.length)]);
+        }
+        globalAllStep = allStep.current;
+    }, [spawnWord]);
 
     // every 5 seconds, move to the next slide
     useInterval(() => {
@@ -87,17 +126,6 @@ const Credits: React.FC<CreditsProps> = (props) => {
         setTime(0);
     }, []);
 
-    // Mettre à jour l'état global
-    useEffect(() => {
-        globalEasterEggState = {
-            active: easterEggActive,
-            step: easterEggStep,
-            firstStrike,
-            showStrike,
-            hollImage: showHollImage
-        };
-    }, [easterEggActive, easterEggStep, firstStrike, showStrike, showHollImage]);
-
     return (
         // add on resize listener
         <Window
@@ -110,16 +138,12 @@ const Credits: React.FC<CreditsProps> = (props) => {
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'Copyright 2023 Antonin Picard'}
+            bottomLeftText={'Copyright 2026 Antonin Picard'}
         >
             <div
                 onMouseDown={(e) => {
-                    // Ne pas changer de slide si on clique sur Nothing/Nothing? Really? ou si la page est verrouillée
                     const target = e.target as HTMLElement;
-                    if (target.textContent === 'Nothing' || target.textContent === 'Nothing ? Really ?' || isPageLocked) {
-                        e.preventDefault();
-                        return;
-                    }
+                    if (target.dataset.clickable || isPageLocked) return;
                     nextSlide();
                 }}
                 className="site-page"
@@ -143,71 +167,53 @@ const Credits: React.FC<CreditsProps> = (props) => {
                             </h3>
                             {CREDITS[currentSlide].rows.map((row, i) => {
                                 return (
-                                    <div key={`row-${i}`} style={styles.row} className={(easterEggStep === 2 && showStrike && CREDITS[currentSlide].rows[i][0] === 'Alexandre Lefranc') ? `strike-through ${firstStrike ? '' : 'permanent'}` : ''}>
+                                    <div key={`row-${i}`} style={styles.row}>
                                         {row.map((credit, j) => {
+                                        if (credit === 'All') {
+                                            return (
+                                                <p
+                                                    key={j}
+                                                    data-clickable="true"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleAllClick();
+                                                    }}
+                                                    onMouseEnter={() => setIsHoveredAll(true)}
+                                                    onMouseLeave={() => setIsHoveredAll(false)}
+                                                    style={{
+                                                        cursor: 'pointer',
+                                                        color: isHoveredAll ? '#ff0000' : 'inherit',
+                                                        transition: 'color 0.3s',
+                                                    }}
+                                                >
+                                                    {credit}
+                                                </p>
+                                            );
+                                        }
+                                        if (credit === 'Bruno Simon') {
+                                            return (
+                                                <p
+                                                    key={j}
+                                                    data-clickable="true"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        e.preventDefault();
+                                                        window.open('https://bruno-simon.com/', '_blank');
+                                                    }}
+                                                    onMouseEnter={(e) => (e.currentTarget.style.color = '#ffe66d')}
+                                                    onMouseLeave={(e) => (e.currentTarget.style.color = 'inherit')}
+                                                    style={{
+                                                        cursor: 'pointer',
+                                                        transition: 'color 0.3s',
+                                                    }}
+                                                >
+                                                    {credit}
+                                                </p>
+                                            );
+                                        }
                                         return (
-                                            <p 
-                                                key={j}
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Empêche la propagation du clic
-                                                    if (credit === 'Nothing') {
-                                                        if (easterEggStep === 0) {
-                                                            setEasterEggActive(true);
-                                                            setShowGif(true);
-                                                            setIsPageLocked(true);
-                                                            setTime(0); // Reset le timer
-                                                            setEasterEggStep(1);
-                                                            setTimeout(() => {
-                                                                setShowGif(false);
-                                                            }, 3000);
-                                                            setTimeout(() => {
-                                                                setIsPageLocked(false);
-                                                                setTime(0); // Reset le timer quand on débloque
-                                                            }, 2000);
-                                                        } else if (easterEggStep === 1) {
-                                                            setEasterEggStep(2);
-                                                            setIsPageLocked(true);
-                                                            setShowEgVideo(true);
-                                                            setShowEgVisual(true);
-                                                            // Cacher visuellement la vidéo après 10s (audio continue)
-                                                            setTimeout(() => { setShowEgVisual(false); }, 10000);
-                                                            // Attendre 10.5 secondes avant d'afficher holl et lancer la rature
-                                                            setTimeout(() => {
-                                                                setShowHollImage(true);
-                                                                // Attendre 1 seconde avant l'animation de rature
-                                                                setTimeout(() => {
-                                                                    setShowStrike(true);
-                                                                    setTimeout(() => {
-                                                                        setFirstStrike(false);
-                                                                    }, 1000);
-                                                                    setTimeout(() => {
-                                                                        setIsPageLocked(false);
-                                                                        setTime(0); // Reset le timer
-                                                                    }, 2000);
-                                                                }, 1000);
-                                                            }, 10500);
-                                                        }
-                                                    }
-                                                }}
-
-                                                style={{
-                                                    cursor: credit === 'Nothing' ? 'pointer' : 'default',
-                                                    color: (credit === 'Nothing' && (easterEggActive || isHovered)) ? '#ff0000' : 'inherit',
-                                                    transition: 'color 0.3s'
-                                                }}
-                                                onMouseEnter={() => {
-                                                    if (credit === 'Nothing') {
-                                                        setIsHovered(true);
-                                                    }
-                                                }}
-                                                onMouseLeave={() => setIsHovered(false)}
-
-                                            >
-                                                {credit === 'Nothing' ? 
-                                                    (easterEggStep === 2 ? 'Yes... Nothing' : 
-                                                     easterEggStep === 1 ? 'Nothing ? Really ?' : 
-                                                     'Nothing')
-                                                    : credit}
+                                            <p key={j}>
+                                                {credit}
                                             </p>
                                         );
                                     })}
@@ -217,73 +223,29 @@ const Credits: React.FC<CreditsProps> = (props) => {
                         </motion.div>
                     }
                 </div>
-                {showGif && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        style={{
-                            position: 'fixed',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            zIndex: 9999,
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            padding: '20px',
-                            borderRadius: '10px'
-                        }}
-                    >
-                        <img src={nothingGif} alt="nothing" style={{ width: '600px', maxWidth: '90vw' }} />
-                    </motion.div>
-                )}
-                {showEgVideo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                {floatingWords.map(word => (
+                    <motion.span
+                        key={word.id}
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, type: 'spring', stiffness: 120 }}
                         style={{
                             position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            backgroundColor: showEgVisual ? 'black' : 'transparent',
-                            pointerEvents: showEgVisual ? 'auto' : 'none',
-                            zIndex: 9999,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            left: `${word.x}%`,
+                            top: `${word.y}%`,
+                            transform: `rotate(${word.rotation}deg)`,
+                            fontSize: word.fontSize,
+                            color: word.color,
+                            fontWeight: 'bold',
+                            pointerEvents: 'none',
+                            whiteSpace: 'nowrap',
+                            textShadow: `0 0 12px ${word.color}88`,
+                            zIndex: 1,
                         }}
                     >
-                        <video
-                            autoPlay
-                            playsInline
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                opacity: showEgVisual ? 1 : 0
-                            }}
-                        >
-                            <source src={egVideo} type="video/mp4" />
-                        </video>
-                    </motion.div>
-                )}
-                {showHollImage && (
-                    <img
-                        src={hollImg}
-                        alt="holl"
-                        style={{
-                            position: 'absolute',
-                            top: 40,
-                            right: 60,
-                            width: '300px',
-                            height: 'auto',
-                            zIndex: 10001,
-                            pointerEvents: 'none'
-                        }}
-                    />
-                )}
+                        {word.text}
+                    </motion.span>
+                ))}
                 <p>Click to continue...</p>
                 <br />
                 <div style={styles.nextSlideTimer}>
@@ -311,6 +273,7 @@ const styles: StyleSheetCSS = {
         paddingBottom: 64,
         color: 'white',
         overflow: 'hidden',
+        position: 'relative',
     },
     row: {
         overflow: 'none',
