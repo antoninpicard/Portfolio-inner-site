@@ -1,6 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
+interface TelemetryEntry {
+    timestamp: string;
+    roll: number;
+    pitch: number;
+    yaw: number;
+    gyroX: number;
+    gyroY: number;
+    gyroZ: number;
+}
+
 const SatelliteDemo: React.FC = () => {
     const [roll, setRoll] = useState(0);
     const [pitch, setPitch] = useState(0);
