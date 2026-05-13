@@ -1,0 +1,16 @@
+@media (max-width: 600px) {
+    .about-header-section {
+        flex-direction: column !important;
+    }
+
+    .about-header-text {
+        flex: unset !important;
+    }
+
+    .about-image-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+        flex: unset !important;
+        margin-top: 16px;
+    }
+}

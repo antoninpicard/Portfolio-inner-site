@@ -1,25 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import me from '../../assets/pictures/workingAtComputer.jpg';
 import meNow from '../../assets/pictures/currentme1.jpg';
+import mePro from '../../assets/pictures/currentme3.jpg';
 import { Link } from 'react-router-dom';
 import ResumeDownload from './ResumeDownload';
+import './About.css';
 
 export interface AboutProps {}
 
 const About: React.FC<AboutProps> = (props) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 600);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         // add on resize listener
         <div className="site-page-content">
             {/* <img src={me} style={styles.topImage} alt="" /> */}
-            <h1 style={{ marginLeft: -16 }}>Bienvenue</h1>
-            <h3>Je suis Antonin Picard</h3>
-            <br />
+            <div style={{ ...styles.headerSection, flexDirection: isMobile ? 'column' : 'row' }}>
+                <div style={styles.headerText}>
+                    <h1 style={{ marginLeft: -16, fontSize: 72 }}>Bienvenue</h1>
+                    <h3 style={{ fontSize: 28, marginTop: 24 }}>Je suis Antonin Picard</h3>
+                </div>
+                <div style={{ ...styles.proImageWrapper, marginLeft: isMobile ? 0 : 140, marginTop: isMobile ? 16 : 0, width: isMobile ? '100%' : 260, flex: isMobile ? 'unset' : '0 0 260px' }}>
+                    <img src={mePro} style={styles.proImage} alt="Antonin Picard" />
+                </div>
+            </div>
             <div className="text-block">
-				<p>
-					Ingénieur système embarqué, je conçois des systèmes temps réel sur STM32 et ESP32.
-					Programmation bas niveau en C/C++, communication série (I2C, SPI, UART), capteurs et actionneurs —
-					je construis des projets concrets de la conception hardware à l'implémentation logicielle.
-				</p>
+                <p>
+                    Ingénieur système embarqué, je conçois des systèmes temps réel sur STM32 et ESP32.
+                    Programmation bas niveau en C/C++, communication série (I2C, SPI, UART), capteurs et actionneurs —
+                    je construis des projets concrets de la conception hardware à l'implémentation logicielle.
+                </p>
                 <br />
                 <p>
                     N'hésitez pas à explorer ce portfolio interactif. Pour toute question,
@@ -91,7 +107,7 @@ const About: React.FC<AboutProps> = (props) => {
                         <img src={meNow} style={styles.image} alt="" />
                         <p>
                             <sub>
-                                <b>Image 2:</b> Moi, Avril 2022
+                                <b>Image 2:</b> Moi, Mai 2026
                             </sub>
                         </p>
                     </div>
@@ -124,6 +140,30 @@ const styles: StyleSheetCSS = {
         height: 'auto',
         width: '100%',
         marginBottom: 32,
+    },
+    headerSection: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        gap: 0,
+        marginBottom: 24,
+        overflow: 'visible',
+    },
+    headerText: {
+        flex: '0 0 40%',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    proImageWrapper: {
+        flex: '0 0 260px',
+        width: 260,
+        marginLeft: 140,
+    },
+    proImage: {
+        width: '100%',
+        height: 'auto',
+        borderRadius: 4,
+        objectFit: 'cover',
     },
     verticalImage: {
         alignSelf: 'center',
