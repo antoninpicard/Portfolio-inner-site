@@ -16,24 +16,54 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             </div>
             <div className="text-block">
                 <div style={styles.skillsGrid}>
-                    <div style={styles.skillCategory}>
-                        <h3>Langages</h3>
-                        <p><b>Solide :</b> C, C++, Python, Bash, JavaScript</p>
+                    <div style={styles.skillCategory} className="big-button-container">
+                        <h3 style={styles.skillTitle}>Langages</h3>
+                        <div style={styles.skillItems}>
+                            <span style={styles.skillTagFull}>C</span>
+                            <span style={styles.skillTagFull}>C++</span>
+                            <span style={styles.skillTagFull}>Python</span>
+                            <span style={styles.skillTagFull}>Bash</span>
+                            <span style={styles.skillTagFull}>JavaScript</span>
+                        </div>
                     </div>
-                    <div style={styles.skillCategory}>
-                        <h3>Embarqué</h3>
-                        <p><b>En cours :</b> STM32 (ARM Cortex-M), ESP32, Arduino (AVR), FreeRTOS</p>
+                    <div style={styles.skillCategory} className="big-button-container">
+                        <h3 style={styles.skillTitle}>Embarqué</h3>
+                        <div style={styles.skillItems}>
+                            <span style={styles.skillTagLearning}>STM32 (Cortex-M)</span>
+                            <span style={styles.skillTagLearning}>ESP32</span>
+                            <span style={styles.skillTagLearning}>Arduino (AVR)</span>
+                            <span style={styles.skillTagLearning}>FreeRTOS</span>
+                        </div>
                     </div>
-                    <div style={styles.skillCategory}>
-                        <h3>Systèmes & réseau</h3>
-                        <p><b>Solide :</b> TCP/IP, POSIX Threads/Mutex, GPIO</p>
-                        <p><b>En cours :</b> I2C, SPI, UART, PWM</p>
+                    <div style={styles.skillCategory} className="big-button-container">
+                        <h3 style={styles.skillTitle}>Systèmes & réseau</h3>
+                        <div style={styles.skillItems}>
+                            <span style={styles.skillTagFull}>TCP/IP</span>
+                            <span style={styles.skillTagFull}>POSIX Threads</span>
+                            <span style={styles.skillTagFull}>GPIO</span>
+                            <span style={styles.skillTagLearning}>I2C</span>
+                            <span style={styles.skillTagLearning}>SPI</span>
+                            <span style={styles.skillTagLearning}>UART</span>
+                            <span style={styles.skillTagLearning}>PWM</span>
+                        </div>
                     </div>
-                    <div style={styles.skillCategory}>
-                        <h3>Outils</h3>
-                        <p><b>Solide :</b> Git, Linux, GDB, Make, PlatformIO, STM32CubeIDE, Docker</p>
+                    <div style={styles.skillCategory} className="big-button-container">
+                        <h3 style={styles.skillTitle}>Outils</h3>
+                        <div style={styles.skillItems}>
+                            <span style={styles.skillTagFull}>Git</span>
+                            <span style={styles.skillTagFull}>Linux</span>
+                            <span style={styles.skillTagFull}>GDB</span>
+                            <span style={styles.skillTagFull}>Make</span>
+                            <span style={styles.skillTagFull}>STM32CubeIDE</span>
+                            <span style={styles.skillTagFull}>Docker</span>
+                        </div>
                     </div>
                 </div>
+                <br />
+                <p style={styles.legendText}>
+                    <span style={styles.legendFull}>&#9608;</span> Solide &nbsp;&nbsp;&nbsp;
+                    <span style={styles.legendLearn}>&#9608;</span> En cours d'apprentissage
+                </p>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
@@ -189,15 +219,54 @@ const styles: StyleSheetCSS = {
     skillsGrid: {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: 16,
+        gap: 12,
     },
     skillCategory: {
         flex: '1 1 45%',
         minWidth: 200,
         padding: 12,
-        border: '1px solid #ccc',
         boxSizing: 'border-box',
         flexDirection: 'column',
+        cursor: 'default',
+    },
+    skillTitle: {
+        marginBottom: 8,
+        fontSize: 16,
+    },
+    skillItems: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 6,
+    },
+    skillTagFull: {
+        display: 'inline-block',
+        padding: '3px 8px',
+        fontSize: 14,
+        fontFamily: 'Millennium, sans-serif',
+        backgroundColor: '#000080',
+        color: '#fff',
+    },
+    skillTagLearning: {
+        display: 'inline-block',
+        padding: '3px 8px',
+        fontSize: 14,
+        fontFamily: 'Millennium, sans-serif',
+        backgroundColor: '#c0c0c0',
+        color: '#000',
+        border: '1px solid #808080',
+    },
+    legendText: {
+        fontSize: 14,
+        fontFamily: 'Terminal, monospace',
+        color: '#000',
+    },
+    legendFull: {
+        color: '#000080',
+        fontFamily: 'Terminal, monospace',
+    },
+    legendLearn: {
+        color: '#808080',
+        fontFamily: 'Terminal, monospace',
     },
 };
 
