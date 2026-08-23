@@ -1,172 +1,73 @@
 import React from 'react';
 
-
-
-import tacticalBot from '../../../assets/pictures/projects/art/tacticalBot.png';
-
-import neuroArm from '../../../assets/pictures/projects/art/neuroArm.png';
-
-
-
 export interface ArtProjectsProps {}
 
-
-
 const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
-
     return (
-
         <div className="site-page-content">
-
-            <h1>Robotique</h1>
-
-            <h3>Prototypes & Systèmes Embarqués</h3>
-
+            <h1>Labs</h1>
+            <h3>Expérimentations & Side Projects</h3>
             <br />
-
             <div className="text-block">
-
                 <p>
-
-                    La robotique est pour moi le terrain idéal où convergent électronique, programmation embarquée et mécanique.
-
-                    Je conçois des systèmes autonomes à base de microcontrôleurs, en gérant l'interfaçage de capteurs, le contrôle moteur et la logique temps réel.
-
+                    Cette section regroupe mes expérimentations, prototypes et projets exploratoires — des idées que je teste en dehors de mes projets principaux, souvent pour apprendre une nouvelle techno ou explorer un concept.
                 </p>
-
             </div>
 
-
-
             <div className="text-block">
-
-                <h2>TacticalTrackBot — Robot suiveur de cible autonome</h2>
-
+                <h2>Automatisation Python & Bots</h2>
                 <br />
-
                 <p>
-
-                    Robot mobile semi-autonome conçu autour d'un Arduino, capable de détecter et suivre une cible en mouvement grâce à un réseau de capteurs ultrasoniques. 
-
-                    Le système embarque également un servomoteur pour orienter un module factice en direction de la cible, avec activation par commande vocale via un module Bluetooth.
-
+                    Scripts d'automatisation développés depuis l'adolescence : bots Discord, scrapers, outils CLI pour simplifier des workflows répétitifs. Premières expériences avec les APIs et la gestion de processus en arrière-plan.
                 </p>
-
                 <br />
-
-                <h3>Compétences mises en œuvre :</h3>
-
-                <ul>
-
-                    <li><p>Programmation embarquée C/C++ sur Arduino</p></li>
-
-                    <li><p>Interfaçage capteurs ultrasoniques HC-SR04 (détection + tracking)</p></li>
-
-                    <li><p>Contrôle de servomoteurs via PWM</p></li>
-
-                    <li><p>Communication Bluetooth UART (HC-05) pour commande vocale</p></li>
-
-                    <li><p>Architecture logicielle en machine à états (suivi, attaque, arrêt)</p></li>
-
-                    <li><p>Pilotage de moteurs DC via pont en H L298N</p></li>
-
-                </ul>
-
-                <br />
-
                 <h3>Technologies :</h3>
-
-                <p>Arduino, C/C++, HC-SR04, L298N, HC-05, Servomoteur, UART, PWM</p>
-
-                <br />
-
-                <div className="captioned-image">
-
-                    <img src={tacticalBot} alt="TacticalTrackBot" />
-
-                    <p>
-
-                        <sub>
-
-                            <b>Image 1:</b> TacticalTrackBot — prototype
-
-                        </sub>
-
-                    </p>
-
-                </div>
-
+                <p>Python, asyncio, APIs REST, Discord.py, BeautifulSoup</p>
             </div>
-
-
 
             <div className="text-block">
-
-                <h2>NeuroArm — Bras robotisé à contrôle musculaire (EMG)</h2>
-
+                <h2>Assistant vocal local (NLP)</h2>
                 <br />
-
                 <p>
-
-                    Prototype de bras articulé (3 axes) piloté en temps réel par les signaux électriques des muscles de l'avant-bras via un capteur EMG.
-
-                    Le signal analogique brut est filtré, amplifié puis converti en commandes de servomoteurs, offrant une interface homme-machine naturelle sans aucun bouton.
-
+                    Prototype d'assistant vocal fonctionnant entièrement en local, sans cloud. Reconnaissance vocale, traitement du langage naturel et exécution de commandes système. Un projet qui m'a initié au traitement du signal audio et au NLP embarqué.
                 </p>
-
                 <br />
-
-                <h3>Compétences mises en œuvre :</h3>
-
-                <ul>
-
-                    <li><p>Acquisition et traitement de signal analogique (EMG)</p></li>
-
-                    <li><p>Filtrage du signal et seuillage pour détection de contraction</p></li>
-
-                    <li><p>Conversion signal → commande moteur en temps réel</p></li>
-
-                    <li><p>Contrôle multi-servomoteurs (3 axes indépendants)</p></li>
-
-                    <li><p>Conception de la structure mécanique articulée</p></li>
-
-                    <li><p>Programmation embarquée C/C++ (Arduino Mega)</p></li>
-
-                </ul>
-
-                <br />
-
                 <h3>Technologies :</h3>
-
-                <p>Arduino Mega, C/C++, Capteur EMG, Servomoteurs, ADC, Traitement du signal</p>
-
-                <br />
-
-                <div className="captioned-image">
-
-                    <img src={neuroArm} alt="NeuroArm" />
-
-                    <p>
-
-                        <sub>
-
-                            <b>Image 2:</b> NeuroArm — bras articulé à contrôle EMG
-
-                        </sub>
-
-                    </p>
-
-                </div>
-
+                <p>Python, SpeechRecognition, pyttsx3, NLP, Linux</p>
             </div>
 
+            <div className="text-block">
+                <h2>Homelab & Self-hosting</h2>
+                <br />
+                <p>
+                    Infrastructure personnelle sur Raspberry Pi et serveur local : reverse proxy, monitoring réseau, services auto-hébergés. Un terrain de jeu pour appliquer mes connaissances réseau et Docker dans un contexte réel.
+                </p>
+                <br />
+                <h3>Technologies :</h3>
+                <p>Docker, Nginx, Raspberry Pi, Linux, Grafana, Prometheus</p>
+            </div>
+
+            <div className="text-block">
+                <h2>Challenges & Competitive Programming</h2>
+                <br />
+                <p>
+                    Résolution régulière de katas sur CodeWars (profil actif) et CTFs occasionnels. Exercice de rigueur algorithmique et de résolution de problèmes sous contraintes.
+                </p>
+                <br />
+                <h3>Technologies :</h3>
+                <p>C, C++, Python, Algorithmes, Structures de données</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://www.codewars.com/users/antoninpicard">
+                            <p><b>[CodeWars]</b> - Profil</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
     );
-
 };
 
-
-
 export default ArtProjects;
-

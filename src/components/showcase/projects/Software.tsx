@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
@@ -12,115 +11,164 @@ const Projects: React.FC<ProjectsProps> = () => {
     return (
         <div className="site-page-content">
             <h1>Projets IT</h1>
-            <h3>Systèmes Embarqués, Bas Niveau & Robotique</h3>
+            <h3>Systèmes Embarqués, Bas Niveau & Infrastructure</h3>
             <br />
             <p>
-                Voici une sélection de mes projets techniques, orientés systèmes embarqués, programmation bas niveau et robotique. Chaque projet est conçu autour de contraintes réelles : ressources limitées, temps réel, fiabilité matérielle.
+                Voici une sélection de mes projets techniques, orientés systèmes embarqués et programmation bas niveau. Chaque projet est conçu autour de contraintes réelles : ressources limitées, temps réel, fiabilité.
             </p>
             <br />
             <ResumeDownload />
             <br />
 
-            {/* Projet 1: Station météo ESP32 */}
+            {/* Projet 1: Simulateur satellite STM32 */}
             <div className="text-block">
-                <h2>Station Météo Connectée — ESP32</h2>
+                <h2>Simulateur satellite — STM32 / FreeRTOS</h2>
                 <br />
                 <p>
-                    Conception d'une station météo autonome à base d'ESP32. Le système acquiert en temps réel des données de température, humidité et pression atmosphérique via des capteurs I2C (DHT22, BMP280), puis les publie sur un broker MQTT. Une interface web locale (serveur HTTP embarqué) permet la visualisation des mesures en direct depuis n'importe quel appareil du réseau.
+                    Simulateur temps réel d'un CubeSat sur Nucleo-F446RE, station au sol ESP32 avec dashboard WiFi. Reproduit à petite échelle l'architecture logicielle d'un satellite réel : plusieurs sous-systèmes concurrents avec leur propre cadence d'acquisition, un bus de données partagé, une gestion d'alarmes et un enregistrement de télémétrie, avec une liaison vers une station au sol.
                 </p>
                 <br />
-                <h3>Compétences mises en œuvre :</h3>
+                <h3>Ce qui a été construit :</h3>
                 <ul>
-                    <li><p>Programmation embarquée C/C++ (Arduino framework)</p></li>
-                    <li><p>Communication I2C — lecture de capteurs DHT22 & BMP280</p></li>
-                    <li><p>Stack réseau WiFi + protocole MQTT (publication de trames)</p></li>
-                    <li><p>Gestion de l'alimentation et deep sleep pour autonomie batterie</p></li>
-                    <li><p>Serveur HTTP embarqué pour dashboard local</p></li>
+                    <li><p>Firmware STM32 sous FreeRTOS : 7 tâches concurrentes (IMU, baromètre, alarmes, affichage OLED, télémétrie, liaison ESP32, log SD) synchronisées par mutex.</p></li>
+                    <li><p>Acquisition IMU (MPU-6050) et baromètre (BMP280) via bus I2C partagé.</p></li>
+                    <li><p>Enregistrement des données capteurs en paquets binaires de 48 octets sur carte SD (boîte noire), bus SPI.</p></li>
+                    <li><p>Navigation 5 écrans OLED (SSD1306) au joystick, protocole de commandes texte STM32 ↔ ESP32 via UART à 115200 bauds.</p></li>
+                    <li><p>Station au sol ESP32 : point d'accès WiFi, dashboard web temps réel en WebSocket, relais de commandes vers le STM32.</p></li>
+                </ul>
+                <br />
+                <h3>Problèmes résolus :</h3>
+                <ul>
+                    <li><p>Bus I2C1 partagé entre l'IMU, le baromètre et l'écran OLED : accès concurrent protégé par mutex dédié (mutexI2C).</p></li>
+                    <li><p>Cinq modes opérationnels (Nominal / Safe / Science / Error) avec cadences d'acquisition et logique buzzer/LED distinctes par mode.</p></li>
                 </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>ESP32, C/C++, Arduino Framework, MQTT, I2C, DHT22, BMP280, PlatformIO</p>
+                <p>STM32F446RE, FreeRTOS, C, ESP32, I2C, SPI, UART, MPU-6050, BMP280</p>
                 <br />
-                <Link to="/projects/demo/weather-station" style={styles.demoButton}>
-                    Voir la simulation
-                </Link>
+                <p><b>Statut :</b> En pause, reprise prévue (Mars – Avril 2026)</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/STM32-Satellite-Sim">
+                            <p><b>[GitHub]</b> - Code source</p>
+                        </a>
+                    </li>
+                </ul>
+                <br />
             </div>
 
-            {/* Projet 2: Simulateur de satellite STM32 */}
+            {/* Projet 2: webserv */}
             <div className="text-block">
-                <h2>Simulateur de Satellite — STM32</h2>
+                <h2>webserv — serveur HTTP/1.1 en C++98</h2>
                 <br />
                 <p>
-                    Simulation embarquée du comportement d'un nanosatellite (type CubeSat) sur STM32 (série F4). Le système modélise en temps réel la dynamique d'attitude du satellite via des données inertielles (IMU : accéléromètre + gyroscope), calcule les angles de rotation et simule des commandes de correction d'orientation. Les données télémétriques sont transmises via UART pour visualisation et logging sur PC.
+                    Serveur HTTP écrit entièrement from scratch, boucle poll() unique non-bloquante, CGI, config nginx-like. Implémenter un serveur HTTP/1.1 conforme, capable de servir un vrai navigateur, sans threads ni I/O bloquante par client.
                 </p>
                 <br />
-                <h3>Compétences mises en œuvre :</h3>
+                <h3>Ce qui a été construit :</h3>
                 <ul>
-                    <li><p>Programmation hardecorel C sur STM32 (HAL / registres)</p></li>
-                    <li><p>Interfaçage IMU via SPI (accéléromètre + gyroscope)</p></li>
-                    <li><p>Implémentation d'un filtre complémentaire pour fusion de données inertielles</p></li>
-                    <li><p>Modélisation de la dynamique d'attitude (angles d'Euler, quaternions)</p></li>
-                    <li><p>Transmission de télémétrie en temps réel via UART</p></li>
-                    <li><p>Gestion des interruptions et timers hardware pour boucle de contrôle</p></li>
-                    <li><p>Debugging via ST-Link / STM32CubeIDE</p></li>
+                    <li><p>Boucle non-bloquante unique via poll() pour tous les sockets (accept/read/write).</p></li>
+                    <li><p>Méthodes GET, POST, DELETE, HEAD ; fichiers statiques, listing de répertoire (autoindex), pages d'erreur configurables.</p></li>
+                    <li><p>Upload de fichiers avec parsing réel de multipart/form-data.</p></li>
+                    <li><p>Exécution CGI (fork/pipe/execve) avec variables d'environnement CGI standard et timeout borné.</p></li>
+                    <li><p>Configuration façon nginx : plusieurs server{'{}'} sur un même port, désambiguïsation par Host, virtual hosting.</p></li>
+                </ul>
+                <br />
+                <h3>Problèmes résolus :</h3>
+                <ul>
+                    <li><p>SIGPIPE non intercepté : un client fermant sa connexion en cours d'écriture terminait le process — signal ignoré explicitement.</p></li>
+                    <li><p>Upload multipart/form-data : implémentation du parsing multipart et validation contre client_max_body_size.</p></li>
+                    <li><p>Faille de traversée de chemin (path traversal) corrigée par normalisation et validation du chemin résolu.</p></li>
                 </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>STM32F4, C, HAL STM32, SPI, UART, IMU, STM32CubeIDE, ST-Link</p>
+                <p>C++98, poll(), fork/exec, HTTP/1.1, CGI</p>
                 <br />
-                <Link to="/projects/demo/satellite" style={styles.demoButton}>
-                    Voir la simulation
-                </Link>
+                <p><b>Équipe :</b> anpicard, allefran, fdeleard</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_webserv">
+                            <p><b>[GitHub]</b> - Code source</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            {/* Projet 3: Robot éviteur d'obstacles Arduino */}
+            {/* Projet 3: Inception */}
             <div className="text-block">
-                <h2>Robot Autonome Éviteur d'Obstacles — Arduino</h2>
+                <h2>Inception — infrastructure Docker</h2>
                 <br />
                 <p>
-                    Conception et réalisation d'un robot mobile autonome sur châssis 4 roues piloté par un Arduino Mega. Le robot utilise des capteurs ultrasoniques HC-SR04 en façade et sur les côtés pour détecter les obstacles et adapter sa trajectoire en temps réel via une machine à états. La motorisation est assurée par un pont en H L298N, et une interface Bluetooth (HC-05) permet le contrôle manuel depuis smartphone.
+                    NGINX + WordPress/php-fpm + MariaDB, images buildées from scratch, orchestrées en Compose. Infrastructure multi-services entièrement dockerisée, avec des images buildées depuis une base Debian (aucune image préconstruite Docker Hub), secrets gérés hors Dockerfile.
                 </p>
                 <br />
-                <h3>Compétences mises en œuvre :</h3>
+                <h3>Ce qui a été construit :</h3>
                 <ul>
-                    <li><p>Architecture logicielle embarquée : machine à états finis</p></li>
-                    <li><p>Interfaçage capteurs ultrasoniques HC-SR04</p></li>
-                    <li><p>Pilotage de moteurs DC via pont en H L298N</p></li>
-                    <li><p>Communication série Bluetooth (HC-05, protocole UART)</p></li>
-                    <li><p>Gestion des interruptions et timing précis</p></li>
-                    <li><p>Calibration des algorithmes de navigation</p></li>
+                    <li><p>NGINX en unique point d'entrée, TLS 1.2/1.3 sur le port 443.</p></li>
+                    <li><p>WordPress + php-fpm sans NGINX embarqué côté conteneur applicatif.</p></li>
+                    <li><p>MariaDB avec initialisation via secrets Docker (jamais de mot de passe en Dockerfile).</p></li>
+                    <li><p>Réseau bridge dédié : résolution par nom de conteneur, aucun port exposé hors 443.</p></li>
+                    <li><p>Volumes nommés redirigés vers un chemin hôte contrôlé via driver_opts.</p></li>
                 </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>Arduino Mega, C/C++, HC-SR04, L298N, HC-05, UART, Machine à états</p>
+                <p>Docker, Docker Compose, NGINX, MariaDB, php-fpm, Debian bookworm</p>
                 <br />
-                <Link to="/projects/demo/robot" style={styles.demoButton}>
-                    Voir la simulation
-                </Link>
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/Inception">
+                            <p><b>[GitHub]</b> - Code source</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            {/* Projet: CyberGuard */}
+            {/* Projet 4: miniRT */}
             <div className="text-block">
-                <h2>CyberGuard — Pare-feu Intelligent sur Raspberry Pi</h2>
+                <h2>miniRT — moteur de ray tracing en C</h2>
                 <br />
                 <p>
-                    Système de surveillance réseau déployé sur Raspberry Pi agissant comme point d'accès filtrant. Analyse le trafic réseau en temps réel pour détecter les comportements anormaux et bloquer les menaces. Interface web de monitoring accessible en local.
+                    Ray tracer minimaliste : sphères, plans, cylindres, ombrage de Phong, rendu MiniLibX. Génère des images 3D réalistes à partir de fichiers de scène .rt en implémentant le pipeline de ray tracing : intersections rayon/objet, éclairage, ombres — sans bibliothèque de rendu haut niveau.
                 </p>
                 <br />
-                <h3>Technologies :</h3>
-                <p>Python, Raspberry Pi, Linux embarqué, iptables, React.js, Node.js</p>
+                <h3>Ce qui a été construit :</h3>
+                <ul>
+                    <li><p>Intersections rayon-sphère, rayon-plan, rayon-cylindre (avec caps).</p></li>
+                    <li><p>Modèle d'éclairage de Phong : composantes ambiante, diffuse, gestion des ombres.</p></li>
+                    <li><p>Caméra configurable (position, orientation, FOV) via fichier de scène.</p></li>
+                    <li><p>Parseur de fichiers .rt (format de scène text custom).</p></li>
+                </ul>
                 <br />
-                <Link to="/projects/demo/cyberguard" style={styles.demoButton}>
-                    Voir la simulation
-                </Link>
-            </div>
-
-            {/* Projet: 42 Projects */}
-            <div className="text-block">
-                <h2>Projets École 42 — Programmation Bas Niveau en C</h2>
+                <h3>Technologies :</h3>
+                <p>C, MiniLibX, X11, Mathématiques 3D</p>
+                <br />
+                <p><b>Équipe :</b> anpicard, Alexlechat</p>
+                <br />
+                <h3>Liens :</h3>
+                <ul>
+                    <li>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_miniRT">
+                            <p><b>[GitHub]</b> - Code source</p>
+                        </a>
+                    </li>
+                </ul>
                 <br />
                 <p>
-                    Collection de projets réalisés à l'École 42, couvrant les fondamentaux indispensables à l'embarqué : gestion mémoire manuelle, programmation système, concurrence et algorithmes optimisés. Chaque projet est validé par peer-review selon la Norme 42.
+                    <strong>Note :</strong> Une démonstration interactive de miniRT est disponible sur le bureau du portfolio — double-cliquez sur l'icône "miniRT".
+                </p>
+            </div>
+
+            {/* Projet 5: Fondamentaux 42 */}
+            <div className="text-block">
+                <h2>Projets fondamentaux — École 42</h2>
+                <br />
+                <p>
+                    Bibliothèque C, algorithmes, concurrence, puis POO en C++ : le socle bas niveau du tronc commun. Reconstruire depuis zéro les fondamentaux d'un environnement Unix, chaque projet validé par peer-review selon la Norme 42.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -128,18 +176,17 @@ const Projects: React.FC<ProjectsProps> = () => {
                 </div>
                 <h3>Projets réalisés :</h3>
                 <ul>
-                    <li><strong>Libft</strong> - Bibliothèque C personnalisée (fonctions libc) — gestion mémoire, chaînes, listes</li>
-                    <li><strong>Get Next Line</strong> - Lecture ligne par ligne via descripteur de fichier, gestion des buffers</li>
-                    <li><strong>Printf</strong> - Réimplémentation de printf — parsing de format, gestion des types variadic</li>
-                    <li><strong>Push Swap</strong> - Algorithme de tri optimisé avec deux piles, complexité minimisée</li>
-                    <li><strong>Pipex</strong> - Reproduction des pipes shell en C — fork, exec, redirections</li>
-                    <li><strong>Minishell</strong> - Shell Unix complet : parsing, variables d'environnement, pipes, redirections</li>
-                    <li><strong>Philosopher</strong> - Problème des philosophes : threading POSIX, mutex, gestion des deadlocks</li>
-                    <li><strong>miniRT</strong> - Moteur de ray tracing en C : géométrie 3D, ombres, réflexions</li>
+                    <li><strong>Libft</strong> — réimplémentation de fonctions libc : gestion mémoire, chaînes, listes chaînées.</li>
+                    <li><strong>Get Next Line</strong> — lecture ligne par ligne via descripteur de fichier, gestion de buffer statique.</li>
+                    <li><strong>Printf</strong> — réimplémentation avec parsing de format et gestion des types variadiques.</li>
+                    <li><strong>Push Swap</strong> — tri optimisé sur deux piles, minimisation du nombre d'opérations.</li>
+                    <li><strong>Pipex / Minishell</strong> — pipes shell en C (fork, exec, redirections) puis shell Unix complet.</li>
+                    <li><strong>Philosopher</strong> — problème des philosophes : threads POSIX, mutex, prévention des deadlocks.</li>
+                    <li><strong>CPP Modules (CPP00 → CPP09)</strong> — classes et forme canonique, héritage, polymorphisme et exceptions, templates et conteneurs STL.</li>
                 </ul>
                 <br />
                 <h3>Technologies :</h3>
-                <p>C, Make, POSIX Threads/Mutex, gestion mémoire, MinilibX, Shell scripting</p>
+                <p>C, C++98/C++11, Make, POSIX Threads/Mutex, STL, Gestion mémoire manuelle</p>
                 <br />
                 <h3>Liens :</h3>
                 <ul>
@@ -179,15 +226,11 @@ const Projects: React.FC<ProjectsProps> = () => {
                         </a>
                     </li>
                     <li>
-                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_miniRT">
-                            <p><b>[GitHub]</b> - miniRT</p>
+                        <a rel="noreferrer" target="_blank" href="https://github.com/antoninpicard/42_cpp">
+                            <p><b>[GitHub]</b> - CPP Modules</p>
                         </a>
                     </li>
                 </ul>
-                <br />
-                <p>
-                    <strong>Note :</strong> Une démonstration interactive de miniRT est disponible sur le bureau du portfolio — double-cliquez sur l'icône "miniRT".
-                </p>
             </div>
 
             {/* Projet: antoninpicard.com */}
@@ -244,20 +287,6 @@ const styles: StyleSheetCSS = {
     },
     caption: {
         width: '80%',
-    },
-    demoButton: {
-        display: 'inline-block',
-        padding: '10px 24px',
-        backgroundColor: '#1a1a2e',
-        color: '#4ecdc4',
-        border: '2px solid #4ecdc4',
-        borderRadius: 4,
-        fontWeight: 'bold',
-        fontSize: 14,
-        textDecoration: 'none',
-        cursor: 'pointer',
-        textAlign: 'center',
-        marginTop: 4,
     },
 };
 

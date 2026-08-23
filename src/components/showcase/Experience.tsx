@@ -17,28 +17,21 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div className="text-block">
                 <div style={styles.skillsGrid}>
                     <div style={styles.skillCategory}>
-                        <h3>Langages </h3>
-                        <p> C, C++, Python, Bash, JavaScript</p>
+                        <h3>Langages</h3>
+                        <p><b>Solide :</b> C, C++, Python, Bash, JavaScript</p>
                     </div>
                     <div style={styles.skillCategory}>
-                        <h3>Microcontrôleurs</h3>
-                        <p>STM32 (ARM Cortex-M), ESP32, Arduino (AVR)</p>
+                        <h3>Embarqué</h3>
+                        <p><b>En cours :</b> STM32 (ARM Cortex-M), ESP32, Arduino (AVR), FreeRTOS</p>
                     </div>
                     <div style={styles.skillCategory}>
-                        <h3>Protocoles & Bus</h3>
-                        <p>I2C, SPI, UART, PWM, GPIO, TCP/IP</p>
+                        <h3>Systèmes & réseau</h3>
+                        <p><b>Solide :</b> TCP/IP, POSIX Threads/Mutex, GPIO</p>
+                        <p><b>En cours :</b> I2C, SPI, UART, PWM</p>
                     </div>
                     <div style={styles.skillCategory}>
                         <h3>Outils</h3>
-                        <p>Git, Linux, GDB, Make, PlatformIO, STM32CubeIDE</p>
-                    </div>
-                    <div style={styles.skillCategory}>
-                        <h3>Concepts</h3>
-                        <p>Hardcore, RTOS, machines à états, interruptions, DMA, gestion mémoire</p>
-                    </div>
-                    <div style={styles.skillCategory}>
-                        <h3>Électronique</h3>
-                        <p>Capteurs (IMU, température, pression), actionneurs, oscilloscope, multimètre</p>
+                        <p><b>Solide :</b> Git, Linux, GDB, Make, PlatformIO, STM32CubeIDE, Docker</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +45,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>42 Lyon - Programmation Système C/C++, Architecture Bas Niveau</h3>
+                        <h3>École 42 Lyon — tronc commun</h3>
                         <b>
                             <p>2024 ~ En cours</p>
                         </b>
@@ -63,7 +56,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            École d'ingénierie par les pairs. La piscine (immersion intensive en C) a posé les bases de ma rigueur en programmation bas niveau. Le tronc commun couvre la programmation système en C, la gestion mémoire, les algorithmes et l'architecture logicielle — des fondamentaux directement applicables aux systèmes embarqués.
+                            Écully. Formation par projets, sans cours magistraux : peer-learning, autonomie, validation par peer-review (Norme 42). La Piscine (immersion intensive en C) a posé les bases de rigueur en programmation bas niveau ; le tronc commun couvre la programmation système en C, la gestion mémoire, les algorithmes et l'architecture logicielle.
                         </p>
                     </li>
                 </ul>
@@ -71,7 +64,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>BTS SIO — Réseaux, Protocoles & Systèmes</h3>
+                        <h3>BTS SIO — Réseaux, protocoles & systèmes</h3>
                         <b>
                             <p>2021 ~ 2023</p>
                         </b>
@@ -82,7 +75,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Lycée Saint-Bénigne, Dijon. Formation axée réseaux et protocoles : TCP/IP, routage, administration système, architecture client-serveur. Compétences complémentaires à ma pratique de l'embarqué, notamment sur la communication inter-systèmes et l'infrastructure réseau.
+                            Lycée Saint-Bénigne, Dijon. Formation axée réseaux et protocoles : TCP/IP, routage, administration système, architecture client-serveur.
                         </p>
                     </li>
                 </ul>
@@ -90,7 +83,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h3>Bac Pro SN (Marine Nationale)</h3>
+                        <h3>Bac Pro Systèmes Numériques — Marine nationale</h3>
                         <b>
                             <p>2018 ~ 2021</p>
                         </b>
@@ -101,7 +94,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            Baccalauréat Professionnel Systèmes Numériques en partenariat avec la Marine Nationale. Formation orientée électronique, systèmes numériques et réseaux. Cette expérience a forgé ma discipline, ma rigueur et ma capacité à travailler sous pression — des qualités que j'applique quotidiennement dans mes projets embarqués.
+                            Lycée naval, Saint-Mandrier. Baccalauréat professionnel Systèmes Numériques en partenariat avec la Marine nationale. Formation électronique, systèmes numériques et réseaux, dans un cadre disciplinaire strict (plongeur démineur).
                         </p>
                     </li>
                 </ul>
@@ -117,47 +110,27 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <ul>
                     <li>
                         <p>
-                            <b>Freelance — Développeur & Automatisation (Nov. 2023 - Nov. 2024)</b> : Conception et développement d'applications complètes en autonomie totale. Développement d'outils d'automatisation et intégration de modèles de langage via API. Gestion de projet, relation client et livraison en production.
+                            <b>Freelance — Développeur & Automatisation (Nov. 2023 - Nov. 2024)</b> : Conception et développement d'applications complètes en autonomie totale. Outils d'automatisation et intégration de modèles de langage via API. Gestion de projet, relation client et livraison en production.
                         </p>
                     </li>
                     <li>
                         <p>
-                            <b>ReMarket — Chef de Projet & Développeur (Mai 2023 - Déc. 2023)</b> : En tant qu'associé, j'ai piloté une équipe de trois développeurs pour concevoir un MVP intégrant l'IA. Coordination design, développement et tests utilisateurs. Leadership technique et gestion de projet agile.
-                        </p>
-                    </li>
-                </ul>
-                <br />
-                <h2>Stages</h2>
-                <br />
-                <ul>
-                    <li>
-                        <p>
-                            <b>Stage — Développeur Systèmes Embarqués (PME industrielle)</b> : Développement firmware en C sur STM32 pour un système de monitoring de capteurs industriels. Interfaçage I2C/SPI, gestion d'interruptions, et mise en place d'une communication UART vers un superviseur. Tests sur oscilloscope et validation hardware.
+                            <b>ReMarket — Chef de projet & développeur (Mai 2023 - Déc. 2023)</b> : Associé, pilotage d'une équipe de trois développeurs pour concevoir un MVP intégrant l'IA. Coordination design, développement et tests utilisateurs.
                         </p>
                     </li>
                     <li>
                         <p>
-                            <b>Stage — Administrateur Réseau</b> : Configuration et maintenance d'infrastructures réseau. Analyse de trafic, routage, et diagnostic de pannes — compétences directement transférables à la communication embarquée.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>Stage — Marine Nationale</b> : Discipline, rigueur opérationnelle et travail en équipe sous contraintes. Valeurs appliquées quotidiennement dans mes projets techniques.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>Stage — Développeur Web (Imprimerie)</b> : Premier projet professionnel en autonomie. Expérience qui a confirmé mon orientation vers les systèmes et le bas niveau.
+                            <b>CABAIA — Vendeur, CDI temps partiel (Nov. 2023 - Juin 2026)</b> : Travail d'équipe et communication en contexte commercial, en parallèle des études.
                         </p>
                     </li>
                 </ul>
                 <br />
-                <h2>Autre</h2>
+                <h2>Recherche</h2>
                 <br />
                 <ul>
                     <li>
                         <p>
-                            <b>CABAIA — Vendeur, CDI temps partiel (Nov. 2023 - En cours)</b> : Développement du sens du travail d'équipe et de la communication — qualités essentielles pour collaborer sur des projets techniques.
+                            <b>Stage 2027 — Systèmes embarqués, Rhône-Alpes (Lyon, Grenoble)</b> : C/C++, STM32, FreeRTOS, Linux embarqué. Objectif : poursuivre en alternance.
                         </p>
                     </li>
                 </ul>

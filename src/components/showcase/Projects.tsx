@@ -69,10 +69,10 @@ const Projects: React.FC<ProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Projets</h1>
-            <h3>Embarqué, Robotique & Bas Niveau</h3>
+            <h3>Embarqué & Bas Niveau</h3>
             <br />
             <p>
-                Cliquez sur l'une des sections ci-dessous pour explorer mes projets techniques. De la programmation bas niveau en C aux systèmes embarqués sur microcontrôleurs, en passant par mes prototypes robotiques.
+                Cliquez sur l'une des sections ci-dessous pour explorer mes projets techniques. De la programmation bas niveau en C aux systèmes embarqués sur microcontrôleurs.
             </p>
             <br />
             <div style={styles.projectLinksContainer}>
@@ -85,10 +85,10 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                 />
                 <ProjectBox
                     icon={art}
-                    iconStyle={styles.artIcon}
-                    title="Robotique"
-                    subtitle="PROTOTYPES & HARDWARE"
-                    route="art"
+                    iconStyle={styles.labIcon}
+                    title="Labs"
+                    subtitle="EXPÉRIMENTATIONS"
+                    route="labs"
                 />
                 <ProjectBox
                     icon={music}
@@ -139,13 +139,13 @@ const styles: StyleSheetCSS = {
         width: 48,
         height: 48,
     },
+    labIcon: {
+        width: 60,
+        height: 70,
+    },
     arrowIcon: {
         width: 48,
         height: 48,
-    },
-    artIcon: {
-        width: 60,
-        height: 70,
     },
 };
 

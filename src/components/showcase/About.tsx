@@ -32,9 +32,7 @@ const About: React.FC<AboutProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    Ingénieur système embarqué, je conçois des systèmes temps réel sur STM32 et ESP32.
-                    Programmation bas niveau en C/C++, communication série (I2C, SPI, UART), capteurs et actionneurs —
-                    je construis des projets concrets de la conception hardware à l'implémentation logicielle.
+                    Je code depuis mes 13 ans. Mon premier vrai projet a été un serveur Garry's Mod que j'administrais et pour lequel j'écrivais mes propres scripts — la première fois que j'ai eu envie de comprendre comment un système fonctionne pour pouvoir le construire moi-même. Cette curiosité ne m'a jamais quittée.
                 </p>
                 <br />
                 <p>
@@ -50,17 +48,9 @@ const About: React.FC<AboutProps> = (props) => {
             <div className="text-block">
                 <h3>À Propos De Moi</h3>
                 <br />
-	                <p>
-						Depuis mon plus jeune âge, j'ai toujours été animé par une profonde curiosité pour comprendre le fonctionnement des systèmes. 
-						Cette passion s’est manifestée très tôt à travers les jeux vidéo, notamment Garry's Mod, où, à seulement 13 ans, 
-						j'ai développé mon propre serveur, posant ainsi mes premiers pas dans la programmation. 
-						Début collège, j’ai découvert la création web et la robotique grâce à un club de technologie, ce qui a confirmé ma volonté d’évoluer dans ce domaine. 
-						<br></br>
-						<br></br>
-						Progressivement, mon intérêt s'est élargi à la cybersécurité, la robotique et le développement : des domaines où l'exploration, la logique 
-						et l’innovation prennent tout leur sens. Aujourd’hui, je poursuis cette passion à travers mes études à l’école 42, 
-						mes projets personnels et professionnels, avec un objectif clair : concevoir, sécuriser et améliorer des systèmes complexes.
-					</p>
+                <p>
+                    Je poursuis aujourd'hui ma formation à l'École 42 Lyon, en tronc commun : pas de cours magistraux, les projets sont validés entre pairs (peer-review), sur du C et du C++ bas niveau — gestion mémoire manuelle, programmation système, algorithmes, architecture logicielle. Webserv (serveur HTTP en C++98), Inception (infrastructure Docker) ou miniRT (ray tracer) en sont les preuves concrètes.
+                </p>
 
                 <br />
                 <div className="captioned-image">
@@ -73,14 +63,13 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
 
                 <p>
-					Dès l’adolescence, je codais des scripts pour mon serveur Garry’s Mod et automatisais des tâches en Python. <br />
-					Rapidement, j’ai conçu mes propres bots, un assistant vocal local avec NLP, 
-					et un pare-feu intelligent basé sur Raspberry Pi pour sécuriser mon réseau. <br /><br />
-					Passionné de systèmes embarqués et de bas niveau, je développe aujourd'hui des projets qui allient microcontrôleurs, 
-				communication série et algorithmes embarqués. <br />
-					Certains de ces projets sont visibles sur ma page <Link to="/projects/software">Projets IT</Link>.
-				</p>
-            
+                    Avant 42, j'ai suivi un Bac Pro Systèmes Numériques en partenariat avec la Marine nationale (Saint-Mandrier), qui m'a apporté une rigueur que j'applique aujourd'hui à l'ingénierie logicielle, puis un BTS SIO à Dijon, axé réseaux et protocoles. Je m'oriente vers les systèmes embarqués : C/C++, STM32, FreeRTOS, Linux embarqué. STM32-Satellite-Sim — un firmware FreeRTOS multi-tâches avec capteurs I2C/SPI et station au sol ESP32 — est le point de départ de cette spécialisation. Je recherche un stage pour 2027 en Rhône-Alpes (Lyon, Grenoble), avec l'objectif de le poursuivre en alternance.
+                </p>
+                <br />
+                <p>
+                    Certains de ces projets sont visibles sur ma page <Link to="/projects/software">Projets IT</Link>.
+                </p>
+
                 <br />
                 <div style={{}}>
                     <div
@@ -93,14 +82,9 @@ const About: React.FC<AboutProps> = (props) => {
                     >
                         <h3>Mes Loisirs</h3>
                         <p>
-							En dehors du code, je me passionne pour la <Link to="/projects/music">musique</Link>, les <Link to="/projects/art">jeux vidéo</Link> que j’explore autant en joueur qu’en créateur mais aussi pour la cuisine et la moto. <br />
-							Ces hobbies nourrissent ma créativité autant que mes projets techniques, et m’aident à garder un esprit ouvert et curieux.
-						</p>
-						<br />
-						<p>
-							Au lycée, j’ai suivi un cursus informatique en partenariat avec la Marine Nationale. <br />
-							Cette expérience m’a apporté discipline, rigueur et goût du défi, des qualités que je mets aujourd’hui au service de mes projets tech les plus ambitieux.
-						</p>
+                            En dehors du code, je me passionne pour la <Link to="/projects/music">musique</Link>, les jeux vidéo que j'explore autant en joueur qu'en créateur mais aussi pour la cuisine et la moto. <br />
+                            Ces hobbies nourrissent ma créativité autant que mes projets techniques, et m'aident à garder un esprit ouvert et curieux.
+                        </p>
 
                     </div>
                     <div style={styles.verticalImage}>
@@ -113,7 +97,7 @@ const About: React.FC<AboutProps> = (props) => {
                     </div>
                 </div>
 
-                
+
                 <br />
                 <p>
                     Si vous avez des questions, j'aimerais les entendre. Vous pouvez me les poser{' '}
