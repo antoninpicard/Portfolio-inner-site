@@ -1,0 +1,36 @@
+.mobile-showcase {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+/* .site-page-content normally reserves 300px on the left for the fixed
+   desktop sidebar (VerticalNavbar), which doesn't exist here. */
+.mobile-showcase .site-page-content {
+    margin-left: 0 !important;
+    padding: 16px !important;
+    padding-top: 72px !important;
+    box-sizing: border-box;
+}
+
+.mobile-showcase h1 {
+    font-size: 32px !important;
+}
+
+.mobile-showcase h2 {
+    font-size: 22px !important;
+}
+
+.mobile-showcase h3 {
+    font-size: 18px !important;
+}
+
+.mobile-showcase p {
+    font-size: 15px !important;
+}
+
+.mobile-showcase .home-nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
