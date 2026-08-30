@@ -21,7 +21,7 @@ const About: React.FC<AboutProps> = (props) => {
                     <h1 style={{ marginLeft: -16, fontSize: 72 }}>Bienvenue</h1>
                     <h3 style={{ fontSize: 28, marginTop: 24 }}>Je suis Antonin Picard</h3>
                 </div>
-                <div style={{ ...styles.proImageWrapper, marginLeft: isMobile ? 0 : 140, marginTop: isMobile ? 16 : 0, width: isMobile ? '100%' : 260, flex: isMobile ? 'unset' : '0 0 260px' }}>
+                <div style={{ ...styles.proImageWrapper, marginLeft: isMobile ? 0 : 80, marginTop: isMobile ? 16 : 0, width: isMobile ? '100%' : 260, flex: isMobile ? 'unset' : '0 0 260px' }}>
                     <img src={mePro} style={styles.proImage} alt="Antonin Picard" />
                 </div>
             </div>
