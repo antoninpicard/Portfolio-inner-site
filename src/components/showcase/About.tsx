@@ -71,10 +71,11 @@ const About: React.FC<AboutProps> = (props) => {
                 </p>
 
                 <br />
-                <div style={{}}>
+                <div style={{ flexDirection: isMobile ? 'column' : 'row' }}>
                     <div
                         style={{
-                            flex: 1,
+                            flex: isMobile ? 'unset' : 1,
+                            minWidth: 0,
                             textAlign: 'justify',
                             alignSelf: 'center',
                             flexDirection: 'column',
@@ -87,7 +88,15 @@ const About: React.FC<AboutProps> = (props) => {
                         </p>
 
                     </div>
-                    <div style={styles.verticalImage}>
+                    <div
+                        style={{
+                            ...styles.verticalImage,
+                            marginLeft: isMobile ? 0 : 32,
+                            marginTop: isMobile ? 16 : 0,
+                            width: isMobile ? '100%' : undefined,
+                            flex: isMobile ? 'unset' : 0.8,
+                        }}
+                    >
                         <img src={meNow} style={styles.image} alt="" />
                         <p>
                             <sub>

@@ -30,7 +30,9 @@
 }
 
 .mobile-showcase .home-nav-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 12px 8px;
 }
