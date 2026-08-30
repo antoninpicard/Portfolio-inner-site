@@ -16,12 +16,12 @@ const About: React.FC<AboutProps> = (props) => {
         // add on resize listener
         <div className="site-page-content">
             {/* <img src={me} style={styles.topImage} alt="" /> */}
-            <div style={{ ...styles.headerSection, flexDirection: isMobile ? 'column' : 'row' }}>
+            <div style={{ ...styles.headerSection, flexDirection: isMobile ? 'column' : 'row', justifyContent: isMobile ? 'flex-start' : 'space-between' }}>
                 <div style={{ ...styles.headerText, flex: isMobile ? 'unset' : '0 0 auto' }}>
                     <h1 style={{ marginLeft: -16, fontSize: 72 }}>Bienvenue</h1>
                     <h3 style={{ fontSize: 28, marginTop: 24 }}>Je suis Antonin Picard</h3>
                 </div>
-                <div style={{ ...styles.proImageWrapper, marginLeft: isMobile ? 0 : 24, marginTop: isMobile ? 16 : 0, width: isMobile ? '100%' : 260, flex: isMobile ? 'unset' : '0 0 260px' }}>
+                <div style={{ ...styles.proImageWrapper, marginLeft: isMobile ? 0 : 0, marginTop: isMobile ? 16 : 0, width: isMobile ? '100%' : 260, flex: isMobile ? 'unset' : '0 0 260px' }}>
                     <img src={mePro} style={styles.proImage} alt="Antonin Picard" />
                 </div>
             </div>
