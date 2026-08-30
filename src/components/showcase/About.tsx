@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import me from '../../assets/pictures/workingAtComputer.jpg';
 import meNow from '../../assets/pictures/currentme1.jpg';
 import mePro from '../../assets/pictures/currentme3.jpg';
 import { Link } from 'react-router-dom';
 import ResumeDownload from './ResumeDownload';
+import useIsMobile from '../../hooks/useIsMobile';
 import './About.css';
 
 export interface AboutProps {}
 
 const About: React.FC<AboutProps> = (props) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 600);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    const isMobile = useIsMobile();
 
     return (
         // add on resize listener
         <div className="site-page-content">
             {/* <img src={me} style={styles.topImage} alt="" /> */}
             <div style={{ ...styles.headerSection, flexDirection: isMobile ? 'column' : 'row' }}>
-                <div style={styles.headerText}>
+                <div style={{ ...styles.headerText, flex: isMobile ? 'unset' : '0 0 40%' }}>
                     <h1 style={{ marginLeft: -16, fontSize: 72 }}>Bienvenue</h1>
                     <h3 style={{ fontSize: 28, marginTop: 24 }}>Je suis Antonin Picard</h3>
                 </div>
